@@ -11,11 +11,28 @@ const postFields = groq`
   "author": author->{name, picture},
 `
 
+const projectFields = groq`
+  _id,
+  title,
+  date,
+  _updatedAt,
+  excerpt,
+  coverImage,
+  "slug": slug.current,
+  tags,
+  links,
+  category
+`
+
 export const settingsQuery = groq`*[_type == "settings"][0]`
 
 export const indexQuery = groq`
 *[_type == "post"] | order(date desc, _updatedAt desc) {
   ${postFields}
+}`
+
+export const latestProjectsQuery = groq`*[_type == "project"] | order(date desc, _updatedAt desc) [0...4] {
+  ${projectFields}
 }`
 
 export const postAndMoreStoriesQuery = groq`
@@ -45,6 +62,13 @@ export interface Author {
   picture?: any
 }
 
+export interface SanityEntityProps {
+  _id?: string
+  _type?: string
+  _createdAt?: string
+  _updatedAt?: string
+}
+
 export interface Post {
   _id: string
   title?: string
@@ -60,6 +84,7 @@ export interface Post {
 export interface Settings {
   title?: string
   description?: any[]
+  location?: string
   ogImage?: {
     title?: string
   }

@@ -17,11 +17,13 @@ import { deskTool } from 'sanity/desk'
 import { unsplashImageAsset } from 'sanity-plugin-asset-source-unsplash'
 import { previewUrl } from 'sanity-plugin-iframe-pane/preview-url'
 import authorType from 'schemas/author'
-import postType from 'schemas/post'
+import certificationType from 'schemas/certification'
+import experienceType from 'schemas/experience'
+import projectType from 'schemas/project'
 import settingsType from 'schemas/settings'
 
 const title =
-  process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || 'Next.js Blog with Sanity.io'
+  process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || 'Tech portfolio'
 
 export default defineConfig({
   basePath: '/studio',
@@ -30,7 +32,7 @@ export default defineConfig({
   title,
   schema: {
     // If you want more content types, you can add them to this array
-    types: [authorType, postType, settingsType],
+    types: [authorType, settingsType, projectType, experienceType, certificationType],
   },
   plugins: [
     deskTool({
@@ -44,7 +46,7 @@ export default defineConfig({
     previewUrl({
       base: DRAFT_MODE_ROUTE,
       urlSecretId: previewSecretId,
-      matchTypes: [postType.name, settingsType.name],
+      matchTypes: [settingsType.name],
     }),
     // Add an image asset source for Unsplash
     unsplashImageAsset(),

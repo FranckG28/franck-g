@@ -22,6 +22,12 @@ export default defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'location',
+      title: 'Localisation',
+      type: 'string',
+      initialValue: demo.location,
+    }),
+    defineField({
       name: 'description',
       description:
         'Used both for the <meta> description tag for SEO, and the blog subheader.',

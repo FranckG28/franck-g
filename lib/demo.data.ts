@@ -2,6 +2,8 @@
 
 export const title = 'Blog.'
 
+export const location = 'Alsace, France'
+
 export const description = [
   {
     _key: '9f1a629887fd',
