@@ -10,7 +10,7 @@ export default function ShowMore({
   return (
     <Link
       href={href}
-      className="text-blue-400 hover:text-blue-500 transition-all flex items-center gap-2 hover:gap-4 ease-in-out"
+      className="text-blue-300 hover:text-blue-200 transition-all flex items-center gap-2 hover:gap-4 ease-in-out"
     >
       {text}
 

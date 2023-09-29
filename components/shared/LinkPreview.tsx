@@ -1,11 +1,13 @@
 import Link from 'next/link'
 
+const cleanLinkRegex = /^(?:https?:\/\/)?(?:www\.)?([^\/]+)/i
+
 export default function LinkPreview({ href }: { href: string }) {
   return (
     <Link
       href={href}
       target="_blank"
-      className="text-blue-400 hover:text-blue-500 transition flex items-center gap-2"
+      className="text-blue-300 hover:text-blue-200 transition flex items-center gap-2 tracking-tight"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -22,7 +24,7 @@ export default function LinkPreview({ href }: { href: string }) {
         />
       </svg>
 
-      {href}
+      {href.match(cleanLinkRegex)[1]}
     </Link>
   )
 }

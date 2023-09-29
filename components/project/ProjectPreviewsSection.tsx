@@ -11,7 +11,7 @@ export default function ProjectPreviewsSection({
   return (
     <div className="flex flex-col gap-4">
       <SectionHeader title="Derniers projets" moreHref="/projets" />
-      <div className="grid md:grid-cols-2 gap-4">
+      <div className="grid md:grid-cols-2">
         {projects.map((project, index) => (
           <ProjectPreview key={index} project={project} />
         ))}

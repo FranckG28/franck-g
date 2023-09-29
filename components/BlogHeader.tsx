@@ -23,7 +23,7 @@ export default function BlogHeader({
           {logo && (
             <Image
               className="
-                h-fit rounded-full aspect-square shadow-lg border border-gray-200/20
+                h-fit rounded-full aspect-square shadow-lg border border-zinc-200/20
                 transition ease-in-out hover:scale-105 duration-500
               "
               width={120}
