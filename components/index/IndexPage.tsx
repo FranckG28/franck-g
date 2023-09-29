@@ -1,22 +1,25 @@
 import Container from 'components/BlogContainer'
 import BlogHeader from 'components/BlogHeader'
 import Layout from 'components/BlogLayout'
+import ExperiencePreviewsSection from 'components/experience/ExperiencePreviewsSection'
 import * as demo from 'lib/demo.data'
 import type { Settings } from 'lib/sanity.queries'
+import { Experience } from 'schemas/experience'
 import { Project } from 'schemas/project'
 
+import ProjectPreviewsSection from '../project/ProjectPreviewsSection'
 import IndexPageHead from './IndexPageHead'
-import ProjectPreviewSection from './ProjectPreviewSection'
 
 export interface IndexPageProps {
   preview?: boolean
   loading?: boolean
   settings: Settings
   projects: Project[]
+  experiences: Experience[]
 }
 
 export default function IndexPage(props: IndexPageProps) {
-  const { preview, loading, settings, projects } = props
+  const { preview, loading, settings, projects, experiences } = props
   // const [heroPost, ...morePosts] = posts || []
   const {
     title = demo.title,
@@ -31,7 +34,8 @@ export default function IndexPage(props: IndexPageProps) {
       <Layout preview={preview} loading={loading}>
         <Container>
           <BlogHeader title={title} location={location} level={1} />
-          <ProjectPreviewSection projects={projects} />
+          <ProjectPreviewsSection projects={projects} />
+          <ExperiencePreviewsSection experiences={experiences} />
           {/* {heroPost && (
             <HeroPost
               title={heroPost.title}

@@ -1,6 +1,9 @@
 import { ClockIcon } from '@sanity/icons'
 import { format, parseISO } from 'date-fns'
+import { SanityEntityProps } from 'lib/sanity.queries'
 import { defineField, defineType } from 'sanity'
+
+import { Link, linkSchema } from './link'
 
 export default defineType({
   name: 'experience',
@@ -26,7 +29,7 @@ export default defineType({
       title: 'Slug',
       type: 'slug',
       options: {
-        source: 'title',
+        source: (object) => `${object.place}-${object.role}`,
         maxLength: 96,
         isUnique: (value, context) => context.defaultIsUnique(value, context),
       },
@@ -72,14 +75,20 @@ export default defineType({
       name: 'startDate',
       title: 'Date',
       type: 'date',
-      initialValue: () => new Date().toISOString(),
       validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'endDate',
       title: 'Date',
       type: 'date',
-      initialValue: () => new Date().toISOString(),
+    }),
+    defineField({
+      name: 'links',
+      title: 'Links',
+      type: 'array',
+      of: [
+        linkSchema
+      ],
     }),
   ],
   preview: {
@@ -104,3 +113,14 @@ export default defineType({
     },
   },
 })
+
+export interface Experience extends SanityEntityProps {
+  place?: string
+  role?: string
+  slug?: string
+  content?: any
+  coverImage?: any
+  startDate?: string
+  endDate?: string
+  links: Link[]
+}

@@ -1,6 +1,7 @@
 import { apiVersion, dataset, projectId, useCdn } from 'lib/sanity.api'
 import {
   indexQuery,
+  latestExperiencesQuery,
   latestProjectsQuery,
   type Post,
   postAndMoreStoriesQuery,
@@ -10,6 +11,7 @@ import {
   settingsQuery,
 } from 'lib/sanity.queries'
 import { createClient, type SanityClient } from 'next-sanity'
+import { Experience } from 'schemas/experience'
 import { Project } from 'schemas/project'
 
 export function getClient(preview?: { token: string }): SanityClient {
@@ -46,6 +48,10 @@ export async function getAllPosts(client: SanityClient): Promise<Post[]> {
 
 export async function getLatestProjects(client: SanityClient): Promise<Project[]> {
   return (await client.fetch(latestProjectsQuery)) || []
+}
+
+export async function getLatestExperiences(client: SanityClient): Promise<Experience[]> {
+  return (await client.fetch(latestExperiencesQuery)) || []
 }
 
 export async function getAllPostsSlugs(): Promise<Pick<Post, 'slug'>[]> {

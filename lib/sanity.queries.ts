@@ -24,6 +24,18 @@ const projectFields = groq`
   category
 `
 
+const experienceFields = groq`
+  _id,
+  place,
+  role,
+  startDate,
+  endDate,
+  _updatedAt,
+  coverImage,
+  "slug": slug.current,
+  links,
+`
+
 export const settingsQuery = groq`*[_type == "settings"][0]`
 
 export const indexQuery = groq`
@@ -35,24 +47,28 @@ export const latestProjectsQuery = groq`*[_type == "project"] | order(date desc,
   ${projectFields}
 }`
 
-export const postAndMoreStoriesQuery = groq`
-{
-  "post": *[_type == "post" && slug.current == $slug] | order(_updatedAt desc) [0] {
-    content,
-    ${postFields}
-  },
-  "morePosts": *[_type == "post" && slug.current != $slug] | order(date desc, _updatedAt desc) [0...2] {
-    content,
-    ${postFields}
-  }
+export const latestExperiencesQuery = groq`*[_type == "experience"] | order(date desc, _updatedAt desc) [0...4] {
+  ${experienceFields}
 }`
 
+export const postAndMoreStoriesQuery = groq`
+{
+  "post": * [_type == "post" && slug.current == $slug] | order(_updatedAt desc)[0] {
+    content,
+      ${postFields}
+  },
+  "morePosts": * [_type == "post" && slug.current != $slug] | order(date desc, _updatedAt desc)[0...2] {
+    content,
+      ${postFields}
+  }
+} `
+
 export const postSlugsQuery = groq`
-*[_type == "post" && defined(slug.current)][].slug.current
-`
+  * [_type == "post" && defined(slug.current)][].slug.current
+    `
 
 export const postBySlugQuery = groq`
-*[_type == "post" && slug.current == $slug][0] {
+  * [_type == "post" && slug.current == $slug][0] {
   ${postFields}
 }
 `

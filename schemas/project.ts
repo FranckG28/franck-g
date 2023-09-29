@@ -3,7 +3,7 @@ import { format, parseISO } from 'date-fns'
 import { Author, SanityEntityProps } from 'lib/sanity.queries'
 import { defineField, defineType } from 'sanity'
 
-import { Link } from './link'
+import { Link, linkSchema } from './link'
 
 export default defineType({
   name: 'project',
@@ -75,7 +75,6 @@ export default defineType({
       name: 'date',
       title: 'Date',
       type: 'date',
-      initialValue: () => new Date().toISOString(),
     }),
     defineField({
       name: 'authors',
@@ -97,7 +96,7 @@ export default defineType({
       title: 'Links',
       type: 'array',
       of: [
-
+        linkSchema
       ],
     }),
     defineField({

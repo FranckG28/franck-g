@@ -1,7 +1,7 @@
 import ProjectPreview from 'components/project/ProjectPreview'
 import { Project } from 'schemas/project'
 
-export default function ProjectPreviewSection({
+export default function ProjectPreviewsSection({
   projects,
 }: {
   projects: Project[]
