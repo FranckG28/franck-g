@@ -25,6 +25,7 @@ export default function IndexPage(props: IndexPageProps) {
     title = demo.title,
     description = demo.description,
     location = demo.location,
+    logo,
   } = settings || {}
 
   return (
@@ -33,7 +34,7 @@ export default function IndexPage(props: IndexPageProps) {
 
       <Layout preview={preview} loading={loading}>
         <Container>
-          <BlogHeader title={title} location={location} level={1} />
+          <BlogHeader title={title} location={location} level={1} logo={logo} />
           <ProjectPreviewsSection projects={projects} />
           <ExperiencePreviewsSection experiences={experiences} />
           {/* {heroPost && (

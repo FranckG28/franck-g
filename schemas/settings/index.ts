@@ -28,6 +28,14 @@ export default defineType({
       initialValue: demo.location,
     }),
     defineField({
+      name: 'logo',
+      title: 'Logo',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+    }),
+    defineField({
       name: 'description',
       description:
         'Used both for the <meta> description tag for SEO, and the blog subheader.',

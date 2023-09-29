@@ -101,6 +101,7 @@ export interface Settings {
   title?: string
   description?: any[]
   location?: string
+  logo?: any
   ogImage?: {
     title?: string
   }
