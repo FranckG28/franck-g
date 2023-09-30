@@ -1,5 +1,5 @@
 import BlogHeader from 'components/BlogHeader'
-import Layout from 'components/BlogLayout'
+import Layout from 'components/shared/Layout'
 import ExperiencePreviewsSection from 'components/experiences/ExperiencePreviewsSection'
 import Container from 'components/shared/Container'
 import * as demo from 'lib/demo.data'

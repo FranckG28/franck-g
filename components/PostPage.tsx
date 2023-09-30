@@ -1,5 +1,5 @@
 import BlogHeader from 'components/BlogHeader'
-import Layout from 'components/BlogLayout'
+import Layout from 'components/shared/Layout'
 import MoreStories from 'components/MoreStories'
 import PostBody from 'components/PostBody'
 import PostHeader from 'components/PostHeader'
