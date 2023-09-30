@@ -73,13 +73,13 @@ export default defineType({
     }),
     defineField({
       name: 'startDate',
-      title: 'Date',
+      title: 'Start date',
       type: 'date',
       validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'endDate',
-      title: 'Date',
+      title: 'End date',
       type: 'date',
     }),
     defineField({

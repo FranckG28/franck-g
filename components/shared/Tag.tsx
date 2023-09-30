@@ -2,7 +2,7 @@ import useWordColor from 'lib/hooks/useWordColor'
 import { hslWithOpacity } from 'lib/utils'
 
 export default function Tag({ tag }: { tag: string }) {
-  const color = useWordColor(tag, 60, 60)
+  const color = useWordColor(tag, 70, 70)
 
   return (
     <span

@@ -15,12 +15,18 @@ export default function ProjectPreview(props: ProjectPreviewProps) {
   return (
     <div className="group p-3 md:p-6 rounded-3xl hover:bg-zinc-600/20 transition-all duration-200 ease-in-out flex flex-col gap-4">
       <Link href={`/projects/${project.slug}`} className="flex flex-col">
-        <div className="rounded-full shadow-xl border border-zinc-200/20 bg-slate-400/20 p-2 w-fit mb-4">
+        <div
+          className="
+          rounded-full shadow-xl border border-zinc-200/20 bg-slate-400/20 
+          p-2 w-fit mb-4 
+          group-hover:shadow-white/5 transition-all ease-in-out duration-300
+        "
+        >
           {project.coverImage ? (
             <Image
               className="
               h-14 w-14 rounded-full aspect-square
-              transition-all ease-in-out group-hover:scale-125 duration-300
+              transition-all ease-in-out group-hover:scale-110 duration-300
               brightness-90 group-hover:brightness-110
             "
               width={64}
@@ -38,7 +44,7 @@ export default function ProjectPreview(props: ProjectPreviewProps) {
           {project.category}
         </p>
 
-        <p className="text-xl tracking-tight font-medium leading-relaxed">
+        <p className="text-xl tracking-tight font-medium leading-tight mt-1 mb-2">
           {project.title}
         </p>
 

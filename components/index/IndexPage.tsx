@@ -35,11 +35,11 @@ export default function IndexPage(props: IndexPageProps) {
       <Layout preview={preview} loading={loading}>
         <Container>
           <BlogHeader title={title} location={location} level={1} logo={logo} />
-          <div className="flex gap-6 max-lg:flex-col">
-            <ProjectPreviewsSection projects={projects} className="lg:flex-1" />
+          <div className="flex gap-6 max-xl:flex-col">
+            <ProjectPreviewsSection projects={projects} className="xl:flex-1" />
             <ExperiencePreviewsSection
               experiences={experiences}
-              className="lg: basis-1/3"
+              className="xl:basis-96"
             />
           </div>
           {/* {heroPost && (
