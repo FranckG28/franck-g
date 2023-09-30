@@ -1,4 +1,4 @@
-import IndexPage, { type IndexPageProps } from 'components/index/IndexPage'
+import IndexPage, { type IndexPageProps } from 'components/home/IndexPage'
 import {
   indexQuery,
   latestProjectsQuery,

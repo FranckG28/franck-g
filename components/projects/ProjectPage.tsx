@@ -1,4 +1,4 @@
-import IndexPageHead from 'components/index/IndexPageHead'
+import IndexPageHead from 'components/home/IndexPageHead'
 import Container from 'components/shared/Container'
 import Layout from 'components/shared/Layout'
 import { titleStyle } from 'lib/styles'
@@ -28,7 +28,7 @@ export default function ProjectPage({ projects }: { projects: Project[] }) {
       <Layout preview={false} loading={false}>
         <Container className="flex flex-col gap-4">
           <h1 className={titleStyle}>Projets</h1>
-          <p className="text-zinc-200">
+          <p className="text-zinc-200 max-w-prose">
             Players must compete against each other to scan as much product as
             possible in a limited time. They share the same shopping list and
             the same products. The player who scans the most products wins.

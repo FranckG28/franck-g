@@ -4,9 +4,9 @@ import { titleStyle } from 'lib/styles'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import styles from './BlogHeader.module.css'
+import styles from './IndexHeader.module.css'
 
-export default function BlogHeader({
+export default function IndexHeader({
   title,
   location,
   level,
@@ -36,7 +36,7 @@ export default function BlogHeader({
           )}
           <h1 className={titleStyle}>{title}</h1>
 
-          <div className="flex gap-2 items-center">
+          <div className="flex gap-2 items-center  text-zinc-200">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"

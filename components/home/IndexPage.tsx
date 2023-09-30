@@ -1,4 +1,4 @@
-import BlogHeader from 'components/BlogHeader'
+import IndexHeader from 'components/home/IndexHeader'
 import Layout from 'components/shared/Layout'
 import ExperiencePreviewsSection from 'components/experiences/ExperiencePreviewsSection'
 import Container from 'components/shared/Container'
@@ -34,7 +34,12 @@ export default function IndexPage(props: IndexPageProps) {
 
       <Layout preview={preview} loading={loading}>
         <Container>
-          <BlogHeader title={title} location={location} level={1} logo={logo} />
+          <IndexHeader
+            title={title}
+            location={location}
+            level={1}
+            logo={logo}
+          />
           <div className="flex gap-6 max-xl:flex-col xl:items-start">
             <ProjectPreviewsSection projects={projects} className="xl:flex-1" />
             <ExperiencePreviewsSection

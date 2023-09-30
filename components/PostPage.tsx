@@ -1,4 +1,4 @@
-import BlogHeader from 'components/BlogHeader'
+import IndexHeader from 'components/home/IndexHeader'
 import Layout from 'components/shared/Layout'
 import MoreStories from 'components/MoreStories'
 import PostBody from 'components/PostBody'
@@ -37,7 +37,7 @@ export default function PostPage(props: PostPageProps) {
 
       <Layout preview={preview} loading={loading}>
         <Container>
-          <BlogHeader title={title} level={2} />
+          <IndexHeader title={title} level={2} />
           {preview && !post ? (
             <PostTitle>Loading…</PostTitle>
           ) : (

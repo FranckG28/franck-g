@@ -1,4 +1,4 @@
-import IndexPage from 'components/index/IndexPage'
+import IndexPage from 'components/home/IndexPage'
 import PreviewIndexPage from 'components/PreviewIndexPage'
 import { readToken } from 'lib/sanity.api'
 import {
