@@ -1,6 +1,14 @@
+import useWordColor from 'lib/hooks/useWordColor'
+import { hslWithOpacity } from 'lib/utils'
+
 export default function Tag({ tag }: { tag: string }) {
+  const color = useWordColor(tag, 60, 60)
+
   return (
-    <span className="inline-block bg-zinc-200 rounded-full px-3 py-1 text-sm font-semibold text-zinc-700">
+    <span
+      style={{ backgroundColor: hslWithOpacity(color, 0.1), color: color }}
+      className="inline-block rounded-lg px-3 py-1 text-sm brightness-90 hover:brightness-110 transition"
+    >
       {tag}
     </span>
   )

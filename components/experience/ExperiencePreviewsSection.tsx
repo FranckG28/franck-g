@@ -1,3 +1,4 @@
+import classNames from 'classnames'
 import SectionHeader from 'components/shared/SectionHeader'
 import { Experience } from 'schemas/experience'
 
@@ -5,14 +6,20 @@ import ExperiencePreview from './ExperiencePreview'
 
 export default function ExperiencePreviewsSection({
   experiences,
+  className,
 }: {
   experiences: Experience[]
+  className?: string
 }) {
   return (
-    <div className="flex flex-col gap-4">
+    <div
+      className={classNames(
+        'flex flex-col gap-4 border border-zinc-700/40 rounded-3xl p-6',
+        className,
+      )}
+    >
       <SectionHeader
         title="Expériences"
-        moreHref="/projets"
         icon={
           <svg
             xmlns="http://www.w3.org/2000/svg"

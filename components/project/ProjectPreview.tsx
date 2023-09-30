@@ -21,12 +21,13 @@ export default function ProjectPreview(props: ProjectPreviewProps) {
               className="
               h-14 w-14 rounded-full aspect-square
               transition-all ease-in-out group-hover:scale-125 duration-300
+              brightness-90 group-hover:brightness-110
             "
-              width={56}
-              height={56}
+              width={64}
+              height={64}
               alt={`Project icon`}
-              src={urlForImage(project.coverImage).height(100).width(100).url()}
-              sizes="64px"
+              src={urlForImage(project.coverImage).height(200).width(200).url()}
+              sizes="200px"
             />
           ) : (
             <div className="h-14 w-14 rounded-full bg-zinc-400"></div>
@@ -41,7 +42,7 @@ export default function ProjectPreview(props: ProjectPreviewProps) {
           {project.title}
         </p>
 
-        <p className="line-clamp-3 text-zinc-400 leading-snug">
+        <p className="line-clamp-3 text-zinc-400 leading-snug text-sm">
           {project.excerpt}
         </p>
 

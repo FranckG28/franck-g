@@ -35,8 +35,13 @@ export default function IndexPage(props: IndexPageProps) {
       <Layout preview={preview} loading={loading}>
         <Container>
           <BlogHeader title={title} location={location} level={1} logo={logo} />
-          <ProjectPreviewsSection projects={projects} />
-          <ExperiencePreviewsSection experiences={experiences} />
+          <div className="flex gap-6 max-lg:flex-col">
+            <ProjectPreviewsSection projects={projects} className="lg:flex-1" />
+            <ExperiencePreviewsSection
+              experiences={experiences}
+              className="lg: basis-1/3"
+            />
+          </div>
           {/* {heroPost && (
             <HeroPost
               title={heroPost.title}
