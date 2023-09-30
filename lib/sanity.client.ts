@@ -7,6 +7,7 @@ import {
   postAndMoreStoriesQuery,
   postBySlugQuery,
   postSlugsQuery,
+  projectsQuery,
   type Settings,
   settingsQuery,
 } from 'lib/sanity.queries'
@@ -48,6 +49,10 @@ export async function getAllPosts(client: SanityClient): Promise<Post[]> {
 
 export async function getLatestProjects(client: SanityClient): Promise<Project[]> {
   return (await client.fetch(latestProjectsQuery)) || []
+}
+
+export async function getAllProjects(client: SanityClient): Promise<Project[]> {
+  return (await client.fetch(projectsQuery)) || []
 }
 
 export async function getLatestExperiences(client: SanityClient): Promise<Experience[]> {

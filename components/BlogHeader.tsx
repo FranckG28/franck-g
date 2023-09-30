@@ -1,5 +1,6 @@
 import { PortableText } from '@portabletext/react'
 import { urlForImage } from 'lib/sanity.image'
+import { titleStyle } from 'lib/styles'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -33,9 +34,7 @@ export default function BlogHeader({
               sizes="200px"
             />
           )}
-          <h1 className="text-5xl font-bold leading-tight tracking-tighter md:pr-8 md:text-6xl">
-            {title}
-          </h1>
+          <h1 className={titleStyle}>{title}</h1>
 
           <div className="flex gap-2 items-center">
             <svg

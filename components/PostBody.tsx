@@ -13,7 +13,7 @@ import {
 } from '@portabletext/react'
 
 import styles from './PostBody.module.css'
-import { SanityImage } from './SanityImage'
+import { SanityImage } from './shared/SanityImage'
 
 const myPortableTextComponents: Partial<PortableTextReactComponents> = {
   types: {

@@ -47,9 +47,13 @@ export const latestProjectsQuery = groq`*[_type == "project"] | order(date desc,
   ${projectFields}
 }`
 
-export const latestExperiencesQuery = groq`*[_type == "experience"] | order(date desc, _updatedAt desc) [0...4] {
-  ${experienceFields}
+export const projectsQuery = groq`*[_type == "project"] | order(date desc, _updatedAt desc) {
+  ${projectFields}
 }`
+
+export const latestExperiencesQuery = groq`* [_type == "experience"] | order(date desc, _updatedAt desc)[0...4] {
+  ${experienceFields}
+} `
 
 export const postAndMoreStoriesQuery = groq`
 {

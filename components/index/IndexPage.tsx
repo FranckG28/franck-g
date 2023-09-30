@@ -1,13 +1,13 @@
-import Container from 'components/BlogContainer'
 import BlogHeader from 'components/BlogHeader'
 import Layout from 'components/BlogLayout'
-import ExperiencePreviewsSection from 'components/experience/ExperiencePreviewsSection'
+import ExperiencePreviewsSection from 'components/experiences/ExperiencePreviewsSection'
+import Container from 'components/shared/Container'
 import * as demo from 'lib/demo.data'
 import type { Settings } from 'lib/sanity.queries'
 import { Experience } from 'schemas/experience'
 import { Project } from 'schemas/project'
 
-import ProjectPreviewsSection from '../project/ProjectPreviewsSection'
+import ProjectPreviewsSection from '../projects/ProjectPreviewsSection'
 import IndexPageHead from './IndexPageHead'
 
 export interface IndexPageProps {
