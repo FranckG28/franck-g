@@ -1,5 +1,7 @@
 import classNames from 'classnames'
+import Button from 'components/shared/Button'
 import SectionHeader from 'components/shared/SectionHeader'
+import Link from 'next/link'
 import { Experience } from 'schemas/experience'
 
 import ExperiencePreview from './ExperiencePreview'
@@ -43,6 +45,25 @@ export default function ExperiencePreviewsSection({
           <ExperiencePreview key={experience.slug} experience={experience} />
         ))}
       </div>
+      <Link href="/experiences" className="mx-6">
+        <Button className="w-full">
+          Voir plus
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-4 h-4"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M8.25 4.5l7.5 7.5-7.5 7.5"
+            />
+          </svg>
+        </Button>
+      </Link>
     </div>
   )
 }

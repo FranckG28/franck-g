@@ -35,7 +35,7 @@ export default function IndexPage(props: IndexPageProps) {
       <Layout preview={preview} loading={loading}>
         <Container>
           <BlogHeader title={title} location={location} level={1} logo={logo} />
-          <div className="flex gap-6 max-xl:flex-col">
+          <div className="flex gap-6 max-xl:flex-col xl:items-start">
             <ProjectPreviewsSection projects={projects} className="xl:flex-1" />
             <ExperiencePreviewsSection
               experiences={experiences}

@@ -15,7 +15,7 @@ export default function ExperiencePreview({
     <Link
       href={`/experiences/${experience.slug}`}
       className="
-      py-3 px-6 rounded-3xl 
+      py-3 px-6 rounded-xl 
     hover:bg-zinc-600/20 transition-all 
       flex gap-3 items-center group
     "
