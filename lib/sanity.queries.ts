@@ -51,6 +51,15 @@ export const projectsQuery = groq`*[_type == "project"] | order(date desc, _upda
   ${projectFields}
 }`
 
+export const projectBySlugQuery = groq`
+*[_type == "project" && slug.current == $slug][0] {
+  ${projectFields}
+}`
+
+export const projectSlugsQuery = groq`
+*[_type == "project" && defined(slug.current)][].slug.current
+`
+
 export const latestExperiencesQuery = groq`* [_type == "experience"] | order(date desc, _updatedAt desc)[0...4] {
   ${experienceFields}
 } `

@@ -1,1 +1,0 @@
-export const titleStyle = "text-5xl font-bold leading-tight tracking-tighter md:text-6xl";

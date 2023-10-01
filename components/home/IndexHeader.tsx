@@ -1,6 +1,5 @@
 import { PortableText } from '@portabletext/react'
 import { urlForImage } from 'lib/sanity.image'
-import { titleStyle } from 'lib/styles'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -34,7 +33,7 @@ export default function IndexHeader({
               sizes="200px"
             />
           )}
-          <h1 className={titleStyle}>{title}</h1>
+          <h1>{title}</h1>
 
           <div className="flex gap-2 items-center  text-zinc-200">
             <svg

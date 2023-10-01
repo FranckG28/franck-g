@@ -1,4 +1,4 @@
-import ProjectPage from 'components/projects/ProjectPage'
+import ProjectsPage from 'components/projects/ProjectsPage'
 import { readToken } from 'lib/sanity.api'
 import { getAllProjects, getClient } from 'lib/sanity.client'
 import { GetStaticProps } from 'next'
@@ -12,7 +12,7 @@ interface PageProps extends SharedPageProps {
 export default function Page(props: PageProps) {
   const { projects } = props
 
-  return <ProjectPage projects={projects} />
+  return <ProjectsPage projects={projects} />
 }
 
 export const getStaticProps: GetStaticProps<PageProps> = async (ctx) => {

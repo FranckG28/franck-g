@@ -7,6 +7,8 @@ import {
   postAndMoreStoriesQuery,
   postBySlugQuery,
   postSlugsQuery,
+  projectBySlugQuery,
+  projectSlugsQuery,
   projectsQuery,
   type Settings,
   settingsQuery,
@@ -57,6 +59,19 @@ export async function getAllProjects(client: SanityClient): Promise<Project[]> {
 
 export async function getLatestExperiences(client: SanityClient): Promise<Experience[]> {
   return (await client.fetch(latestExperiencesQuery)) || []
+}
+
+export async function getProjectBySlug(
+  client: SanityClient,
+  slug: string,
+): Promise<Project> {
+  return (await client.fetch(projectBySlugQuery, { slug })) || ({} as any)
+}
+
+export async function getAllProjectsSlugs(): Promise<Pick<Project, 'slug'>[]> {
+  const client = getClient()
+  const slugs = (await client.fetch<string[]>(projectSlugsQuery)) || []
+  return slugs.map((slug) => ({ slug }))
 }
 
 export async function getAllPostsSlugs(): Promise<Pick<Post, 'slug'>[]> {
