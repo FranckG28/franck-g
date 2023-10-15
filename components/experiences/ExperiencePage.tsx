@@ -1,5 +1,5 @@
-import Container from 'components/shared/Container'
-import Layout from 'components/shared/Layout'
+import Container from 'components/Container'
+import Layout from 'components/Layout'
 import useDateRangeString from 'lib/hooks/useDateRangeString'
 import { Settings } from 'lib/sanity.queries'
 import { notFound } from 'next/navigation'

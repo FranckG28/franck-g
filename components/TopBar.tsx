@@ -3,7 +3,7 @@ import useNavigationItems from 'lib/hooks/useNavigationItems'
 import { Settings } from 'lib/sanity.queries'
 
 import IndexHeader from './home/IndexHeader'
-import NavigationBar from './shared/NavigationBar'
+import NavigationBar from './NavigationBar'
 
 export default function TopBar({ settings }: { settings: Settings }) {
   const navigationItems = useNavigationItems(settings)

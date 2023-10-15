@@ -1,6 +1,6 @@
+import Container from 'components/Container'
 import IndexPageHead from 'components/home/IndexPageHead'
-import Container from 'components/shared/Container'
-import Layout from 'components/shared/Layout'
+import Layout from 'components/Layout'
 import { Settings } from 'lib/sanity.queries'
 import { Experience } from 'schemas/experience'
 
