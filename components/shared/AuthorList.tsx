@@ -1,6 +1,7 @@
 import { Author } from 'lib/sanity.queries'
 
 import AuthorAvatar from './AuthorAvatar'
+import SectionHeader from './SectionHeader'
 
 export default function AuthorsList({
   title,
@@ -13,8 +14,8 @@ export default function AuthorsList({
     <>
       {authors && authors?.length > 0 && (
         <>
-          <p>{title}</p>
-          <div className="flex flex-row gap-2 mt-3 flex-wrap">
+          <SectionHeader title={title}></SectionHeader>
+          <div className="flex flex-col gap-2">
             {authors?.map((author, index) => (
               <AuthorAvatar
                 key={index}

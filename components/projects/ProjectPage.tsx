@@ -5,11 +5,14 @@ import Container from 'components/shared/Container'
 import Layout from 'components/shared/Layout'
 import LinkPreviewList from 'components/shared/LinkPreviewList'
 import { SanityImage } from 'components/shared/SanityImage'
+import SectionHeader from 'components/shared/SectionHeader'
 import Tag from 'components/shared/Tag'
 import useDateRangeString from 'lib/hooks/useDateRangeString'
 import { Settings } from 'lib/sanity.queries'
 import { notFound } from 'next/navigation'
 import { Project } from 'schemas/project'
+
+import ProjectLogo from './ProjectLogo'
 
 export interface ProjectPageProps {
   preview?: boolean
@@ -42,31 +45,39 @@ export default function ProjectPage(props: ProjectPageProps) {
             <p>Loading…</p>
           ) : (
             <>
-              <article>
-                <p className="uppercase font-medium text-sm text-zinc-400">
-                  {[project.category, dateRangeString].join(' • ')}
-                </p>
-                <h1>{project.title}</h1>
-                <p className="text-sm leading-snug text-zinc-400">
-                  {project.excerpt}
-                </p>
-                <SanityImage
-                  asset={project.coverImage}
-                  alt={project.coverImage?.alt}
-                />
-                <PostBody content={project.content} />
+              <article className="flex gap-6 max-xl:flex-col xl:items-start">
+                <div className="xl:flex-1">
+                  <ProjectLogo
+                    coverImage={project.coverImage}
+                    alt={project.title}
+                  />
 
-                <LinkPreviewList
-                  links={project.links?.map((link) => link.url)}
-                />
+                  <p className="uppercase font-medium text-sm text-zinc-400">
+                    {[project.category, dateRangeString].join(' • ')}
+                  </p>
 
-                <div className="flex flex-row gap-2 mt-3 flex-wrap">
-                  {project.tags.map((tag, index) => (
-                    <Tag key={index} tag={tag} />
-                  ))}
+                  <h1>{project.title}</h1>
+
+                  <div className="flex flex-row gap-2 mt-3 flex-wrap">
+                    {project.tags.map((tag, index) => (
+                      <Tag key={index} tag={tag} />
+                    ))}
+                  </div>
+
+                  <PostBody content={project.content} />
                 </div>
+                <div className="xl:basis-96 flex flex-col gap-4">
+                  <div className="flex flex-col gap-4 border border-zinc-700/40 rounded-3xl p-6">
+                    <SectionHeader title="Links" />
+                    <LinkPreviewList
+                      links={project.links?.map((link) => link.url)}
+                    />
+                  </div>
 
-                <AuthorsList title="Auteurs" authors={project.authors} />
+                  <div className="flex flex-col gap-4 border border-zinc-700/40 rounded-3xl p-6">
+                    <AuthorsList title="Authors" authors={project.authors} />
+                  </div>
+                </div>
               </article>
             </>
           )}

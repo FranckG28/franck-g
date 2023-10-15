@@ -23,8 +23,8 @@ const projectFields = groq`
   category,
   startDate,
   endDate,
-  images,
   authors[]->{name, picture},
+  content
 `
 
 const experienceFields = groq`
