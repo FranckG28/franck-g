@@ -1,3 +1,4 @@
+import PreviewProjectPage from 'components/projects/PreviewProjectPage'
 import ProjectPage from 'components/projects/ProjectPage'
 import { readToken } from 'lib/sanity.api'
 import {
@@ -19,10 +20,7 @@ export default function ProjectSlugRoute(props: PageProps) {
   const { project, settings, draftMode } = props
 
   if (draftMode) {
-    return (
-      <p>TODO: To implement</p>
-      //   <PreviewProjectPage project={project} settings={settings} />
-    )
+    return <PreviewProjectPage project={project} settings={settings} />
   }
 
   return <ProjectPage project={project} settings={settings} />

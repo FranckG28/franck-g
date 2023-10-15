@@ -10,8 +10,6 @@ import { SanityImage } from 'components/shared/SanityImage'
 import Tag from 'components/shared/Tag'
 import { Settings } from 'lib/sanity.queries'
 import { notFound } from 'next/navigation'
-import preview from 'pages/api/draft'
-import author from 'schemas/author'
 import { Project } from 'schemas/project'
 
 export interface ProjectPageProps {

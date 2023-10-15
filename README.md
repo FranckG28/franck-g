@@ -37,7 +37,6 @@ The Studio connects to Sanity Content Lake, which gives you hosted content APIs 
   - [Step 4. Deploy to production](#step-4-deploy-to-production)
 - [Questions and Answers](#questions-and-answers)
   - [It doesn't work! Where can I get help?](#it-doesnt-work-where-can-i-get-help)
-  - [How can I remove the "Next steps" block from my blog?](#how-can-i-remove-the-next-steps-block-from-my-blog)
   - [How can I set up Incremental Static Revalidation?](#how-can-i-set-up-incremental-static-revalidation)
 - [Next steps](#next-steps)
 
@@ -86,7 +85,7 @@ npx vercel env pull
 ### Step 3. Run Next.js locally in development mode
 
 ```bash
-npm install && npm run dev
+pnpm install && pnpm dev
 ```
 
 When you run this development server, the changes you make in your frontend and studio configuration will be applied live using hot reloading.
@@ -118,10 +117,6 @@ In case of any issues or questions, you can post:
 - [GitHub Discussions for Next.js][vercel-github]
 - [Sanity's GitHub Discussions][sanity-github]
 - [Sanity's Community Slack][sanity-community]
-
-### How can I remove the "Next steps" block from my blog?
-
-You can remove it by deleting the `IntroTemplate` component in `/components/IndexPage.tsx`.
 
 ### How can I set up Incremental Static Revalidation?
 

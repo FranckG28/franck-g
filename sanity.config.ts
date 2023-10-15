@@ -32,7 +32,13 @@ export default defineConfig({
   title,
   schema: {
     // If you want more content types, you can add them to this array
-    types: [authorType, settingsType, projectType, experienceType, certificationType],
+    types: [
+      authorType,
+      settingsType,
+      projectType,
+      experienceType,
+      certificationType
+    ],
   },
   plugins: [
     deskTool({
@@ -46,7 +52,7 @@ export default defineConfig({
     previewUrl({
       base: DRAFT_MODE_ROUTE,
       urlSecretId: previewSecretId,
-      matchTypes: [settingsType.name],
+      matchTypes: [settingsType.name, projectType.name],
     }),
     // Add an image asset source for Unsplash
     unsplashImageAsset(),

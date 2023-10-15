@@ -21,7 +21,7 @@ interface Query {
   [key: string]: string
 }
 
-export default function ProjectSlugRoute(props: PageProps) {
+export default function PostSlugRoute(props: PageProps) {
   const { settings, post, morePosts, draftMode } = props
 
   if (draftMode) {
@@ -35,6 +35,10 @@ export default function ProjectSlugRoute(props: PageProps) {
 
 export const getStaticProps: GetStaticProps<PageProps, Query> = async (ctx) => {
   const { draftMode = false, params = {} } = ctx
+
+  console.log('draftMode', draftMode)
+  console.log('read token', readToken)
+
   const client = getClient(draftMode ? { token: readToken } : undefined)
 
   const [settings, { post, morePosts }] = await Promise.all([
