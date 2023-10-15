@@ -51,19 +51,19 @@ export default function ProjectPage(props: ProjectPageProps) {
                     alt={project.title}
                   />
 
-                  <p className="uppercase font-medium text-sm text-zinc-400">
+                  <p className="uppercase font-medium text-sm text-zinc-400 py-4">
                     {[project.category, dateRangeString].join(' • ')}
                   </p>
 
                   <h1>{project.title}</h1>
 
-                  <div className="flex flex-row gap-2 mt-3 flex-wrap">
+                  <PostBody content={project.content} />
+
+                  <div className="flex flex-row gap-2 mt-4 flex-wrap">
                     {project.tags.map((tag, index) => (
                       <Tag key={index} tag={tag} />
                     ))}
                   </div>
-
-                  <PostBody content={project.content} />
                 </div>
                 <div className="xl:basis-96 xl:pt-52 flex flex-col gap-4">
                   {project.links && project.links.length > 0 && (

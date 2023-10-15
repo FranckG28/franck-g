@@ -1,3 +1,4 @@
+import classNames from 'classnames'
 import { urlForImage } from 'lib/sanity.image'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -49,9 +50,11 @@ export default function IndexHeader({
 
     case 2:
       return (
-        <Link href={'/'}>
-          <WebsiteLogo logo={logo} title={title} size={45} />
-        </Link>
+        <div className="p-0.5 rounded-full h-fit w-fit bg-zinc-800/20 shadow-lg shadow-zinc-800/5 ring-1 ring-white/10 backdrop-blur">
+          <Link href={'/'}>
+            <WebsiteLogo logo={logo} title={title} size={40} />
+          </Link>
+        </div>
       )
 
     default:
@@ -67,17 +70,19 @@ function WebsiteLogo({
   logo,
   title,
   size,
+  className,
 }: {
   logo: any
   title: string
   size: number
+  className?: string
 }) {
   return (
     <Image
-      className="
-    h-fit rounded-full aspect-square shadow
-    transition hover:scale-105
-  "
+      className={classNames(
+        'h-fit rounded-full aspect-square transition hover:scale-105',
+        className,
+      )}
       width={size}
       height={size}
       alt={title}

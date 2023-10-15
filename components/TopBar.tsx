@@ -15,7 +15,7 @@ export default function TopBar({ settings }: { settings: Settings }) {
         <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-zinc-900 via-zinc-900/60 to-zinc-900/0 z-30 pointer-events-none"></div>
 
         {!isActive('/') && (
-          <div className="absolute top-5 z-40">
+          <div className="absolute top-6 z-40">
             <IndexHeader
               title={settings.title}
               level={2}
