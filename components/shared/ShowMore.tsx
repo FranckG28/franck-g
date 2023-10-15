@@ -10,10 +10,9 @@ export default function ShowMore({
   return (
     <Link
       href={href}
-      className="text-blue-300 hover:text-blue-200 transition-all flex items-center gap-2 hover:gap-3 ease-in-out"
+      className="text-blue-300 hover:text-blue-200 transition-all flex items-center gap-2 hover:gap-3"
     >
       {text}
-
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"

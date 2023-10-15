@@ -16,7 +16,7 @@ export default function ExperiencePreview({
       <div
         className="
         rounded-full shadow-lg border border-zinc-200/50 bg-white 
-        group-hover:scale-110 transition-all ease-in-out duration-300
+        group-hover:scale-105 transition
       group-hover:shadow-zinc-200/10 hover:shadow-xl z-10
       "
       >
@@ -24,12 +24,12 @@ export default function ExperiencePreview({
           <Image
             className="
               h-10 w-10 rounded-full aspect-square
-              transition-all ease-in-out duration-300
+              transition
               brightness-90 group-hover:brightness-110
             "
             width={64}
             height={64}
-            alt={`Experience icon`}
+            alt={experience.place}
             src={urlForImage(experience.coverImage)
               .height(100)
               .width(100)

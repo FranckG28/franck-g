@@ -38,7 +38,7 @@ export default function ExperiencesPage({
 
       <Layout preview={false} loading={false}>
         <Container className="flex flex-col gap-4">
-          <h1>{settings.experiences.title ?? 'experiences'}</h1>
+          <h1>{settings.experiences.title ?? 'Experiences'}</h1>
           <p className="text-zinc-200 max-w-prose">
             {settings.experiences.description ??
               'A collection of my experiences.'}

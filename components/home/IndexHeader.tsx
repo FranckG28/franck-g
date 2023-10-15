@@ -24,7 +24,7 @@ export default function IndexHeader({
             <Image
               className="
                 h-fit rounded-full aspect-square shadow-lg border border-zinc-200/20
-                transition ease-in-out hover:scale-105 duration-500
+                transition hover:scale-105
               "
               width={120}
               height={120}
@@ -35,7 +35,7 @@ export default function IndexHeader({
           )}
           <h1>{title}</h1>
 
-          <div className="flex gap-2 items-center  text-zinc-200">
+          <div className="flex gap-2 items-center text-zinc-200">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"

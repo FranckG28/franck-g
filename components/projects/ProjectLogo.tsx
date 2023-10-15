@@ -17,7 +17,7 @@ export default function ProjectLogo({
         `
       rounded-full shadow-lg border border-zinc-500/30 bg-slate-500/20 
       p-2 w-fit mb-4 hover:shadow-xl
-      group-hover:shadow-zinc-200/10 transition-all ease-in-out duration-300
+      group-hover:shadow-zinc-200/10 transition
       `,
         className,
       )}
@@ -26,12 +26,12 @@ export default function ProjectLogo({
         <Image
           className="
               h-14 w-14 rounded-full aspect-square
-              transition-all ease-in-out group-hover:scale-110 duration-300
+              transition group-hover:scale-110
               brightness-90 group-hover:brightness-110
             "
           width={64}
           height={64}
-          alt={`Project icon`}
+          alt={alt}
           src={urlForImage(coverImage).height(200).width(200).url()}
           sizes="200px"
         />
