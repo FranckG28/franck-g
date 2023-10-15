@@ -19,7 +19,7 @@ export default function ProjectsPage({
     }
 
     return (
-      <div className="grid lg:grid-cols-2">
+      <div className="grid gap-16 lg:grid-cols-2 mt-6">
         {projects.map((project, index) => (
           <ProjectPreview key={index} project={project} />
         ))}

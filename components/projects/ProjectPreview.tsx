@@ -13,34 +13,40 @@ export default function ProjectPreview(props: ProjectPreviewProps) {
   const { project } = props
 
   return (
-    <div className="group p-3 md:p-6 rounded-3xl hover:bg-zinc-600/20 transition-all duration-200 ease-in-out flex flex-col gap-4">
-      <Link href={`/projects/${project.slug}`} className="flex flex-col">
-        <ProjectLogo coverImage={project.coverImage} alt={project.title} />
+    <article className="group relative flex flex-col items-start">
+      <ProjectLogo
+        coverImage={project.coverImage}
+        alt={project.title}
+        className="z-10"
+      />
 
-        <p className="uppercase font-semibold text-xs text-zinc-400">
-          {project.category}
-        </p>
+      <p className="uppercase font-semibold text-xs text-zinc-400 z-10">
+        {project.category}
+      </p>
 
-        <p className="text-xl tracking-tight font-medium leading-tight mt-1 mb-2">
-          {project.title}
-        </p>
+      <h2 className="text-xl tracking-tight font-medium leading-tight mt-1 mb-2">
+        <div className="absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-zinc-600/20 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 sm:rounded-2xl"></div>
+        <Link href={`/projects/${project.slug}`}>
+          <span className="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl"></span>
+          <span className="relative z-10">{project.title}</span>
+        </Link>
+      </h2>
 
-        <p className="line-clamp-3 text-zinc-400 leading-snug text-sm">
-          {project.excerpt}
-        </p>
+      <p className="line-clamp-3 text-zinc-400 leading-snug text-sm z-10">
+        {project.excerpt}
+      </p>
 
-        {project.tags && project.tags.length && (
-          <div className="flex flex-row gap-2 mt-3 flex-wrap">
-            {project.tags.map((tag, index) => (
-              <Tag key={index} tag={tag} />
-            ))}
-          </div>
-        )}
-      </Link>
-
+      {project.tags && project.tags.length && (
+        <div className="flex flex-row gap-2 mt-3 flex-wrap z-10">
+          {project.tags.map((tag, index) => (
+            <Tag key={index} tag={tag} />
+          ))}
+        </div>
+      )}
+      {/* 
       {project.links && project.links.length && (
         <LinkPreview href={project.links[0].url} />
-      )}
-    </div>
+      )} */}
+    </article>
   )
 }

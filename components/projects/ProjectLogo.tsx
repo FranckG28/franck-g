@@ -1,20 +1,26 @@
+import classNames from 'classnames'
 import { urlForImage } from 'lib/sanity.image'
 import Image from 'next/image'
 
 export default function ProjectLogo({
   coverImage,
   alt,
+  className,
 }: {
   coverImage: any
   alt: string
+  className?: string
 }) {
   return (
     <div
-      className="
-          rounded-full shadow-xl border border-zinc-200/20 bg-slate-400/20 
-          p-2 w-fit mb-4 
-          group-hover:shadow-white/5 transition-all ease-in-out duration-300
-        "
+      className={classNames(
+        `
+      rounded-full shadow-xl border border-zinc-200/20 bg-slate-400/20 
+      p-2 w-fit mb-4 
+      group-hover:shadow-white/5 transition-all ease-in-out duration-300
+      `,
+        className,
+      )}
     >
       {coverImage ? (
         <Image

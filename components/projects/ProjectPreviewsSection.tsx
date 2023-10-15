@@ -14,13 +14,13 @@ export default function ProjectPreviewsSection({
   settings: Settings
 }) {
   return (
-    <div className={classNames('flex flex-col gap-4', className)}>
+    <div className={classNames('flex flex-col gap-10', className)}>
       <SectionHeader
         title={settings.projects.previewTitle}
         moreHref="/projects"
         moreText={settings.projects.showMoreText}
       />
-      <div className="grid md:grid-cols-2">
+      <div className="grid gap-16 md:grid-cols-2">
         {projects.map((project, index) => (
           <ProjectPreview key={index} project={project} />
         ))}
