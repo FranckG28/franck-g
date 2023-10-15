@@ -75,5 +75,5 @@ export interface Settings {
   }
   experiences?: SectionSettings
   projects?: SectionSettings
-  footer: string
+  footer?: string
 }

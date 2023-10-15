@@ -1,16 +1,12 @@
 import IndexPage, { type IndexPageProps } from 'components/home/IndexPage'
-import {
-  indexQuery,
-  latestProjectsQuery,
-  type Post,
-  type Settings,
-  settingsQuery,
-} from 'lib/sanity.queries'
+import { latestExperiencesQuery } from 'lib/experience.queries'
+import { latestProjectsQuery } from 'lib/project.queries'
+import { type Settings, settingsQuery } from 'lib/sanity.queries'
 import { useLiveQuery } from 'next-sanity/preview'
+import { Experience } from 'schemas/experience'
 import { Project } from 'schemas/project'
 
 export default function PreviewIndexPage(props: IndexPageProps) {
-  // const [posts, loadingPosts] = useLiveQuery<Post[]>(props.posts, indexQuery)
   const [projects, loadingProjects] = useLiveQuery<Project[]>(
     props.projects,
     latestProjectsQuery,
@@ -20,12 +16,18 @@ export default function PreviewIndexPage(props: IndexPageProps) {
     settingsQuery,
   )
 
+  const [experiences, loadingExperiences] = useLiveQuery<Experience[]>(
+    props.experiences,
+    latestExperiencesQuery,
+  )
+
   return (
     <IndexPage
       preview
       loading={loadingProjects || loadingSettings}
       projects={projects || []}
       settings={settings || {}}
+      experiences={experiences || []}
     />
   )
 }
