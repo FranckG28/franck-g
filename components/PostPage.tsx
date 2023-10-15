@@ -35,7 +35,7 @@ export default function PostPage(props: PostPageProps) {
     <>
       <PostPageHead settings={settings} post={post} />
 
-      <Layout preview={preview} loading={loading}>
+      <Layout preview={preview} loading={loading} settings={settings}>
         <Container>
           <IndexHeader title={title} level={2} location={''} logo={undefined} />
           {preview && !post ? (

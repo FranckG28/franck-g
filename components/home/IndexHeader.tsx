@@ -1,9 +1,6 @@
-import { PortableText } from '@portabletext/react'
 import { urlForImage } from 'lib/sanity.image'
 import Image from 'next/image'
 import Link from 'next/link'
-
-import styles from './IndexHeader.module.css'
 
 export default function IndexHeader({
   title,
@@ -12,30 +9,20 @@ export default function IndexHeader({
   logo,
 }: {
   title: string
-  location: string
+  location?: string
   level: 1 | 2
   logo: any
 }) {
   switch (level) {
     case 1:
       return (
-        <header className="mb-10 mt-16 flex flex-col gap-2 items-start md:mb-12">
-          {logo && (
-            <Image
-              className="
-                h-fit rounded-full aspect-square shadow-lg border border-zinc-200/20
-                transition hover:scale-105
-              "
-              width={120}
-              height={120}
-              alt={`Portfolio logo`}
-              src={urlForImage(logo).height(300).width(300).url()}
-              sizes="200px"
-            />
-          )}
+        <section className="flex flex-col gap-2 items-start">
+          {logo && <WebsiteLogo logo={logo} title={title} size={100} />}
           <h1>{title}</h1>
 
-          <div className="flex gap-2 items-center text-zinc-200">
+          <h4
+            className={`flex gap-2 items-center text-zinc-400 text-lg md:text-left`}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -55,22 +42,16 @@ export default function IndexHeader({
                 d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
               />
             </svg>
-            <h4 className={`text-lg md:text-left ${styles.portableText}`}>
-              {location}
-            </h4>
-          </div>
-        </header>
+            {location}
+          </h4>
+        </section>
       )
 
     case 2:
       return (
-        <header>
-          <h2 className="mb-20 mt-8 text-2xl font-bold leading-tight tracking-tight md:text-4xl md:tracking-tighter">
-            <Link href="/" className="hover:underline">
-              {title}
-            </Link>
-          </h2>
-        </header>
+        <Link href={'/'}>
+          <WebsiteLogo logo={logo} title={title} size={45} />
+        </Link>
       )
 
     default:
@@ -80,4 +61,31 @@ export default function IndexHeader({
         }, only 1 or 2 are allowed`,
       )
   }
+}
+
+function WebsiteLogo({
+  logo,
+  title,
+  size,
+}: {
+  logo: any
+  title: string
+  size: number
+}) {
+  return (
+    <Image
+      className="
+    h-fit rounded-full aspect-square shadow-lg border border-zinc-200/20
+    transition hover:scale-105
+  "
+      width={size}
+      height={size}
+      alt={title}
+      src={urlForImage(logo)
+        .height(size * 2)
+        .width(size * 2)
+        .url()}
+      sizes={size * 2 + 'px'}
+    />
+  )
 }

@@ -1,26 +1,16 @@
 import classNames from 'classnames'
 import { Navigation } from 'lib/models/navigation'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { useCallback } from 'react'
 
 export default function NavigationBar({
   items,
   className,
+  isActive,
 }: {
   items: Navigation[]
   className?: string
+  isActive: (href: string) => boolean
 }) {
-  const router = useRouter()
-
-  const isActive = useCallback(
-    (href: string) => {
-      if (href === '/') return router.pathname === '/'
-      return router.pathname.startsWith(href)
-    },
-    [router],
-  )
-
   return (
     <>
       {items && items.length > 0 && (

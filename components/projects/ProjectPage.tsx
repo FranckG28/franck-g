@@ -39,7 +39,7 @@ export default function ProjectPage(props: ProjectPageProps) {
     <>
       <ProjectPageHead project={project} settings={settings} />
 
-      <Layout preview={preview} loading={loading}>
+      <Layout preview={preview} loading={loading} settings={settings}>
         <Container>
           {preview && !project ? (
             <p>Loading…</p>

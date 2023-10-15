@@ -31,10 +31,10 @@ export default function ProjectsPage({
     <>
       <IndexPageHead settings={settings} pageName={settings.projects.title} />
 
-      <Layout preview={false} loading={false}>
+      <Layout preview={false} loading={false} settings={settings}>
         <Container className="flex flex-col gap-4">
           <h1>{settings.projects.title ?? 'Projects'}</h1>
-          <p className="text-zinc-200 max-w-prose">
+          <p className="text-zinc-400 max-w-prose">
             {settings.projects.description ?? 'A collection of my projects.'}
           </p>
           {getContent()}

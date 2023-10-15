@@ -1,4 +1,4 @@
-import ExperiencePage from 'components/experiences/ProjectPage'
+import ExperiencePage from 'components/experiences/ExperiencePage'
 import {
   getAllExperiencesSlugs,
   getExperienceBySlug,

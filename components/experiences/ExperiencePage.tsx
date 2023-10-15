@@ -29,7 +29,7 @@ export default function ExperiencePage(props: ExperiencePageProps) {
     <>
       {/* <ProjectPageHead project={project} settings={settings} /> */}
 
-      <Layout preview={preview} loading={loading}>
+      <Layout preview={preview} loading={loading} settings={settings}>
         <Container>
           {preview && !experience ? (
             <p>Loading…</p>

@@ -11,9 +11,9 @@ export default function Container({
     <div
       className={classNames(
         `
-        container mx-auto px-5 md:px-10 lg:px-20 pt-24 pb-10
-        bg-stone-800 border-l border-r border-stone-700 
-        min-h-full max-w-screen-xl
+        max-w-7xl w-full
+        bg-zinc-900 border-l border-r border-zinc-800 
+        sm:mx-4 md:mx-12 lg:mx-20 px-5 md:px-10 lg:px-20 pt-40 pb-20
         `,
         className,
       )}
