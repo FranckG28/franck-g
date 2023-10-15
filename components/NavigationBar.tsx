@@ -18,7 +18,7 @@ export default function NavigationBar({
         <nav
           className={classNames(
             `bg-zinc-700 border-t border-zinc-600 shadow-xl rounded-full
-          flex items-center justify-center gap-6 py-2 px-4`,
+          flex items-center justify-center gap-6 py-2 px-4 overflow-hidden`,
             className,
           )}
         >

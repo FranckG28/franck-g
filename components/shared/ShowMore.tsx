@@ -10,7 +10,7 @@ export default function ShowMore({
   return (
     <Link
       href={href}
-      className="text-blue-300 hover:text-blue-200 transition-all flex items-center gap-2 hover:gap-3"
+      className="text-blue-300 hover:text-blue-200 text-sm transition-all flex items-center gap-2 hover:gap-2.5"
     >
       {text}
       <svg
@@ -19,7 +19,7 @@ export default function ShowMore({
         viewBox="0 0 24 24"
         strokeWidth={1.5}
         stroke="currentColor"
-        className="w-6 h-6"
+        className="w-4 h-4"
       >
         <path
           strokeLinecap="round"

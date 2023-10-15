@@ -19,7 +19,7 @@ export default function SectionHeader({
     <div className={classNames('flex justify-between items-center', className)}>
       <div className="flex items-center gap-3">
         {icon}
-        <h3 className="text-lg font-semibold">{title}</h3>
+        <h3 className="text-base font-medium">{title}</h3>
       </div>
       {moreHref && <ShowMore href={moreHref} text={moreText} />}
     </div>
