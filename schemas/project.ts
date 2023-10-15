@@ -3,6 +3,7 @@ import { format, parseISO } from 'date-fns'
 import { Author, SanityEntityProps } from 'lib/sanity.queries'
 import { defineField, defineType } from 'sanity'
 
+import { Experience } from './experience'
 import { Link, linkSchema } from './link'
 
 export default defineType({
@@ -109,6 +110,12 @@ export default defineType({
       title: 'Category',
       type: 'string',
       validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'experiences',
+      title: 'Related experiences',
+      type: 'array',
+      of: [{ type: 'reference', to: [{ type: 'experience' }] }],
     })
   ],
   preview: {
@@ -139,4 +146,5 @@ export interface Project extends SanityEntityProps {
   tags?: string[],
   links?: Link[],
   category?: string,
+  experiences?: Experience[],
 }

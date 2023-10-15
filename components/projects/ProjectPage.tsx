@@ -1,10 +1,10 @@
+import ExperiencePreview from 'components/experiences/ExperiencePreview'
 import IndexPageHead from 'components/home/IndexPageHead'
 import PostBody from 'components/PostBody'
 import AuthorsList from 'components/shared/AuthorList'
 import Container from 'components/shared/Container'
 import Layout from 'components/shared/Layout'
 import LinkPreviewList from 'components/shared/LinkPreviewList'
-import { SanityImage } from 'components/shared/SanityImage'
 import SectionHeader from 'components/shared/SectionHeader'
 import Tag from 'components/shared/Tag'
 import useDateRangeString from 'lib/hooks/useDateRangeString'
@@ -67,16 +67,37 @@ export default function ProjectPage(props: ProjectPageProps) {
                   <PostBody content={project.content} />
                 </div>
                 <div className="xl:basis-96 flex flex-col gap-4">
-                  <div className="flex flex-col gap-4 border border-zinc-700/40 rounded-3xl p-6">
-                    <SectionHeader title="Links" />
-                    <LinkPreviewList
-                      links={project.links?.map((link) => link.url)}
-                    />
-                  </div>
+                  {project.links && project.links.length > 0 && (
+                    <div className="flex flex-col gap-4 border border-zinc-700/40 rounded-3xl p-6">
+                      <SectionHeader title="Links" />
+                      <LinkPreviewList
+                        links={project.links?.map((link) => link.url)}
+                      />
+                    </div>
+                  )}
 
-                  <div className="flex flex-col gap-4 border border-zinc-700/40 rounded-3xl p-6">
-                    <AuthorsList title="Authors" authors={project.authors} />
-                  </div>
+                  {project.authors && project.authors.length > 0 && (
+                    <div className="flex flex-col gap-4 border border-zinc-700/40 rounded-3xl p-6">
+                      <AuthorsList title="Authors" authors={project.authors} />
+                    </div>
+                  )}
+
+                  {project.experiences && project.experiences.length > 0 && (
+                    <div className="flex flex-col gap-4 border border-zinc-700/40 rounded-3xl py-6">
+                      <SectionHeader
+                        className="px-6"
+                        title="Related experiences"
+                      />
+                      <div className="flex flex-col">
+                        {project.experiences.map((experience) => (
+                          <ExperiencePreview
+                            key={experience.slug}
+                            experience={experience}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
               </article>
             </>
