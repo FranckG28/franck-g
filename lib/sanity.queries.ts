@@ -12,72 +12,12 @@ const postFields = groq`
   "author": author->{name, picture},
 `
 
-const projectFields = groq`
-  _id,
-  title,
-  _updatedAt,
-  excerpt,
-  coverImage,
-  "slug": slug.current,
-  tags,
-  links,
-  category,
-  startDate,
-  endDate,
-  authors[]->{name, picture},
-  content,
-  experiences[]->{place, role, startDate, endDate, coverImage, "slug": slug.current, links},
-`
-
-const experienceFields = groq`
-  _id,
-  place,
-  role,
-  startDate,
-  endDate,
-  _updatedAt,
-  coverImage,
-  "slug": slug.current,
-  links,
-`
-
 export const settingsQuery = groq`*[_type == "settings"][0]`
 
 export const indexQuery = groq`
 *[_type == "post"] | order(date desc, _updatedAt desc) {
   ${postFields}
 }`
-
-export const latestProjectsQuery = groq`*[_type == "project"] | order(date desc, _updatedAt desc) [0...4] {
-  ${projectFields}
-}`
-
-export const projectsQuery = groq`*[_type == "project"] | order(date desc, _updatedAt desc) {
-  ${projectFields}
-}`
-
-export const projectBySlugQuery = groq`
-*[_type == "project" && slug.current == $slug][0] {
-  ${projectFields}
-}`
-
-export const projectSlugsQuery = groq`
-*[_type == "project" && defined(slug.current)][].slug.current
-`
-
-export const latestExperiencesQuery = groq`* [_type == "experience"] | order(date desc, _updatedAt desc)[0...4] {
-  ${experienceFields}
-} `
-
-export const experiencesQuery = groq`* [_type == "experience"] | order(date desc, _updatedAt desc) {
-  ${experienceFields}
-} `
-
-export const experienceBySlugQuery = groq`* [_type == "experience" && slug.current == $slug][0] {
-  ${experienceFields}
-} `
-
-export const experiencesSlugsQuery = groq`* [_type == "experience" && defined(slug.current)][].slug.current`
 
 export const postAndMoreStoriesQuery = groq`
 {

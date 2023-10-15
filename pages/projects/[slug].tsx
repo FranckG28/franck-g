@@ -1,12 +1,8 @@
 import PreviewProjectPage from 'components/projects/PreviewProjectPage'
 import ProjectPage from 'components/projects/ProjectPage'
+import { getAllProjectsSlugs, getProjectBySlug } from 'lib/project.client'
 import { readToken } from 'lib/sanity.api'
-import {
-  getAllProjectsSlugs,
-  getClient,
-  getProjectBySlug,
-  getSettings,
-} from 'lib/sanity.client'
+import { getClient, getSettings } from 'lib/sanity.client'
 import { Settings } from 'lib/sanity.queries'
 import { SharedPageProps } from 'pages/_app'
 import { Project } from 'schemas/project'

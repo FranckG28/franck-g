@@ -1,12 +1,9 @@
 import IndexPage from 'components/home/IndexPage'
 import PreviewIndexPage from 'components/PreviewIndexPage'
+import { getLatestExperiences } from 'lib/experience.client'
+import { getLatestProjects } from 'lib/project.client'
 import { readToken } from 'lib/sanity.api'
-import {
-  getClient,
-  getLatestExperiences,
-  getLatestProjects,
-  getSettings,
-} from 'lib/sanity.client'
+import { getClient, getSettings } from 'lib/sanity.client'
 import { Settings } from 'lib/sanity.queries'
 import { GetStaticProps } from 'next'
 import type { SharedPageProps } from 'pages/_app'

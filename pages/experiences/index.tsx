@@ -1,6 +1,7 @@
 import ExperiencesPage from 'components/experiences/ExperiencesPage'
+import { getAllExperiences } from 'lib/experience.client'
 import { readToken } from 'lib/sanity.api'
-import { getAllExperiences, getClient, getSettings } from 'lib/sanity.client'
+import { getClient, getSettings } from 'lib/sanity.client'
 import { Settings } from 'lib/sanity.queries'
 import { GetStaticProps } from 'next'
 import { SharedPageProps } from 'pages/_app'

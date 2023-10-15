@@ -1,11 +1,10 @@
 import ExperiencePage from 'components/experiences/ProjectPage'
-import { readToken } from 'lib/sanity.api'
 import {
   getAllExperiencesSlugs,
-  getClient,
   getExperienceBySlug,
-  getSettings,
-} from 'lib/sanity.client'
+} from 'lib/experience.client'
+import { readToken } from 'lib/sanity.api'
+import { getClient, getSettings } from 'lib/sanity.client'
 import { Settings } from 'lib/sanity.queries'
 import { SharedPageProps } from 'pages/_app'
 import { Experience } from 'schemas/experience'

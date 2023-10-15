@@ -1,6 +1,7 @@
 import ProjectsPage from 'components/projects/ProjectsPage'
+import { getAllProjects } from 'lib/project.client'
 import { readToken } from 'lib/sanity.api'
-import { getAllProjects, getClient, getSettings } from 'lib/sanity.client'
+import { getClient, getSettings } from 'lib/sanity.client'
 import { Settings } from 'lib/sanity.queries'
 import { GetStaticProps } from 'next'
 import { SharedPageProps } from 'pages/_app'
