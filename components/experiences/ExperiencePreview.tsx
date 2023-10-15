@@ -15,9 +15,9 @@ export default function ExperiencePreview({
     <article className="group relative flex gap-3 items-center">
       <div
         className="
-        rounded-full shadow-xl border bg-white 
+        rounded-full shadow-lg border border-zinc-200/50 bg-white 
         group-hover:scale-110 transition-all ease-in-out duration-300
-      group-hover:shadow-white/10
+      group-hover:shadow-zinc-200/10 hover:shadow-xl z-10
       "
       >
         {experience.coverImage ? (
@@ -48,11 +48,11 @@ export default function ExperiencePreview({
             <span className="relative z-10">{experience.place}</span>
           </Link>
         </h2>
-        <p className="text-sm text-zinc-400 line-clamp-2 leading-snug">
+        <p className="text-sm text-zinc-400 line-clamp-2 leading-snug z-10">
           {experience.role}
         </p>
       </div>
-      <p className="text-xs font-light text-zinc-400">{dateRange}</p>
+      <p className="text-xs font-light text-zinc-400 z-10">{dateRange}</p>
     </article>
   )
 }
