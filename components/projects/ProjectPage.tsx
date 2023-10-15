@@ -13,6 +13,7 @@ import { notFound } from 'next/navigation'
 import { Project } from 'schemas/project'
 
 import ProjectLogo from './ProjectLogo'
+import ProjectPageHead from './ProjectPageHead'
 
 export interface ProjectPageProps {
   preview?: boolean
@@ -36,8 +37,7 @@ export default function ProjectPage(props: ProjectPageProps) {
 
   return (
     <>
-      {/* TODO : create proper project head */}
-      <IndexPageHead settings={settings} />
+      <ProjectPageHead project={project} settings={settings} />
 
       <Layout preview={preview} loading={loading}>
         <Container>
@@ -66,7 +66,7 @@ export default function ProjectPage(props: ProjectPageProps) {
 
                   <PostBody content={project.content} />
                 </div>
-                <div className="xl:basis-96 flex flex-col gap-4">
+                <div className="xl:basis-96 xl:pt-52 flex flex-col gap-4">
                   {project.links && project.links.length > 0 && (
                     <div className="flex flex-col gap-4 border border-zinc-700/40 rounded-3xl p-6">
                       <SectionHeader title="Links" />

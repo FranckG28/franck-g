@@ -21,6 +21,7 @@ export const SanityImage = (props: Props) => {
         {...imageProps}
         alt={alt}
         sizes="(max-width: 800px) 100vw, 800px"
+        className="rounded-lg"
       />
       {caption && (
         <figcaption className="mt-2 text-center italic text-sm text-zinc-500 dark:text-zinc-400">

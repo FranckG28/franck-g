@@ -3,12 +3,16 @@ export default function useDateRangeString(
   end?: string,
   includeMonths: boolean = false,
 ): string {
+  if (!start && !end) {
+    return ''
+  }
+
   const startDate = new Date(start)
   const startYear = startDate.getFullYear()
   const startMonth = startDate.toLocaleString('default', { month: 'long' })
 
   if (!end) {
-    return `depuis ${startMonth} ${startYear}`
+    return `since ${startMonth} ${startYear}`
   }
 
   const endDate = new Date(end)

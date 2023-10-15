@@ -25,7 +25,7 @@ const projectFields = groq`
   endDate,
   authors[]->{name, picture},
   content,
-  experiences[]->{place, role, startDate, endDate, coverImage},
+  experiences[]->{place, role, startDate, endDate, coverImage, "slug": slug.current, links},
 `
 
 const experienceFields = groq`
