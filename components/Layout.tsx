@@ -2,6 +2,8 @@ import AlertBanner from 'components/shared/AlertBanner'
 import TopBar from 'components/TopBar'
 import { Settings } from 'lib/sanity.queries'
 
+import Footer from './Footer'
+
 export default function Layout({
   preview,
   loading,
@@ -19,6 +21,7 @@ export default function Layout({
         <AlertBanner preview={preview} loading={loading} />
         <TopBar settings={settings} />
         <main className="flex justify-center">{children}</main>
+        <Footer settings={settings} />
       </div>
     </>
   )

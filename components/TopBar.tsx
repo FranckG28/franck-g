@@ -24,7 +24,7 @@ export default function TopBar({ settings }: { settings: Settings }) {
           </div>
         )}
         <NavigationBar
-          items={navigationItems}
+          items={navigationItems.filter((item) => item.href !== '/')}
           className="absolute left-1/2 top-6 -translate-x-1/2 z-40"
         />
       </div>

@@ -89,6 +89,12 @@ export default defineType({
       ],
     }),
     defineField({
+      name: 'footerText',
+      title: 'Footer text',
+      type: 'string',
+      initialValue: demo.footerText,
+    }),
+    defineField({
       name: 'projects',
       title: 'Projects settings',
       type: 'object',
