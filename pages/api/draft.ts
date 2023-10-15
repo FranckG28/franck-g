@@ -1,3 +1,4 @@
+import { projectSlugsQuery } from 'lib/project.queries'
 import {
   apiVersion,
   dataset,
@@ -5,7 +6,6 @@ import {
   projectId,
   useCdn,
 } from 'lib/sanity.api'
-import { projectSlugsQuery } from 'lib/sanity.queries'
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { createClient } from 'next-sanity'
 import { isValidSecret } from 'sanity-plugin-iframe-pane/is-valid-secret'
