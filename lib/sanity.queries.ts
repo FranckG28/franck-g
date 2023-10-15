@@ -14,14 +14,17 @@ const postFields = groq`
 const projectFields = groq`
   _id,
   title,
-  date,
   _updatedAt,
   excerpt,
   coverImage,
   "slug": slug.current,
   tags,
   links,
-  category
+  category,
+  startDate,
+  endDate,
+  images,
+  authors[]->{name, picture},
 `
 
 const experienceFields = groq`

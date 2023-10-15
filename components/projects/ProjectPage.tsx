@@ -1,13 +1,12 @@
 import IndexPageHead from 'components/home/IndexPageHead'
 import PostBody from 'components/PostBody'
-import PostPageHead from 'components/PostPageHead'
-import AuthorAvatar from 'components/shared/AuthorAvatar'
 import AuthorsList from 'components/shared/AuthorList'
 import Container from 'components/shared/Container'
 import Layout from 'components/shared/Layout'
 import LinkPreviewList from 'components/shared/LinkPreviewList'
 import { SanityImage } from 'components/shared/SanityImage'
 import Tag from 'components/shared/Tag'
+import useDateRangeString from 'lib/hooks/useDateRangeString'
 import { Settings } from 'lib/sanity.queries'
 import { notFound } from 'next/navigation'
 import { Project } from 'schemas/project'
@@ -21,6 +20,12 @@ export interface ProjectPageProps {
 
 export default function ProjectPage(props: ProjectPageProps) {
   const { project, settings, preview, loading } = props
+
+  const dateRangeString = useDateRangeString(
+    project?.startDate,
+    project?.endDate,
+    true,
+  )
 
   if (!project?.slug) {
     notFound()
@@ -39,7 +44,7 @@ export default function ProjectPage(props: ProjectPageProps) {
             <>
               <article>
                 <p className="uppercase font-medium text-sm text-zinc-400">
-                  {[project.category, project.date].join(' • ')}
+                  {[project.category, dateRangeString].join(' • ')}
                 </p>
                 <h1>{project.title}</h1>
                 <p className="text-sm leading-snug text-zinc-400">

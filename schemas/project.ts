@@ -72,8 +72,40 @@ export default defineType({
       },
     }),
     defineField({
-      name: 'date',
-      title: 'Date',
+      name: 'images',
+      title: 'Images',
+      type: 'array',
+      of: [
+        {
+          type: 'image',
+          options: {
+            hotspot: true,
+          },
+          fields: [
+            {
+              name: 'caption',
+              type: 'string',
+              title: 'Image caption',
+              description: 'Caption displayed below the image.',
+            },
+            {
+              name: 'alt',
+              type: 'string',
+              title: 'Alternative text',
+              description: 'Important for SEO and accessiblity.',
+            },
+          ],
+        },
+      ]
+    }),
+    defineField({
+      name: 'startDate',
+      title: 'Start date',
+      type: 'date',
+    }),
+    defineField({
+      name: 'endDate',
+      title: 'End date',
       type: 'date',
     }),
     defineField({
@@ -128,7 +160,9 @@ export interface Project extends SanityEntityProps {
   slug: string,
   content?: any,
   coverImage?: any,
-  date?: string,
+  images?: any[],
+  startDate?: string,
+  endDate?: string,
   authors?: Author[],
   tags?: string[],
   links?: Link[],
