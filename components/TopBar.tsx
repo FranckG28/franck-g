@@ -1,32 +1,13 @@
-import { Navigation } from 'lib/models/navigation'
+import useHrefActive from 'lib/hooks/useHrefActive'
+import useNavigationItems from 'lib/hooks/useNavigationItems'
 import { Settings } from 'lib/sanity.queries'
-import { useRouter } from 'next/router'
-import { useCallback } from 'react'
 
 import IndexHeader from './home/IndexHeader'
 import NavigationBar from './shared/NavigationBar'
 
 export default function TopBar({ settings }: { settings: Settings }) {
-  const navItems: Navigation[] = [
-    {
-      name: settings.projects.title ?? 'Projects',
-      href: '/projects',
-    },
-    {
-      name: settings.experiences.title ?? 'Experiences',
-      href: '/experiences',
-    },
-  ]
-
-  const router = useRouter()
-
-  const isActive = useCallback(
-    (href: string) => {
-      if (href === '/') return router.pathname === '/'
-      return router.pathname.startsWith(href)
-    },
-    [router],
-  )
+  const navigationItems = useNavigationItems(settings)
+  const isActive = useHrefActive()
 
   return (
     <header className="fixed top-0 left-0 right-0 flex justify-center z-40">
@@ -43,9 +24,8 @@ export default function TopBar({ settings }: { settings: Settings }) {
           </div>
         )}
         <NavigationBar
-          items={navItems}
+          items={navigationItems}
           className="absolute left-1/2 top-6 -translate-x-1/2 z-40"
-          isActive={isActive}
         />
       </div>
     </header>

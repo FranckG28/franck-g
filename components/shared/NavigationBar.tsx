@@ -1,16 +1,17 @@
 import classNames from 'classnames'
+import useHrefActive from 'lib/hooks/useHrefActive'
 import { Navigation } from 'lib/models/navigation'
 import Link from 'next/link'
 
 export default function NavigationBar({
   items,
   className,
-  isActive,
 }: {
   items: Navigation[]
   className?: string
-  isActive: (href: string) => boolean
 }) {
+  const isActive = useHrefActive()
+
   return (
     <>
       {items && items.length > 0 && (
