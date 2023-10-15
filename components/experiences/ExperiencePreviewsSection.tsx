@@ -19,12 +19,11 @@ export default function ExperiencePreviewsSection({
   return (
     <div
       className={classNames(
-        'flex flex-col gap-4 border border-zinc-700/40 rounded-3xl py-6',
+        'flex flex-col gap-8 border border-zinc-700/40 rounded-3xl p-6',
         className,
       )}
     >
       <SectionHeader
-        className="px-6"
         title={settings.experiences.previewTitle}
         icon={
           <svg
@@ -43,12 +42,12 @@ export default function ExperiencePreviewsSection({
           </svg>
         }
       />
-      <div className="flex flex-col">
+      <div className="flex flex-col gap-8">
         {experiences.map((experience) => (
           <ExperiencePreview key={experience.slug} experience={experience} />
         ))}
       </div>
-      <Link href="/experiences" className="mx-6">
+      <Link href="/experiences">
         <Button className="w-full">
           {settings.experiences.showMoreText ?? 'Show more'}
           <svg

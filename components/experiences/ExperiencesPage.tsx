@@ -21,7 +21,7 @@ export default function ExperiencesPage({
     }
 
     return (
-      <div className="grid lg:grid-cols-2">
+      <div className="grid gap-8 lg:grid-cols-2">
         {experiences.map((exp, index) => (
           <ExperiencePreview key={index} experience={exp} />
         ))}
