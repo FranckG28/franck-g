@@ -1,4 +1,5 @@
 import classNames from 'classnames'
+import * as demo from 'lib/demo.data'
 import useHrefActive from 'lib/hooks/useHrefActive'
 import useNavigationItems from 'lib/hooks/useNavigationItems'
 import { Settings } from 'lib/sanity.queries'
@@ -32,7 +33,9 @@ export default function Footer({
               </Link>
             ))}
         </nav>
-        <p className="text-sm text-zinc-600">© 2023 Franck G.</p>
+        <p className="text-sm text-zinc-600">
+          {settings.footer ?? demo.footer}
+        </p>
       </Container>
     </footer>
   )
