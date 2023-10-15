@@ -41,8 +41,13 @@ export default function IndexPage(props: IndexPageProps) {
             logo={logo}
           />
           <div className="flex gap-6 max-xl:flex-col xl:items-start">
-            <ProjectPreviewsSection projects={projects} className="xl:flex-1" />
+            <ProjectPreviewsSection
+              projects={projects}
+              className="xl:flex-1"
+              settings={settings}
+            />
             <ExperiencePreviewsSection
+              settings={settings}
               experiences={experiences}
               className="xl:basis-96"
             />

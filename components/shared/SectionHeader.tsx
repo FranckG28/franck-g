@@ -5,11 +5,13 @@ import ShowMore from './ShowMore'
 export default function SectionHeader({
   title,
   moreHref,
+  moreText,
   icon,
   className,
 }: {
   title: string
   moreHref?: string
+  moreText?: string
   icon?: React.ReactNode
   className?: string
 }) {
@@ -19,7 +21,7 @@ export default function SectionHeader({
         {icon}
         <h3 className="text-lg font-semibold">{title}</h3>
       </div>
-      {moreHref && <ShowMore href={moreHref} />}
+      {moreHref && <ShowMore href={moreHref} text={moreText} />}
     </div>
   )
 }

@@ -6,9 +6,13 @@ import Head from 'next/head'
 
 export interface IndexPageHeadProps {
   settings: Settings
+  pageName?: string
 }
 
-export default function IndexPageHead({ settings }: IndexPageHeadProps) {
+export default function IndexPageHead({
+  pageName,
+  settings,
+}: IndexPageHeadProps) {
   const {
     title = demo.title,
     description = demo.description,
@@ -18,7 +22,7 @@ export default function IndexPageHead({ settings }: IndexPageHeadProps) {
 
   return (
     <Head>
-      <title>{title}</title>
+      <title>{pageName ? `${pageName} | ${title}` : title}</title>
       <BlogMeta />
       <meta
         key="description"

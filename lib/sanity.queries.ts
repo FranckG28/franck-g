@@ -1,4 +1,5 @@
 import { groq } from 'next-sanity'
+import { SectionSettings } from 'schemas/settings/section-settings'
 
 const postFields = groq`
   _id,
@@ -122,4 +123,6 @@ export interface Settings {
   ogImage?: {
     title?: string
   }
+  experiences: SectionSettings
+  projects: SectionSettings
 }

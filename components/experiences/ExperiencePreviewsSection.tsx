@@ -1,6 +1,7 @@
 import classNames from 'classnames'
 import Button from 'components/shared/Button'
 import SectionHeader from 'components/shared/SectionHeader'
+import { Settings } from 'lib/sanity.queries'
 import Link from 'next/link'
 import { Experience } from 'schemas/experience'
 
@@ -9,9 +10,11 @@ import ExperiencePreview from './ExperiencePreview'
 export default function ExperiencePreviewsSection({
   experiences,
   className,
+  settings,
 }: {
   experiences: Experience[]
   className?: string
+  settings: Settings
 }) {
   return (
     <div
@@ -22,7 +25,7 @@ export default function ExperiencePreviewsSection({
     >
       <SectionHeader
         className="px-6"
-        title="Expériences"
+        title={settings.experiences.previewTitle}
         icon={
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -47,7 +50,7 @@ export default function ExperiencePreviewsSection({
       </div>
       <Link href="/experiences" className="mx-6">
         <Button className="w-full">
-          Voir plus
+          {settings.experiences.showMoreText ?? 'Show more'}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

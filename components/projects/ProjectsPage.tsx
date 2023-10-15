@@ -1,14 +1,21 @@
 import IndexPageHead from 'components/home/IndexPageHead'
 import Container from 'components/shared/Container'
 import Layout from 'components/shared/Layout'
+import { Settings } from 'lib/sanity.queries'
 import { Project } from 'schemas/project'
 
 import ProjectPreview from './ProjectPreview'
 
-export default function ProjectsPage({ projects }: { projects: Project[] }) {
+export default function ProjectsPage({
+  projects,
+  settings,
+}: {
+  projects: Project[]
+  settings: Settings
+}) {
   const getContent = () => {
     if (!projects || projects?.length === 0) {
-      return <p>Aucun projet pour le moment</p>
+      return <p>{settings.projects.emptyMessage ?? 'No projects found.'}</p>
     }
 
     return (
@@ -22,15 +29,13 @@ export default function ProjectsPage({ projects }: { projects: Project[] }) {
 
   return (
     <>
-      <IndexPageHead settings={{}} />
+      <IndexPageHead settings={settings} pageName={settings.projects.title} />
 
       <Layout preview={false} loading={false}>
         <Container className="flex flex-col gap-4">
-          <h1>Projets</h1>
+          <h1>{settings.projects.title ?? 'Projects'}</h1>
           <p className="text-zinc-200 max-w-prose">
-            Players must compete against each other to scan as much product as
-            possible in a limited time. They share the same shopping list and
-            the same products. The player who scans the most products wins.
+            {settings.projects.description ?? 'A collection of my projects.'}
           </p>
           {getContent()}
         </Container>

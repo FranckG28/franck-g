@@ -3,6 +3,7 @@ import * as demo from 'lib/demo.data'
 import { defineArrayMember, defineField, defineType } from 'sanity'
 
 import OpenGraphInput from './OpenGraphInput'
+import { sectionSettingsFields } from './section-settings'
 
 export default defineType({
   name: 'settings',
@@ -86,6 +87,18 @@ export default defineType({
           initialValue: demo.ogImageTitle,
         }),
       ],
+    }),
+    defineField({
+      name: 'projects',
+      title: 'Projects settings',
+      type: 'object',
+      fields: sectionSettingsFields,
+    }),
+    defineField({
+      name: 'experiences',
+      title: 'Experiences settings',
+      type: 'object',
+      fields: sectionSettingsFields,
     }),
   ],
 })

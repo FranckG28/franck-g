@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export default function ShowMore({
   href,
-  text = 'Voir plus',
+  text = 'Show more',
 }: {
   href: string
   text?: string
