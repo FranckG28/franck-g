@@ -16,7 +16,7 @@ export default function IndexHeader({
   switch (level) {
     case 1:
       return (
-        <section className="flex flex-col gap-2 items-start">
+        <section className="flex flex-col gap-6 items-start">
           {logo && <WebsiteLogo logo={logo} title={title} size={100} />}
           <h1>{title}</h1>
 
@@ -75,7 +75,7 @@ function WebsiteLogo({
   return (
     <Image
       className="
-    h-fit rounded-full aspect-square shadow-lg border border-zinc-200/20
+    h-fit rounded-full aspect-square shadow
     transition hover:scale-105
   "
       width={size}

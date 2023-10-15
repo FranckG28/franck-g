@@ -33,7 +33,7 @@ export default function Footer({
               </Link>
             ))}
         </nav>
-        <p className="text-sm text-zinc-600">
+        <p className="text-sm text-zinc-500">
           {settings.footer ?? demo.footer}
         </p>
       </Container>

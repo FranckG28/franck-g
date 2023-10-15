@@ -16,8 +16,8 @@ export default function ProjectLogo({
       className={classNames(
         `
       rounded-full shadow-lg border border-zinc-500/30 bg-slate-500/20 
-      p-2 w-fit mb-4 hover:shadow-xl
-      group-hover:shadow-zinc-200/10 transition
+      p-2 w-fit mb-4 group-hover:shadow-xl shadow-zinc-900/20
+    transition
       `,
         className,
       )}

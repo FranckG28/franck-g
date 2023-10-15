@@ -67,7 +67,7 @@ export default function ProjectPage(props: ProjectPageProps) {
                 </div>
                 <div className="xl:basis-96 xl:pt-52 flex flex-col gap-4">
                   {project.links && project.links.length > 0 && (
-                    <div className="flex flex-col gap-4 border border-zinc-700/40 rounded-3xl p-6">
+                    <div className="flex flex-col gap-6 border border-zinc-700/40 rounded-xl p-6">
                       <SectionHeader title="Links" />
                       <LinkPreviewList
                         links={project.links?.map((link) => link.url)}
@@ -76,17 +76,14 @@ export default function ProjectPage(props: ProjectPageProps) {
                   )}
 
                   {project.authors && project.authors.length > 0 && (
-                    <div className="flex flex-col gap-4 border border-zinc-700/40 rounded-3xl p-6">
+                    <div className="flex flex-col gap-6 border border-zinc-700/40 rounded-xl p-6">
                       <AuthorsList title="Authors" authors={project.authors} />
                     </div>
                   )}
 
                   {project.experiences && project.experiences.length > 0 && (
-                    <div className="flex flex-col gap-4 border border-zinc-700/40 rounded-3xl py-6">
-                      <SectionHeader
-                        className="px-6"
-                        title="Related experiences"
-                      />
+                    <div className="flex flex-col gap-6 border border-zinc-700/40 rounded-xl p-6">
+                      <SectionHeader title="Related experiences" />
                       <div className="flex flex-col">
                         {project.experiences.map((experience) => (
                           <ExperiencePreview
