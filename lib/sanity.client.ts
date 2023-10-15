@@ -1,5 +1,6 @@
 import { apiVersion, dataset, projectId, useCdn } from 'lib/sanity.api'
 import {
+  experiencesQuery,
   indexQuery,
   latestExperiencesQuery,
   latestProjectsQuery,
@@ -55,6 +56,10 @@ export async function getLatestProjects(client: SanityClient): Promise<Project[]
 
 export async function getAllProjects(client: SanityClient): Promise<Project[]> {
   return (await client.fetch(projectsQuery)) || []
+}
+
+export async function getAllExperiences(client: SanityClient): Promise<Experience[]> {
+  return (await client.fetch(experiencesQuery)) || []
 }
 
 export async function getLatestExperiences(client: SanityClient): Promise<Experience[]> {

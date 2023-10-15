@@ -69,6 +69,10 @@ export const latestExperiencesQuery = groq`* [_type == "experience"] | order(dat
   ${experienceFields}
 } `
 
+export const experiencesQuery = groq`* [_type == "experience"] | order(date desc, _updatedAt desc) {
+  ${experienceFields}
+} `
+
 export const postAndMoreStoriesQuery = groq`
 {
   "post": * [_type == "post" && slug.current == $slug] | order(_updatedAt desc)[0] {
@@ -123,6 +127,6 @@ export interface Settings {
   ogImage?: {
     title?: string
   }
-  experiences: SectionSettings
-  projects: SectionSettings
+  experiences?: SectionSettings
+  projects?: SectionSettings
 }
