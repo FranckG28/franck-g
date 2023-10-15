@@ -1,6 +1,8 @@
 import { apiVersion, dataset, projectId, useCdn } from 'lib/sanity.api'
 import {
+  experienceBySlugQuery,
   experiencesQuery,
+  experiencesSlugsQuery,
   indexQuery,
   latestExperiencesQuery,
   latestProjectsQuery,
@@ -64,6 +66,19 @@ export async function getAllExperiences(client: SanityClient): Promise<Experienc
 
 export async function getLatestExperiences(client: SanityClient): Promise<Experience[]> {
   return (await client.fetch(latestExperiencesQuery)) || []
+}
+
+export async function getExperienceBySlug(
+  client: SanityClient,
+  slug: string,
+): Promise<Experience> {
+  return (await client.fetch(experienceBySlugQuery, { slug })) || ({} as any)
+}
+
+export async function getAllExperiencesSlugs(): Promise<Pick<Experience, 'slug'>[]> {
+  const client = getClient()
+  const slugs = (await client.fetch<string[]>(experiencesSlugsQuery)) || []
+  return slugs.map((slug) => ({ slug }))
 }
 
 export async function getProjectBySlug(
