@@ -15,18 +15,23 @@ export default function NavigationBar({
         <nav
           className={classNames(
             `bg-zinc-700 border-t border-zinc-600 shadow-xl rounded-full
-          flex items-center justify-center p-1 -space-x-4`,
+          flex items-center justify-center gap-8 py-2 px-6`,
             className,
           )}
         >
           {items.map((item, index) => (
-            <Link
+            <article
+              className="group relative flex flex-col items-start"
               key={index}
-              href={item.href}
-              className="text-white text-medium text-base px-6 py-2 rounded-full hover:bg-zinc-200/20 transition-all ease-in-out"
             >
-              {item.name}
-            </Link>
+              <p className="text-zinc-100 font-medium text-base">
+                <div className="absolute -inset-x-4 -inset-y-2 z-0 scale-95 bg-zinc-400/20 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 rounded-full"></div>
+                <Link href={item.href}>
+                  <span className="absolute -inset-x-4 -inset-y-2 z-20 sm:-inset-x-6 rounded-full"></span>
+                  <span className="relative z-10">{item.name}</span>
+                </Link>
+              </p>
+            </article>
           ))}
         </nav>
       )}
