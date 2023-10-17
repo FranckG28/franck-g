@@ -29,11 +29,10 @@ export default function NavigationBar({
             >
               <p
                 className={classNames(
-                  'font-medium text-sm',
+                  'font-medium text-sm hover:text-blue-400',
                   isActive(item.href) ? 'text-blue-300' : 'text-zinc-200',
                 )}
               >
-                <div className="absolute -inset-x-4 -inset-y-2 z-0 scale-95 bg-zinc-400/5 group-active:bg-zinc-600/10 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 rounded-full"></div>
                 <Link href={item.href}>
                   <span className="absolute -inset-x-4 -inset-y-2 z-20 sm:-inset-x-6 rounded-full">
                     {isActive(item.href) && (
