@@ -29,7 +29,7 @@ export default function NavigationBar({
             >
               <p
                 className={classNames(
-                  'font-medium text-sm hover:text-blue-400',
+                  'transition font-medium text-sm hover:text-blue-300',
                   isActive(item.href) ? 'text-blue-300' : 'text-zinc-200',
                 )}
               >

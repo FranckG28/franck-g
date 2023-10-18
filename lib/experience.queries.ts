@@ -13,6 +13,7 @@ const experienceFields = groq`
   coverImage,
   "slug": slug.current,
   links,
+  content,
 `
 
 export const latestExperiencesQuery = groq`* [_type == "experience"] | order(date desc, _updatedAt desc)[0...4] {
@@ -23,8 +24,7 @@ export const experienceBySlugQuery = groq`* [_type == "experience" && slug.curre
     ${experienceFields}
   } `
 
-
-export const flattenedExperiences = groq`* [_type == "experience"] {
+export const flattenedExperiences = groq`* [_type == "experience"] | order(startDate desc) {
     ${experienceFields}
     "projects": * [_type == "project" && references(^._id)] | order(date desc, _updatedAt desc) {
       ${projectFields}
