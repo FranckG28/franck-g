@@ -1,9 +1,10 @@
 import Container from 'components/Container'
 import ExperiencePreview from 'components/experiences/ExperiencePreview'
 import Layout from 'components/Layout'
-import PostBody from 'components/shared/PostBody'
 import AuthorsList from 'components/shared/AuthorList'
+import Card from 'components/shared/Card'
 import LinkPreviewList from 'components/shared/LinkPreviewList'
+import PostBody from 'components/shared/PostBody'
 import SectionHeader from 'components/shared/SectionHeader'
 import Tag from 'components/shared/Tag'
 import useDateRangeString from 'lib/hooks/useDateRangeString'
@@ -67,22 +68,22 @@ export default function ProjectPage(props: ProjectPageProps) {
                 </div>
                 <div className="xl:basis-96 xl:pt-52 flex flex-col gap-4">
                   {project.links && project.links.length > 0 && (
-                    <div className="flex flex-col gap-6 border border-zinc-700/40 rounded-xl p-6">
+                    <Card>
                       <SectionHeader title="Links" />
                       <LinkPreviewList
                         links={project.links?.map((link) => link.url)}
                       />
-                    </div>
+                    </Card>
                   )}
 
                   {project.authors && project.authors.length > 0 && (
-                    <div className="flex flex-col gap-6 border border-zinc-700/40 rounded-xl p-6">
+                    <Card>
                       <AuthorsList title="Authors" authors={project.authors} />
-                    </div>
+                    </Card>
                   )}
 
                   {project.experiences && project.experiences.length > 0 && (
-                    <div className="flex flex-col gap-6 border border-zinc-700/40 rounded-xl p-6">
+                    <Card>
                       <SectionHeader title="Related experiences" />
                       <div className="flex flex-col">
                         {project.experiences.map((experience) => (
@@ -92,7 +93,7 @@ export default function ProjectPage(props: ProjectPageProps) {
                           />
                         ))}
                       </div>
-                    </div>
+                    </Card>
                   )}
                 </div>
               </article>

@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { Experience } from 'schemas/experience'
 
 import ExperiencePreview from './ExperiencePreview'
+import Card from 'components/shared/Card'
 
 export default function ExperiencePreviewsSection({
   experiences,
@@ -17,12 +18,7 @@ export default function ExperiencePreviewsSection({
   settings: Settings
 }) {
   return (
-    <div
-      className={classNames(
-        'flex flex-col gap-8 border border-zinc-700/40 rounded-xl p-6',
-        className,
-      )}
-    >
+    <Card className={className}>
       <SectionHeader
         title={settings.experiences.previewTitle}
         icon={
@@ -66,6 +62,6 @@ export default function ExperiencePreviewsSection({
           </svg>
         </Button>
       </Link>
-    </div>
+    </Card>
   )
 }

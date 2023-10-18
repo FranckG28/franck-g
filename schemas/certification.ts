@@ -125,4 +125,5 @@ export interface Certification {
   coverImage?: any
   date?: string
   links: Link[]
+  place?: string
 }

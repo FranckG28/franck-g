@@ -1,4 +1,4 @@
-import { groq } from "next-sanity";
+import { groq } from 'next-sanity'
 
 export const certificationsFields = groq`
     _id,
@@ -8,4 +8,11 @@ export const certificationsFields = groq`
     date,
     links,
     content,
+    "place": experience->place,
     `
+
+export const latestCertificationsQuery = groq`
+    *[_type == "certification"] | order(date desc)[0..4]{
+        ${certificationsFields}
+    }
+`

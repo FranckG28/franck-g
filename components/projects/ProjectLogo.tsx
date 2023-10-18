@@ -16,16 +16,16 @@ export default function ProjectLogo({
       className={classNames(
         `
       rounded-full shadow-lg border border-zinc-700/50 bg-zinc-800 
-      p-2 w-fit mb-4 group-hover:shadow-xl shadow-zinc-900/20
-    transition
+      p-2 mb-4 group-hover:shadow-xl shadow-zinc-900/20
+    transition h-16 w-16 
       `,
         className,
       )}
     >
-      {coverImage ? (
+      {coverImage && (
         <Image
           className="
-              h-14 w-14 rounded-full aspect-square
+              rounded-full aspect-square
               transition group-hover:scale-110
               brightness-90 group-hover:brightness-110
             "
@@ -35,8 +35,6 @@ export default function ProjectLogo({
           src={urlForImage(coverImage).height(200).width(200).url()}
           sizes="200px"
         />
-      ) : (
-        <div className="h-14 w-14 rounded-full bg-zinc-400"></div>
       )}
     </div>
   )

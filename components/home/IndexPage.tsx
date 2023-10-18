@@ -1,9 +1,11 @@
+import CertificationsPreviewSection from 'components/certifications/CertificationsPreviewSection'
 import Container from 'components/Container'
 import ExperiencePreviewsSection from 'components/experiences/ExperiencePreviewsSection'
 import IndexHeader from 'components/home/IndexHeader'
 import Layout from 'components/Layout'
 import * as demo from 'lib/demo.data'
 import type { Settings } from 'lib/sanity.queries'
+import { Certification } from 'schemas/certification'
 import { Experience } from 'schemas/experience'
 import { Project } from 'schemas/project'
 
@@ -16,17 +18,13 @@ export interface IndexPageProps {
   settings: Settings
   projects: Project[]
   experiences: Experience[]
+  certifications: Certification[]
 }
 
 export default function IndexPage(props: IndexPageProps) {
-  const { preview, loading, settings, projects, experiences } = props
-  // const [heroPost, ...morePosts] = posts || []
-  const {
-    title = demo.title,
-    description = demo.description,
-    location = demo.location,
-    logo,
-  } = settings || {}
+  const { preview, loading, settings, projects, experiences, certifications } =
+    props
+  const { title = demo.title, location = demo.location, logo } = settings || {}
 
   return (
     <>
@@ -41,28 +39,28 @@ export default function IndexPage(props: IndexPageProps) {
             logo={logo}
           />
           <div className="flex gap-16 max-xl:flex-col xl:items-start pt-12">
-            <ProjectPreviewsSection
-              projects={projects}
-              className="xl:flex-1"
-              settings={settings}
-            />
-            <ExperiencePreviewsSection
-              settings={settings}
-              experiences={experiences}
-              className="xl:basis-96"
-            />
+            {projects?.length > 0 && (
+              <ProjectPreviewsSection
+                projects={projects}
+                className="xl:flex-1"
+                settings={settings}
+              />
+            )}
+            <div className="flex flex-col gap-8 xl:basis-96">
+              {experiences?.length > 0 && (
+                <ExperiencePreviewsSection
+                  settings={settings}
+                  experiences={experiences}
+                />
+              )}
+              {certifications?.length > 0 && (
+                <CertificationsPreviewSection
+                  settings={settings}
+                  certifications={certifications}
+                />
+              )}
+            </div>
           </div>
-          {/* {heroPost && (
-            <HeroPost
-              title={heroPost.title}
-              coverImage={heroPost.coverImage}
-              date={heroPost.date}
-              author={heroPost.author}
-              slug={heroPost.slug}
-              excerpt={heroPost.excerpt}
-            />
-          )}
-          {morePosts.length > 0 && <MoreStories posts={morePosts} />} */}
         </Container>
       </Layout>
     </>
