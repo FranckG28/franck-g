@@ -1,6 +1,6 @@
 import { groq } from 'next-sanity'
 
-const projectFields = groq`
+export const projectFields = groq`
   _id,
   title,
   _updatedAt,

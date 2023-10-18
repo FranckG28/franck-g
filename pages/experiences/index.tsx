@@ -1,14 +1,14 @@
 import ExperiencesPage from 'components/experiences/ExperiencesPage'
-import { getAllExperiences } from 'lib/experience.client'
+import { getFlattenedExperiences } from 'lib/experience.client'
+import { FlattenedExperience } from 'lib/models/flattened-experience'
 import { readToken } from 'lib/sanity.api'
 import { getClient, getSettings } from 'lib/sanity.client'
 import { Settings } from 'lib/sanity.queries'
 import { GetStaticProps } from 'next'
 import { SharedPageProps } from 'pages/_app'
-import { Experience } from 'schemas/experience'
 
 interface PageProps extends SharedPageProps {
-  experiences: Experience[]
+  experiences: FlattenedExperience[]
   settings: Settings
 }
 
@@ -23,7 +23,7 @@ export const getStaticProps: GetStaticProps<PageProps> = async (ctx) => {
   const client = getClient(draftMode ? { token: readToken } : undefined)
 
   const [experiences, settings] = await Promise.all([
-    getAllExperiences(client),
+    getFlattenedExperiences(client),
     getSettings(client),
   ])
 
