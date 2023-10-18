@@ -9,6 +9,5 @@ export async function getLatestExperiences(client: SanityClient): Promise<Experi
 }
 
 export async function getFlattenedExperiences(client: SanityClient): Promise<FlattenedExperience[]> {
-    console.log(flattenedExperiences);
     return (await client.fetch(flattenedExperiences)) || []
 }

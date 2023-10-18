@@ -4,6 +4,8 @@ import Layout from 'components/Layout'
 import { FlattenedExperience } from 'lib/models/flattened-experience'
 import { Settings } from 'lib/sanity.queries'
 
+import ExperienceSection from './ExperienceSection'
+
 export default function ExperiencesPage({
   experiences,
   settings,
@@ -18,7 +20,13 @@ export default function ExperiencesPage({
       )
     }
 
-    return <div className="grid gap-8 lg:grid-cols-2"></div>
+    return (
+      <div className="flex flex-col gap-16 mt-8">
+        {experiences.map((experience, index) => {
+          return <ExperienceSection key={index} experience={experience} />
+        })}
+      </div>
+    )
   }
 
   return (
@@ -36,17 +44,8 @@ export default function ExperiencesPage({
               'A collection of my experiences.'}
           </p>
           {getContent()}
-          {JSON.stringify(experiences)}
         </Container>
       </Layout>
     </>
   )
-}
-
-function ExperienceSection({
-  experience,
-}: {
-  experience: FlattenedExperience
-}) {
-  return <></>
 }

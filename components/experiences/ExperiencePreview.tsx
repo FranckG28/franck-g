@@ -1,7 +1,6 @@
 import useDateRangeString from 'lib/hooks/useDateRangeString'
 import { urlForImage } from 'lib/sanity.image'
 import Image from 'next/image'
-import Link from 'next/link'
 import { Experience } from 'schemas/experience'
 
 export default function ExperiencePreview({
@@ -33,7 +32,7 @@ export default function ExperiencePreview({
             sizes="100px"
           />
         ) : (
-          <div className="h-14 w-14 rounded-full bg-zinc-400"></div>
+          <div className="h-10 w-10 rounded-full bg-zinc-400"></div>
         )}
       </div>
       <div className="flex flex-col flex-1">
