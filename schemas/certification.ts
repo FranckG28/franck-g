@@ -2,6 +2,8 @@ import { DocumentPdfIcon } from '@sanity/icons'
 import { format, parseISO } from 'date-fns'
 import { defineField, defineType } from 'sanity'
 
+import { Link } from './link'
+
 export default defineType({
   name: 'certification',
   title: 'Certifications',
@@ -115,3 +117,12 @@ export default defineType({
     },
   },
 })
+
+export interface Certification {
+  title?: string
+  slug?: string
+  content?: any
+  coverImage?: any
+  date?: string
+  links: Link[]
+}

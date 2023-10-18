@@ -1,16 +1,14 @@
 import Container from 'components/Container'
 import IndexPageHead from 'components/home/IndexPageHead'
 import Layout from 'components/Layout'
+import { FlattenedExperience } from 'lib/models/flattened-experience'
 import { Settings } from 'lib/sanity.queries'
-import { Experience } from 'schemas/experience'
-
-import ExperiencePreview from './ExperiencePreview'
 
 export default function ExperiencesPage({
   experiences,
   settings,
 }: {
-  experiences: Experience[]
+  experiences: FlattenedExperience[]
   settings: Settings
 }) {
   const getContent = () => {
@@ -20,13 +18,7 @@ export default function ExperiencesPage({
       )
     }
 
-    return (
-      <div className="grid gap-8 lg:grid-cols-2">
-        {experiences.map((exp, index) => (
-          <ExperiencePreview key={index} experience={exp} />
-        ))}
-      </div>
-    )
+    return <div className="grid gap-8 lg:grid-cols-2"></div>
   }
 
   return (
@@ -44,8 +36,17 @@ export default function ExperiencesPage({
               'A collection of my experiences.'}
           </p>
           {getContent()}
+          {JSON.stringify(experiences)}
         </Container>
       </Layout>
     </>
   )
+}
+
+function ExperienceSection({
+  experience,
+}: {
+  experience: FlattenedExperience
+}) {
+  return <></>
 }
