@@ -41,3 +41,10 @@ export default defineType({
     })
   ],
 })
+
+export interface Author {
+  name?: string
+  picture?: any
+  link?: string
+  bio?: any[]
+}

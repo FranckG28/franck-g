@@ -1,9 +1,9 @@
 import { urlForImage } from 'lib/sanity.image'
-import type { Author } from 'lib/sanity.queries'
 import Image from 'next/image'
+import { Author } from 'schemas/author'
 
 export default function AuthorAvatar(props: Author) {
-  const { name, picture } = props
+  const { name, picture, link } = props
   return (
     <div className="flex items-center">
       <div className="relative mr-4 h-12 w-12">

@@ -1,8 +1,10 @@
 import IndexPage, { type IndexPageProps } from 'components/home/IndexPage'
+import { latestCertificationsQuery } from 'lib/certifications.queries'
 import { latestExperiencesQuery } from 'lib/experience.queries'
 import { latestProjectsQuery } from 'lib/project.queries'
 import { type Settings, settingsQuery } from 'lib/sanity.queries'
 import { useLiveQuery } from 'next-sanity/preview'
+import { Certification } from 'schemas/certification'
 import { Experience } from 'schemas/experience'
 import { Project } from 'schemas/project'
 
@@ -21,6 +23,11 @@ export default function PreviewIndexPage(props: IndexPageProps) {
     latestExperiencesQuery,
   )
 
+  const [certifications, loadingCertifications] = useLiveQuery<Certification[]>(
+    props.certifications,
+    latestCertificationsQuery,
+  )
+
   return (
     <IndexPage
       preview
@@ -28,6 +35,7 @@ export default function PreviewIndexPage(props: IndexPageProps) {
       projects={projects || []}
       settings={settings || {}}
       experiences={experiences || []}
+      certifications={certifications || []}
     />
   )
 }

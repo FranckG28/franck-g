@@ -1,4 +1,5 @@
 import { groq } from 'next-sanity'
+import { Author } from 'schemas/author'
 import { SectionSettings } from 'schemas/settings/section-settings'
 
 const postFields = groq`
@@ -40,11 +41,6 @@ export const postBySlugQuery = groq`
   ${postFields}
 }
 `
-
-export interface Author {
-  name?: string
-  picture?: any
-}
 
 export interface SanityEntityProps {
   _id?: string
