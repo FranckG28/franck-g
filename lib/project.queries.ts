@@ -12,7 +12,7 @@ export const projectFields = groq`
   category,
   startDate,
   endDate,
-  authors[]->{name, picture},
+  authors[]->{name, picture, link},
   content,
   experiences[]->{place, role, startDate, endDate, coverImage, "slug": slug.current, links},
 `

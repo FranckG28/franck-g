@@ -1,4 +1,4 @@
-import { Author } from 'lib/sanity.queries'
+import { Author } from 'schemas/author'
 
 import AuthorAvatar from './AuthorAvatar'
 import SectionHeader from './SectionHeader'
@@ -21,6 +21,7 @@ export default function AuthorsList({
                 key={index}
                 name={author.name}
                 picture={author.picture}
+                link={author.link}
               />
             ))}
           </div>
