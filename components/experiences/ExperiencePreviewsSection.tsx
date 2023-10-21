@@ -1,12 +1,12 @@
 import classNames from 'classnames'
 import Button from 'components/shared/Button'
+import Card from 'components/shared/Card'
 import SectionHeader from 'components/shared/SectionHeader'
 import { Settings } from 'lib/sanity.queries'
 import Link from 'next/link'
 import { Experience } from 'schemas/experience'
 
 import ExperiencePreview from './ExperiencePreview'
-import Card from 'components/shared/Card'
 
 export default function ExperiencePreviewsSection({
   experiences,

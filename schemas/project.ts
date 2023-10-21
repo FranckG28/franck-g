@@ -1,8 +1,9 @@
 import { CodeIcon } from '@sanity/icons'
 import { format, parseISO } from 'date-fns'
-import { Author, SanityEntityProps } from 'lib/sanity.queries'
+import { SanityEntityProps } from 'lib/sanity.queries'
 import { defineField, defineType } from 'sanity'
 
+import { Author } from './author'
 import { Experience } from './experience'
 import { Link, linkSchema } from './link'
 
@@ -101,9 +102,7 @@ export default defineType({
       name: 'links',
       title: 'Links',
       type: 'array',
-      of: [
-        linkSchema
-      ],
+      of: [linkSchema],
     }),
     defineField({
       name: 'category',
@@ -116,7 +115,7 @@ export default defineType({
       title: 'Related experiences',
       type: 'array',
       of: [{ type: 'reference', to: [{ type: 'experience' }] }],
-    })
+    }),
   ],
   preview: {
     select: {
@@ -135,16 +134,16 @@ export default defineType({
 })
 
 export interface Project extends SanityEntityProps {
-  title: string,
-  excerpt: string,
-  slug: string,
-  content?: any,
-  coverImage?: any,
-  startDate?: string,
-  endDate?: string,
-  authors?: Author[],
-  tags?: string[],
-  links?: Link[],
-  category?: string,
-  experiences?: Experience[],
+  title: string
+  excerpt: string
+  slug: string
+  content?: any
+  coverImage?: any
+  startDate?: string
+  endDate?: string
+  authors?: Author[]
+  tags?: string[]
+  links?: Link[]
+  category?: string
+  experiences?: Experience[]
 }

@@ -1,19 +1,17 @@
-@import "tailwindcss/components";
+@import 'tailwindcss/components';
 
-:root { 
-    font-family: 'Inter', sans-serif; 
+:root {
+  font-family: 'Inter', sans-serif;
 }
 
 @supports (font-variation-settings: normal) {
-  :root { 
-    font-family: 'Inter var', sans-serif; 
-    }
+  :root {
+    font-family: 'Inter var', sans-serif;
+  }
 }
 
 @layer components {
-
-    h1 {
-        @apply text-4xl font-bold tracking-tight md:text-6xl;
-    }
-
+  h1 {
+    @apply text-4xl font-bold tracking-tight md:text-6xl;
+  }
 }

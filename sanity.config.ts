@@ -22,8 +22,7 @@ import experienceType from 'schemas/experience'
 import projectType from 'schemas/project'
 import settingsType from 'schemas/settings'
 
-const title =
-  process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || 'Tech portfolio'
+const title = process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || 'Tech portfolio'
 
 export default defineConfig({
   basePath: '/studio',
@@ -37,7 +36,7 @@ export default defineConfig({
       settingsType,
       projectType,
       experienceType,
-      certificationType
+      certificationType,
     ],
   },
   plugins: [
