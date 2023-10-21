@@ -60,10 +60,7 @@ export default function ExperienceSection({
             <ExperienceContent content={experience.content} />
           )}
           {experience.links && experience.links.length > 0 && (
-            <LinkPreviewList
-              links={experience.links.map((link) => link.url)}
-              className="mt-4"
-            />
+            <LinkPreviewList links={experience.links} className="mt-4" />
           )}
         </div>
 

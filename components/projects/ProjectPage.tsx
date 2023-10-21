@@ -71,7 +71,8 @@ export default function ProjectPage(props: ProjectPageProps) {
                     <Card>
                       <SectionHeader title="Links" />
                       <LinkPreviewList
-                        links={project.links?.map((link) => link.url)}
+                        links={project.links}
+                        className="flex-col"
                       />
                     </Card>
                   )}

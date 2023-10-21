@@ -7,7 +7,6 @@ export const linkSchema = {
             name: 'title',
             title: 'Title',
             type: 'string',
-            validation: (rule) => rule.required(),
         }),
         defineField({
             name: 'url',
@@ -16,6 +15,17 @@ export const linkSchema = {
             validation: (rule) => rule.required(),
         }),
     ],
+    preview: {
+        select: {
+            title: 'title',
+            url: 'url',
+        },
+        prepare({ title, url }) {
+            return {
+                title: title ?? url
+            }
+        },
+    },
 };
 
 export interface Link {

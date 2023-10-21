@@ -2,7 +2,15 @@ import Link from 'next/link'
 
 const cleanLinkRegex = /^(?:https?:\/\/)?(?:www\.)?([^\/]+)/i
 
-export default function LinkPreview({ href }: { href: string }) {
+export default function LinkPreview({
+  href,
+  title,
+}: {
+  href: string
+  title: string
+}) {
+  const linkName = href.match(cleanLinkRegex)[1]
+
   return (
     <Link
       href={href}
@@ -24,7 +32,10 @@ export default function LinkPreview({ href }: { href: string }) {
         />
       </svg>
 
-      {href.match(cleanLinkRegex)[1]}
+      <p className="flex flex-col leading-none">
+        {title && <span className="text-xs">{title}</span>}
+        {<span className="font-medium">{linkName}</span>}
+      </p>
     </Link>
   )
 }
