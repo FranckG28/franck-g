@@ -61,7 +61,7 @@ export default function IndexHeader({
           )}
 
           {settings?.socialLinks?.length > 0 && (
-            <SocialLinks socialLinks={settings.socialLinks} />
+            <SocialLinks socialLinks={settings.socialLinks} className="mt-4" />
           )}
         </section>
       )

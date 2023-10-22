@@ -1,3 +1,4 @@
+import classNames from 'classnames'
 import { SocialLink } from 'lib/models/social-link'
 import Link from 'next/link'
 
@@ -5,11 +6,13 @@ import DynamicIcon from './DynamicIcon'
 
 export default function SocialLinks({
   socialLinks,
+  className,
 }: {
   socialLinks: SocialLink[]
+  className?: string
 }) {
   return (
-    <div className="flex gap-6 flex-wrap">
+    <div className={classNames('flex gap-6 flex-wrap', className)}>
       {socialLinks.map((socialLink, index) => {
         return (
           <Link
