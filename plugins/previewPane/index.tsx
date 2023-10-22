@@ -14,12 +14,11 @@ import {
 import authorType from 'schemas/author'
 import projectType from 'schemas/project'
 
-// import postType from 'schemas/post'
 import AuthorAvatarPreviewPane from './AuthorAvatarPreviewPane'
 
 const urlResolver = defineUrlResolver({
   base: DRAFT_MODE_ROUTE,
-  requiresSlug: [projectType.name], //[postType.name],
+  requiresSlug: [projectType.name],
 })
 const iframeOptions = {
   url: urlResolver,
@@ -49,11 +48,6 @@ export const previewDocumentNode = (): DefaultDocumentNodeResolver => {
           S.view.component(Iframe).options(iframeOptions).title('Preview'),
         ])
 
-      // case postType.name:
-      //   return S.document().views([
-      //     S.view.form(),
-      //     S.view.component(Iframe).options(iframeOptions).title('Preview'),
-      //   ])
       default:
         return null
     }

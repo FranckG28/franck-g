@@ -31,7 +31,12 @@ export default function PreviewIndexPage(props: IndexPageProps) {
   return (
     <IndexPage
       preview
-      loading={loadingProjects || loadingSettings}
+      loading={
+        loadingProjects ||
+        loadingSettings ||
+        loadingExperiences ||
+        loadingCertifications
+      }
       projects={projects || []}
       settings={settings || {}}
       experiences={experiences || []}
