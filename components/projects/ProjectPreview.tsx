@@ -25,7 +25,7 @@ export default function ProjectPreview(props: ProjectPreviewProps) {
       </p>
 
       <h2 className="text-xl tracking-tight font-medium leading-tight mt-1 mb-2">
-        <div className="absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-zinc-600/20 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 sm:rounded-2xl"></div>
+        <div className="absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-zinc-600/20 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 rounded-2xl"></div>
         <Link href={`/projects/${project.slug}`}>
           <span className="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl"></span>
           <span className="relative z-10">{project.title}</span>
