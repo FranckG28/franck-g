@@ -126,7 +126,7 @@ export default defineType({
     defineField({
       name: 'photoShowcase',
       title: 'Photo showcase',
-      description: 'Photos that are showcased on your home page. You can select up to 5 photos',
+      description: 'Photos that are showcased on your home page. You can select up to 6 photos',
       type: 'array',
       of: [
         defineArrayMember({
@@ -134,7 +134,7 @@ export default defineType({
           to: [{ type: 'photo' }],
         }),
       ],
-      validation: (rule) => rule.max(5),
+      validation: (rule) => rule.max(6),
     }),
     defineField({
       name: 'ogImage',
