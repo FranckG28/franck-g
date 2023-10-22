@@ -2,6 +2,8 @@ import { groq } from 'next-sanity'
 import { Author } from 'schemas/author'
 import { SectionSettings } from 'schemas/settings/section-settings'
 
+import { SocialLink } from './models/social-link'
+
 const postFields = groq`
   _id,
   title,
@@ -72,4 +74,5 @@ export interface Settings {
   experiences?: SectionSettings
   projects?: SectionSettings
   footer?: string
+  socialLinks: SocialLink[]
 }

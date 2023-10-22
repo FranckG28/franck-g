@@ -1,50 +1,60 @@
 import classNames from 'classnames'
+import SocialLinks from 'components/shared/SocialLinks'
 import { urlForImage } from 'lib/sanity.image'
+import { Settings } from 'lib/sanity.queries'
 import Image from 'next/image'
 import Link from 'next/link'
 
 export default function IndexHeader({
-  title,
-  location,
+  settings,
   level,
-  logo,
 }: {
-  title: string
-  location?: string
+  settings: Settings
   level: 1 | 2
-  logo: any
 }) {
   switch (level) {
     case 1:
       return (
         <section className="flex flex-col gap-6 items-start">
-          {logo && <WebsiteLogo logo={logo} title={title} size={100} />}
-          <h1>{title}</h1>
+          {settings.logo && (
+            <WebsiteLogo
+              logo={settings.logo}
+              title={settings.title}
+              size={100}
+            />
+          )}
+          <h1>{settings.title}</h1>
 
-          <h4
-            className={`flex gap-2 items-center text-zinc-400 text-lg md:text-left`}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-6 h-6"
+          {settings.location && (
+            <h4
+              className={`flex gap-2 items-center text-zinc-400 text-lg md:text-left`}
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"
-              />
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
-              />
-            </svg>
-            {location}
-          </h4>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"
+                />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
+                />
+              </svg>
+              {settings.location}
+            </h4>
+          )}
+
+          {settings?.socialLinks?.length > 0 && (
+            <SocialLinks socialLinks={settings.socialLinks} />
+          )}
         </section>
       )
 
@@ -52,7 +62,11 @@ export default function IndexHeader({
       return (
         <div className="p-0.5 rounded-full h-fit w-fit bg-zinc-800/20 shadow-lg shadow-zinc-800/5 ring-1 ring-white/10 backdrop-blur">
           <Link href={'/'}>
-            <WebsiteLogo logo={logo} title={title} size={40} />
+            <WebsiteLogo
+              logo={settings.logo}
+              title={settings.title}
+              size={40}
+            />
           </Link>
         </div>
       )

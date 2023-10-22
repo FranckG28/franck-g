@@ -3,7 +3,6 @@ import Container from 'components/Container'
 import ExperiencePreviewsSection from 'components/experiences/ExperiencePreviewsSection'
 import IndexHeader from 'components/home/IndexHeader'
 import Layout from 'components/Layout'
-import * as demo from 'lib/demo.data'
 import type { Settings } from 'lib/sanity.queries'
 import { Certification } from 'schemas/certification'
 import { Experience } from 'schemas/experience'
@@ -24,7 +23,6 @@ export interface IndexPageProps {
 export default function IndexPage(props: IndexPageProps) {
   const { preview, loading, settings, projects, experiences, certifications } =
     props
-  const { title = demo.title, location = demo.location, logo } = settings || {}
 
   return (
     <>
@@ -32,12 +30,8 @@ export default function IndexPage(props: IndexPageProps) {
 
       <Layout preview={preview} loading={loading} settings={settings}>
         <Container>
-          <IndexHeader
-            title={title}
-            location={location}
-            level={1}
-            logo={logo}
-          />
+          <IndexHeader settings={settings} level={1} />
+
           <div className="flex gap-16 max-xl:flex-col xl:items-start pt-12">
             {projects?.length > 0 && (
               <ProjectPreviewsSection

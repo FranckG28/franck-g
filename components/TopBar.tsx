@@ -16,11 +16,7 @@ export default function TopBar({ settings }: { settings: Settings }) {
 
         {!isActive('/') && (
           <div className="absolute top-6 z-40">
-            <IndexHeader
-              title={settings.title}
-              level={2}
-              logo={settings.logo}
-            ></IndexHeader>
+            <IndexHeader settings={settings} level={2}></IndexHeader>
           </div>
         )}
         <NavigationBar
