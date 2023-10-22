@@ -13,12 +13,7 @@ export default function LinkPreviewList({
   return (
     <>
       {links && links?.length > 0 && (
-        <div
-          className={classNames(
-            'flex flex-row gap-8 mt-3 flex-wrap',
-            className,
-          )}
-        >
+        <div className={classNames('flex flex-row gap-8 flex-wrap', className)}>
           {links?.map((link, index) => (
             <LinkPreview key={index} href={link.url} title={link.title} />
           ))}

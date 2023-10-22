@@ -9,7 +9,7 @@ export default function SocialLinks({
   socialLinks: SocialLink[]
 }) {
   return (
-    <div className="flex gap-4 flex-wrap">
+    <div className="flex gap-6 flex-wrap">
       {socialLinks.map((socialLink, index) => {
         return (
           <Link
@@ -19,7 +19,7 @@ export default function SocialLinks({
             aria-label={socialLink.name}
             target="_blank"
           >
-            <DynamicIcon icon={socialLink.icon} className="w-6 h-6" />
+            <DynamicIcon icon={socialLink.icon} className="w-5 h-5" />
           </Link>
         )
       })}
