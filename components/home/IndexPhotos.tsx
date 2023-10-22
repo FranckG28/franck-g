@@ -19,7 +19,7 @@ export default function IndexPhotos({
   )
 }
 
-const rotations = ['rotate-2', 'rotate-4', '-rotate-2', '-rotate-4']
+const rotations = ['rotate-2 hover:rotate-1', '-rotate-2 hover:-rotate-1']
 
 function getRandomRotation(): string {
   return rotations[Math.floor(Math.random() * rotations.length)]
