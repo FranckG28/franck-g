@@ -20,6 +20,7 @@ import { previewUrl } from 'sanity-plugin-iframe-pane/preview-url'
 import authorType from 'schemas/author'
 import certificationType from 'schemas/certification'
 import experienceType from 'schemas/experience'
+import photoType from 'schemas/photo'
 import projectType from 'schemas/project'
 import settingsType from 'schemas/settings'
 
@@ -38,6 +39,7 @@ export default defineConfig({
       projectType,
       experienceType,
       certificationType,
+      photoType
     ],
   },
   plugins: [
