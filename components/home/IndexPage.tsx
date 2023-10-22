@@ -10,6 +10,7 @@ import { Project } from 'schemas/project'
 
 import ProjectPreviewsSection from '../projects/ProjectPreviewsSection'
 import IndexPageHead from './IndexPageHead'
+import IndexPhotos from './IndexPhotos'
 
 export interface IndexPageProps {
   preview?: boolean
@@ -31,6 +32,13 @@ export default function IndexPage(props: IndexPageProps) {
       <Layout preview={preview} loading={loading} settings={settings}>
         <Container>
           <IndexHeader settings={settings} level={1} />
+
+          {settings.photoShowcase?.length > 0 && (
+            <IndexPhotos
+              photos={settings.photoShowcase}
+              className="mt-12 mb-4"
+            />
+          )}
 
           <div className="flex gap-16 max-xl:flex-col xl:items-start pt-12">
             {projects?.length > 0 && (
