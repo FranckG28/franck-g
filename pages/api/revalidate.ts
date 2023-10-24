@@ -9,7 +9,7 @@
  * 3. Set the URL to https://YOUR_NEXTJS_SITE_URL/api/revalidate
  * 4. Dataset: Choose desired dataset or leave at default "all datasets"
  * 5. Trigger on: "Create", "Update", and "Delete"
- * 6. Filter: _type == "post" || _type == "author" || _type == "settings"
+ * 6. Filter: _type == "project" || _type == "author" || _type == "settings" || _type == "experience" || _type == "photo" || _type == "certification"
  * 7. Projection: Leave empty
  * 8. Status: Enable webhook
  * 9. HTTP method: POST

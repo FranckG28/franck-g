@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react'
 import classNames from 'classnames'
 import AlertBanner from 'components/shared/AlertBanner'
 import TopBar from 'components/TopBar'
@@ -34,6 +35,7 @@ export default function Layout({
         )}
       >
         {children}
+        <Analytics />
       </main>
       <footer>
         <div className="mt-12 flex justify-center sm:px-8">
