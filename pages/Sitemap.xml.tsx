@@ -1,4 +1,5 @@
-import { getAllPosts, getClient } from 'lib/sanity.client'
+import { getAllProjects } from 'lib/project.client'
+import { getClient } from 'lib/sanity.client'
 
 type SitemapLocation = {
   url: string
@@ -22,8 +23,8 @@ const defaultUrls: SitemapLocation[] = [
     priority: 1,
     lastmod: new Date(), // or custom date: '2023-06-12T00:00:00.000Z',
   },
-  //   { url: '/about', priority: 0.5 },
-  //   { url: '/blog', changefreq: 'weekly', priority: 0.7 },
+  { url: '/projects', priority: 0.7, changefreq: 'weekly' },
+  { url: '/experiences', priority: 0.5 },
 ]
 
 const createSitemap = (locations: SitemapLocation[]) => {
@@ -54,13 +55,13 @@ export default function SiteMap() {
 export async function getServerSideProps({ res }) {
   const client = getClient()
 
-  // Get list of Post urls
-  const [posts = []] = await Promise.all([getAllPosts(client)])
-  const postUrls: SitemapLocation[] = posts
+  // Get list of Projects urls
+  const [projects = []] = await Promise.all([getAllProjects(client)])
+  const postUrls: SitemapLocation[] = projects
     .filter(({ slug = '' }) => slug)
     .map((post) => {
       return {
-        url: `/posts/${post.slug}`,
+        url: `/projects/${post.slug}`,
         priority: 0.5,
         lastmod: new Date(post._updatedAt),
       }

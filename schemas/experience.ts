@@ -88,9 +88,7 @@ export default defineType({
       name: 'links',
       title: 'Links',
       type: 'array',
-      of: [
-        linkSchema
-      ],
+      of: [linkSchema],
     }),
   ],
   preview: {
@@ -110,7 +108,7 @@ export default defineType({
       return {
         title: `${role} @ ${place}`,
         media,
-        subtitle: subtitles.join(' ')
+        subtitle: subtitles.join(' '),
       }
     },
   },

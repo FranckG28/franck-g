@@ -38,6 +38,13 @@ export default defineType({
       name: 'link',
       title: 'Link',
       type: 'url',
-    })
+    }),
   ],
 })
+
+export interface Author {
+  name?: string
+  picture?: any
+  link?: string
+  bio?: any[]
+}

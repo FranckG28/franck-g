@@ -58,20 +58,23 @@ export default function ProjectPage(props: ProjectPageProps) {
 
                   <h1>{project.title}</h1>
 
-                  <PostBody content={project.content} />
+                  {project.content && <PostBody content={project.content} />}
 
-                  <div className="flex flex-row gap-2 mt-4 flex-wrap">
-                    {project.tags.map((tag, index) => (
-                      <Tag key={index} tag={tag} />
-                    ))}
-                  </div>
+                  {project.tags && project.tags.length > 0 && (
+                    <div className="flex flex-row gap-2 mt-4 flex-wrap">
+                      {project.tags.map((tag, index) => (
+                        <Tag key={index} tag={tag} />
+                      ))}
+                    </div>
+                  )}
                 </div>
                 <div className="xl:basis-96 xl:pt-52 flex flex-col gap-4">
                   {project.links && project.links.length > 0 && (
                     <Card>
                       <SectionHeader title="Links" />
                       <LinkPreviewList
-                        links={project.links?.map((link) => link.url)}
+                        links={project.links}
+                        className="flex-col"
                       />
                     </Card>
                   )}

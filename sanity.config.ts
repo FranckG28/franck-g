@@ -15,15 +15,16 @@ import { settingsPlugin, settingsStructure } from 'plugins/settings'
 import { defineConfig } from 'sanity'
 import { deskTool } from 'sanity/desk'
 import { unsplashImageAsset } from 'sanity-plugin-asset-source-unsplash'
+import { iconPicker } from 'sanity-plugin-icon-picker'
 import { previewUrl } from 'sanity-plugin-iframe-pane/preview-url'
 import authorType from 'schemas/author'
 import certificationType from 'schemas/certification'
 import experienceType from 'schemas/experience'
+import photoType from 'schemas/photo'
 import projectType from 'schemas/project'
 import settingsType from 'schemas/settings'
 
-const title =
-  process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || 'Tech portfolio'
+const title = process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || 'Tech portfolio'
 
 export default defineConfig({
   basePath: '/studio',
@@ -37,7 +38,8 @@ export default defineConfig({
       settingsType,
       projectType,
       experienceType,
-      certificationType
+      certificationType,
+      photoType
     ],
   },
   plugins: [
@@ -59,5 +61,6 @@ export default defineConfig({
     // Vision lets you query your content with GROQ in the studio
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({ defaultApiVersion: apiVersion }),
+    iconPicker(),
   ],
 })

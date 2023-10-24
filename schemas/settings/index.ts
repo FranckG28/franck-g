@@ -1,6 +1,8 @@
 import { CogIcon } from '@sanity/icons'
 import * as demo from 'lib/demo.data'
 import { defineArrayMember, defineField, defineType } from 'sanity'
+import { preview } from 'sanity-plugin-icon-picker'
+import { iconPickerOptions } from 'schemas/iconPicker'
 
 import OpenGraphInput from './OpenGraphInput'
 import { sectionSettingsFields } from './section-settings'
@@ -69,6 +71,70 @@ export default defineType({
         }),
       ],
       validation: (rule) => rule.max(155).required(),
+    }),
+    defineField({
+      'name': 'socialLinks',
+      'title': 'Social links',
+      'type': 'array',
+      'of': [
+        defineArrayMember({
+          'type': 'object',
+          'fields': [
+            defineField({
+              'name': 'name',
+              'title': 'Name',
+              'type': 'string',
+              validation: (Rule) => Rule.required(),
+            }),
+            defineField({
+              'name': 'url',
+              'title': 'URL',
+              'type': 'url',
+              validation: (Rule) => [
+                Rule.required(),
+                Rule.uri({
+                  allowRelative: true,
+                  scheme: ['http', 'https', 'mailto', 'tel'],
+                })
+              ],
+            }),
+            defineField({
+              'name': 'icon',
+              'title': 'Icon',
+              'type': 'iconPicker',
+              'options': iconPickerOptions
+            }),
+          ],
+          preview: {
+            select: {
+              provider: 'icon.provider',
+              name: 'icon.name',
+              title: 'name',
+              subtitle: 'url',
+            },
+            prepare({ provider, name, title, subtitle }) {
+              return {
+                title,
+                subtitle,
+                media: preview({ provider, name, options: {} })
+              }
+            }
+          },
+        }),
+      ],
+    }),
+    defineField({
+      name: 'photoShowcase',
+      title: 'Photo showcase',
+      description: 'Photos that are showcased on your home page. You can select up to 6 photos',
+      type: 'array',
+      of: [
+        defineArrayMember({
+          type: 'reference',
+          to: [{ type: 'photo' }],
+        }),
+      ],
+      validation: (rule) => rule.max(6),
     }),
     defineField({
       name: 'ogImage',

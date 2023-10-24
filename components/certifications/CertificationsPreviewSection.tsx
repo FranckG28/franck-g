@@ -1,9 +1,9 @@
 import Card from 'components/shared/Card'
 import SectionHeader from 'components/shared/SectionHeader'
+import { Settings } from 'lib/sanity.queries'
 import { Certification } from 'schemas/certification'
 
 import CertificationPreview from './CertificationPreview'
-import { Settings } from 'lib/sanity.queries'
 
 export default function CertificationsPreviewSection({
   certifications,
