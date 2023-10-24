@@ -17,7 +17,7 @@ export const projectFields = groq`
   experiences[]->{place, role, startDate, endDate, coverImage, "slug": slug.current, links},
 `
 
-export const latestProjectsQuery = groq`*[_type == "project"] | order(date desc, _updatedAt desc) [0...4] {
+export const latestProjectsQuery = groq`*[_type == "project"] | order(startDate desc, _updatedAt desc) [0...4] {
     ${projectFields}
   }`
 
