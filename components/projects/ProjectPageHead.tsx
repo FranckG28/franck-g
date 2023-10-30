@@ -14,8 +14,10 @@ export default function ProjectPageHead({
   settings,
   project,
 }: ProjectPageHeadProps) {
-  const title = project.title ?? demo.title
-  const displayedTitle = project.title ? `${project.title} | ${title}` : title
+  const websiteTitle = settings.title ?? demo.title
+  const displayedTitle = project.title
+    ? `${project.title} | ${websiteTitle}`
+    : websiteTitle
   return (
     <>
       <Head>
@@ -40,7 +42,7 @@ export default function ProjectPageHead({
           content={`${
             process.env.VERCEL_URL ? 'https://' + process.env.VERCEL_URL : ''
           }/api/og?${new URLSearchParams({
-            title,
+            title: websiteTitle,
             subtitle: settings.projects.title,
             siteName: settings.title,
           })}`}
