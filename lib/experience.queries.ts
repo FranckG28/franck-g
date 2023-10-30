@@ -26,7 +26,7 @@ export const experienceBySlugQuery = groq`* [_type == "experience" && slug.curre
 
 export const flattenedExperiencesQuery = groq`* [_type == "experience"] | order(startDate desc) {
     ${experienceFields}
-    "projects": * [_type == "project" && references(^._id)] | order(date desc, _updatedAt desc) {
+    "projects": * [_type == "project" && references(^._id)] | order(startDate desc, _updatedAt desc) {
       ${projectFields}
     },
     "certifications": * [_type == "certification" && references(^._id)] | order(date desc, _updatedAt desc) {

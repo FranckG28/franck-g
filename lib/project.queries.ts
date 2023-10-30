@@ -21,7 +21,7 @@ export const latestProjectsQuery = groq`*[_type == "project"] | order(startDate 
     ${projectFields}
   }`
 
-export const projectsQuery = groq`*[_type == "project"] | order(date desc, _updatedAt desc) {
+export const projectsQuery = groq`*[_type == "project"] | order(startDate desc, _updatedAt desc) {
     ${projectFields}
   }`
 
