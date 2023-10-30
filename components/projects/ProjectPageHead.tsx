@@ -20,7 +20,7 @@ export default function ProjectPageHead({
       <Head>
         <title>{project.title ? `${project.title} | ${title}` : title}</title>
         <BlogMeta />
-        {project.coverImage?.asset?._ref ? (
+        {/* {project.coverImage?.asset?._ref ? (
           <meta
             property="og:image"
             content={urlForImage(project.coverImage)
@@ -29,18 +29,17 @@ export default function ProjectPageHead({
               .fit('crop')
               .url()}
           />
-        ) : (
-          <meta
-            property="og:image"
-            content={`${
-              process.env.VERCEL_URL ? 'https://' + process.env.VERCEL_URL : ''
-            }/api/og?${new URLSearchParams({
-              title,
-              subtitle: settings.projects.title,
-              siteName: settings.title,
-            })}`}
-          />
-        )}
+        ) : ( */}
+        <meta
+          property="og:image"
+          content={`${
+            process.env.VERCEL_URL ? 'https://' + process.env.VERCEL_URL : ''
+          }/api/og?${new URLSearchParams({
+            title,
+            subtitle: settings.projects.title,
+            siteName: settings.title,
+          })}`}
+        />
       </Head>
     </>
   )

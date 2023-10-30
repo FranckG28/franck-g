@@ -24,6 +24,7 @@ export interface Settings {
   ogImage?: {
     title?: string
     subtitle?: string
+    siteName?: string
   }
   experiences?: SectionSettings
   projects?: SectionSettings

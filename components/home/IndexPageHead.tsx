@@ -18,7 +18,7 @@ export default function IndexPageHead({
     description = demo.description,
     ogImage = {},
   } = settings
-  const ogImageTitle = ogImage?.title || demo.ogImageTitle
+  const ogImageTitle = pageName || ogImage?.title || demo.ogImageTitle
 
   return (
     <Head>
@@ -37,7 +37,11 @@ export default function IndexPageHead({
         // https://vercel.com/docs/concepts/projects/environment-variables
         content={`${
           process.env.VERCEL_URL ? 'https://' + process.env.VERCEL_URL : ''
-        }/api/og?${new URLSearchParams({ title: ogImageTitle })}`}
+        }/api/og?${new URLSearchParams({
+          title: ogImageTitle,
+          subtitle: ogImage?.subtitle || demo.ogImageSubtitle,
+          siteName: ogImage?.siteName || demo.title,
+        })}`}
       />
     </Head>
   )

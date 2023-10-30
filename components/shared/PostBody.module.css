@@ -14,7 +14,7 @@
 }
 
 .portableText h3 {
-  @apply mb-4 mt-8 text-2xl leading-snug;
+  @apply mb-4 mt-8 text-2xl font-bold leading-snug;
 }
 
 .portableText a {
