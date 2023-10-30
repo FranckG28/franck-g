@@ -15,11 +15,16 @@ export default function ProjectPageHead({
   project,
 }: ProjectPageHeadProps) {
   const title = project.title ?? demo.title
+  const displayedTitle = project.title ? `${project.title} | ${title}` : title
   return (
     <>
       <Head>
-        <title>{project.title ? `${project.title} | ${title}` : title}</title>
+        <title>{displayedTitle}</title>
         <BlogMeta />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={displayedTitle} />
+        <meta property="og:description" content={project.excerpt} />
+        <meta key="description" name="description" content={project.excerpt} />
         {/* {project.coverImage?.asset?._ref ? (
           <meta
             property="og:image"
