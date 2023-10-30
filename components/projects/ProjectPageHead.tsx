@@ -14,7 +14,7 @@ export default function ProjectPageHead({
   settings,
   project,
 }: ProjectPageHeadProps) {
-  const title = settings.title ?? demo.title
+  const title = project.title ?? demo.title
   return (
     <>
       <Head>
