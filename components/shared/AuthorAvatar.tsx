@@ -23,7 +23,7 @@ export default function AuthorAvatar(props: Author) {
       <div className="text-lg font-medium">
         {link ? (
           <>
-            <div className="absolute -inset-x-2 -inset-y-3 z-0 scale-95 bg-zinc-600/20 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-4 rounded-2xl"></div>
+            <div className="absolute -inset-x-2 -inset-y-2 z-0 scale-95 bg-zinc-600/20 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 rounded-2xl"></div>
 
             <Link href={link}>
               <span className="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl"></span>
