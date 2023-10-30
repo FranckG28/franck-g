@@ -39,7 +39,7 @@ export default defineConfig({
       projectType,
       experienceType,
       certificationType,
-      photoType
+      photoType,
     ],
   },
   plugins: [

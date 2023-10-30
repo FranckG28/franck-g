@@ -17,6 +17,8 @@ export default async function og(req: NextRequest, res: NextResponse) {
   const { searchParams } = new URL(req.url)
 
   let title = searchParams.get('title')
+  let subtitle = searchParams.get('subtitle')
+  let siteName = searchParams.get('siteName')
   if (!title) {
     const client = createClient({
       projectId,
@@ -26,10 +28,18 @@ export default async function og(req: NextRequest, res: NextResponse) {
     })
     const settings = (await client.fetch<Settings>(settingsQuery)) || {}
     title = settings?.ogImage?.title
+    subtitle = settings?.ogImage?.subtitle
+    siteName = settings?.title
   }
 
   return new ImageResponse(
-    <OpenGraphImage title={title || demo.ogImageTitle} />,
+    (
+      <OpenGraphImage
+        title={title || demo.ogImageTitle}
+        subtitle={subtitle || demo.ogImageSubtitle}
+        siteName={siteName || demo.title}
+      />
+    ),
     {
       width,
       height,

@@ -23,6 +23,7 @@ export interface Settings {
   logo?: any
   ogImage?: {
     title?: string
+    subtitle?: string
   }
   experiences?: SectionSettings
   projects?: SectionSettings

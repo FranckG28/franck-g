@@ -26,7 +26,7 @@ export default defineType({
     }),
     defineField({
       name: 'location',
-      title: 'Localisation',
+      title: 'Location',
       type: 'string',
       initialValue: demo.location,
     }),
@@ -73,36 +73,36 @@ export default defineType({
       validation: (rule) => rule.max(155).required(),
     }),
     defineField({
-      'name': 'socialLinks',
-      'title': 'Social links',
-      'type': 'array',
-      'of': [
+      name: 'socialLinks',
+      title: 'Social links',
+      type: 'array',
+      of: [
         defineArrayMember({
-          'type': 'object',
-          'fields': [
+          type: 'object',
+          fields: [
             defineField({
-              'name': 'name',
-              'title': 'Name',
-              'type': 'string',
+              name: 'name',
+              title: 'Name',
+              type: 'string',
               validation: (Rule) => Rule.required(),
             }),
             defineField({
-              'name': 'url',
-              'title': 'URL',
-              'type': 'url',
+              name: 'url',
+              title: 'URL',
+              type: 'url',
               validation: (Rule) => [
                 Rule.required(),
                 Rule.uri({
                   allowRelative: true,
                   scheme: ['http', 'https', 'mailto', 'tel'],
-                })
+                }),
               ],
             }),
             defineField({
-              'name': 'icon',
-              'title': 'Icon',
-              'type': 'iconPicker',
-              'options': iconPickerOptions
+              name: 'icon',
+              title: 'Icon',
+              type: 'iconPicker',
+              options: iconPickerOptions,
             }),
           ],
           preview: {
@@ -116,9 +116,9 @@ export default defineType({
               return {
                 title,
                 subtitle,
-                media: preview({ provider, name, options: {} })
+                media: preview({ provider, name, options: {} }),
               }
-            }
+            },
           },
         }),
       ],
@@ -126,7 +126,8 @@ export default defineType({
     defineField({
       name: 'photoShowcase',
       title: 'Photo showcase',
-      description: 'Photos that are showcased on your home page. You can select up to 6 photos',
+      description:
+        'Photos that are showcased on your home page. You can select up to 6 photos',
       type: 'array',
       of: [
         defineArrayMember({
@@ -140,7 +141,7 @@ export default defineType({
       name: 'ogImage',
       title: 'Open Graph Image',
       description:
-        'Used for social media previews when linking to the index page.',
+        'Used for social media previews when linking to pages that does not have a cover image.',
       type: 'object',
       components: {
         input: OpenGraphInput as any,
@@ -152,11 +153,25 @@ export default defineType({
           type: 'string',
           initialValue: demo.ogImageTitle,
         }),
+        defineField({
+          name: 'subtitle',
+          title: 'Subtitle',
+          type: 'string',
+          initialValue: demo.ogImageTitle,
+        }),
+        defineField({
+          name: 'siteName',
+          title: 'Site title',
+          type: 'string',
+          initialValue: demo.title,
+        }),
       ],
     }),
     defineField({
       name: 'footer',
       title: 'Footer text',
+      description:
+        'Text displayed at the right of the navigation in the footer of your blog.',
       type: 'string',
       initialValue: demo.footer,
     }),

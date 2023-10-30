@@ -33,9 +33,9 @@ export default function ProjectsPage({
 
       <Layout preview={false} loading={false} settings={settings}>
         <Container className="flex flex-col gap-8">
-          <div>
+          <div className="flex flex-col gap-4">
             <h1>{settings.projects.title ?? 'Projects'}</h1>
-            <p className="text-zinc-400 max-w-prose text-lg mt-4">
+            <p className="text-zinc-400 max-w-prose text-lg">
               {settings.projects.description ?? 'A collection of my projects.'}
             </p>
           </div>

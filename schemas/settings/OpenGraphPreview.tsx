@@ -54,13 +54,25 @@ export default function OpenGraphPreview(props: Settings['ogImage']) {
 
   // Also handle the satori render call in SWR to enable caching and only re-render when the title changes or fonts hot reload
   const { data: __html } = useSWR(
-    [props.title, fonts satisfies SatoriOptions['fonts']],
-    ([title, fonts]) => {
-      return satori(<OpenGraphImage title={title || ''} />, {
-        width,
-        height,
-        fonts,
-      })
+    [
+      props.title,
+      props.subtitle,
+      props.siteName,
+      fonts satisfies SatoriOptions['fonts'],
+    ],
+    ([title, subtitle, siteName, fonts]) => {
+      return satori(
+        <OpenGraphImage
+          title={title || ''}
+          subtitle={subtitle || ''}
+          siteName={siteName || ''}
+        />,
+        {
+          width,
+          height,
+          fonts,
+        },
+      )
     },
     { suspense: true },
   )
