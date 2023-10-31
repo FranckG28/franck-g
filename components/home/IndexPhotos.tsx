@@ -11,7 +11,12 @@ export default function IndexPhotos({
   className?: string
 }) {
   return (
-    <div className={classNames('flex justify-center w-full gap-6', className)}>
+    <div
+      className={classNames(
+        'flex justify-center w-full gap-6 overflow-hidden',
+        className,
+      )}
+    >
       {photos.map((photo, index) => (
         <PhotoCard key={index} photo={photo} />
       ))}
@@ -29,7 +34,7 @@ function PhotoCard({ photo }: { photo: Pick<Photo, 'title' | 'image'> }) {
   return (
     <Image
       className={classNames(
-        'relative rounded-xl aspect-[9/10] w-40 md:w-64 lg:shadow-xl transition duration-300 brightness-90 hover:brightness-110 hover:scale-105',
+        'relative rounded-xl aspect-[9/10] w-32 md:w-64 lg:shadow-xl transition duration-300 brightness-90 hover:brightness-110 hover:scale-105',
         getRandomRotation(),
       )}
       width={350}
