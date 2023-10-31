@@ -13,7 +13,7 @@ export default function IndexPhotos({
   return (
     <div
       className={classNames(
-        'flex justify-center w-full gap-6 overflow-hidden',
+        'flex justify-center w-full gap-6 py-3 overflow-hidden',
         className,
       )}
     >
@@ -34,7 +34,7 @@ function PhotoCard({ photo }: { photo: Pick<Photo, 'title' | 'image'> }) {
   return (
     <Image
       className={classNames(
-        'relative rounded-xl aspect-[9/10] w-32 md:w-64 lg:shadow-xl transition duration-300 brightness-90 hover:brightness-110 hover:scale-105',
+        'relative rounded-xl aspect-[9/10] w-32 md:w-64 lg:shadow-xl transition duration-300 brightness-90 hover:brightness-110  scale-95 hover:scale-100',
         getRandomRotation(),
       )}
       width={350}
