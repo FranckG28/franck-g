@@ -165,5 +165,5 @@ async function queryStaleProjectRoutes(
     { id },
   )
 
-  return ['/', '/experiences', ...slugs.map((slug) => `/projects/${slug}`)]
+  return ['/', '/projects', '/experiences', ...slugs.map((slug) => `/projects/${slug}`)]
 }
