@@ -24,7 +24,13 @@ const myPortableTextComponents: Partial<PortableTextReactComponents> = {
   },
 }
 
-export default function PostBody({ content, className }) {
+export default function PostBody({
+  content,
+  className,
+}: {
+  content: any
+  className?: string
+}) {
   return (
     <div
       className={classNames(

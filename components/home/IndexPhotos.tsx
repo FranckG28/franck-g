@@ -26,15 +26,15 @@ export default function IndexPhotos({
 
 const rotations = ['rotate-2 hover:rotate-1', '-rotate-2 hover:-rotate-1']
 
-function getRandomRotation(): string {
-  return rotations[Math.floor(Math.random() * rotations.length)]
-}
-
 function PhotoCard({ photo }: { photo: Pick<Photo, 'title' | 'image'> }) {
+  const getRandomRotation = (): string => {
+    return rotations[Math.floor(Math.random() * rotations.length)]
+  }
+
   return (
     <Image
       className={classNames(
-        'relative rounded-xl aspect-[9/10] w-32 md:w-64 lg:shadow-xl transition duration-300 brightness-90 hover:brightness-110  scale-95 hover:scale-100',
+        'relative rounded-xl aspect-[9/10] w-32 md:w-64 lg:shadow-xl transition duration-300 brightness-90 hover:brightness-110 scale-95 hover:scale-100',
         getRandomRotation(),
       )}
       width={350}
