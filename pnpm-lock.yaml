@@ -103,6 +103,9 @@ devDependencies:
   tailwindcss:
     specifier: 3.3.3
     version: 3.3.3
+  tailwindcss-bg-patterns:
+    specifier: ^0.3.0
+    version: 0.3.0(tailwindcss@3.3.3)
   typescript:
     specifier: 5.2.2
     version: 5.2.2
@@ -2556,6 +2559,7 @@ packages:
       loose-envify: 1.4.0
       object-assign: 4.1.1
     dev: false
+    bundledDependencies: false
 
   /crelt@1.0.6:
     resolution: {integrity: sha512-VQ2MBenTq1fWZUH9DJNGti7kKv6EeAuYr3cLwxUWhIu1baTaXh4Ib5W2CqHVqib4/MqbYGJqiL3Zb8GJZr3l4g==}
@@ -6437,6 +6441,14 @@ packages:
     dependencies:
       '@pkgr/utils': 2.4.2
       tslib: 2.6.2
+    dev: true
+
+  /tailwindcss-bg-patterns@0.3.0(tailwindcss@3.3.3):
+    resolution: {integrity: sha512-3pXCiu9MPBvfBAEYgrxpNZLZoDlVHdkofpuQ9uhVQ2RT+80BTTweL9s0uIvakfH2LRl4GCG+nncyCB+1aN1gpA==}
+    peerDependencies:
+      tailwindcss: '>2'
+    dependencies:
+      tailwindcss: 3.3.3
     dev: true
 
   /tailwindcss@3.3.3:

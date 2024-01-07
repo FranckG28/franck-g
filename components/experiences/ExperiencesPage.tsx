@@ -1,6 +1,6 @@
-import Container from 'components/Container'
 import IndexPageHead from 'components/home/IndexPageHead'
-import Layout from 'components/Layout'
+import Container from 'components/layout/Container'
+import Layout from 'components/layout/Layout'
 import PageHeader from 'components/shared/PageHeader'
 import { FlattenedExperience } from 'lib/models/flattened-experience'
 import { Settings } from 'lib/sanity.queries'

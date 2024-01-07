@@ -12,6 +12,6 @@
 
 @layer components {
   h1 {
-    @apply text-4xl font-bold tracking-tight md:text-6xl;
+    @apply text-4xl font-medium tracking-tight md:text-6xl;
   }
 }
