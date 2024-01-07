@@ -38,6 +38,7 @@
     "sanity-plugin-asset-source-unsplash": "1.1.1",
     "sanity-plugin-icon-picker": "^3.2.2",
     "sanity-plugin-iframe-pane": "2.5.7",
+    "satori": "^0.10.11",
     "styled-components": "5.3.11",
     "swr": "2.2.2"
   },
