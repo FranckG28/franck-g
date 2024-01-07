@@ -23,7 +23,7 @@ export default function ListItem({ item }: { item: Item }) {
         )}
       </div>
       <div className="flex flex-col flex-1">
-        <h3 className="font-medium tracking-tight text-lg leading-tight line-clamp-2">
+        <h3 className="font-medium tracking-tight text-lg leading-tight line-clamp-2 text-balance">
           {item.link ? (
             <>
               <div className="absolute -inset-x-2 -inset-y-3 z-0 scale-95 bg-zinc-600/20 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-4 rounded-2xl"></div>
@@ -38,7 +38,7 @@ export default function ListItem({ item }: { item: Item }) {
           )}
         </h3>
         {item.subtitle && (
-          <p className="text-sm text-zinc-400 line-clamp-2 leading-snug">
+          <p className="text-sm text-zinc-400 line-clamp-2 leading-snug text-balance">
             {item.subtitle}
           </p>
         )}

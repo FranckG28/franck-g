@@ -16,7 +16,7 @@ export default function PageHeader({
       <h1>{sectionSettings.pageTitle ?? defaultName}</h1>
       <PostBody
         content={sectionSettings.pageDescription ?? defaultDescription}
-        className="text-zinc-400 max-w-prose text-lg"
+        className="text-zinc-400 max-w-prose text-lg text-balance"
       />
     </div>
   )

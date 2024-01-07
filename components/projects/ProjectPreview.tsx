@@ -32,7 +32,7 @@ export default function ProjectPreview(props: ProjectPreviewProps) {
         </Link>
       </h2>
 
-      <p className="line-clamp-3 text-zinc-400 leading-snug text-sm z-10">
+      <p className="line-clamp-3 text-zinc-400 leading-snug text-sm z-10 text-balance">
         {project.excerpt}
       </p>
 
