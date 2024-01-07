@@ -6,3 +6,8 @@ export const hslWithOpacity = (hsl: string, opacity: number): string => {
     .map((v) => v.trim())
   return `hsla(${h}, ${s}, ${l}, ${opacity})`
 }
+
+export const lerp = (a: number, b: number, t: number) => {
+  t = Math.max(0, Math.min(1, t))
+  return a * (1 - t) + b * t
+}
