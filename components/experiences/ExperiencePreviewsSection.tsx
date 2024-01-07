@@ -20,7 +20,7 @@ export default function ExperiencePreviewsSection({
   return (
     <Card className={className}>
       <SectionHeader
-        title={settings.experiences.previewTitle}
+        title={settings.experiences.previewTitle ?? 'Experiences'}
         icon={
           <svg
             xmlns="http://www.w3.org/2000/svg"

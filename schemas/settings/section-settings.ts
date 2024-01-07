@@ -1,16 +1,17 @@
 import { defineField } from 'sanity'
 
 export interface SectionSettings {
-  title: string
-  description: string
+  name: string
   previewTitle: string
+  pageTitle: string
+  pageDescription: any
   emptyMessage: string
   showMoreText: string
 }
 
 export const sectionSettingsFields = [
   defineField({
-    name: 'title',
+    name: 'name',
     description: 'The name of the entity.',
     type: 'string',
   }),
@@ -20,10 +21,20 @@ export const sectionSettingsFields = [
     type: 'string',
   }),
   defineField({
-    name: 'description',
+    name: 'pageTitle',
+    description:
+      'The entity page title. It will be displayed in the entity list page',
+    type: 'string',
+  }),
+  defineField({
+    name: 'pageDescription',
+    title: 'Page description',
     description:
       'A short description of the entity. It will be displayed in the entity list page',
-    type: 'text',
+    type: 'array',
+    of: [
+      { type: 'block' },
+    ],
   }),
   defineField({
     name: 'emptyMessage',

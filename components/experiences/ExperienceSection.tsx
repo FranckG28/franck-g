@@ -67,7 +67,7 @@ export default function ExperienceSection({
 
         {experience.certifications && experience.certifications.length > 0 && (
           <ItemList
-            title="Diplômes"
+            title="Certifications"
             items={experience.certifications.map((certification) => ({
               title: certification.title,
               subtitle: new Date(certification.date).toLocaleDateString(
@@ -81,7 +81,7 @@ export default function ExperienceSection({
 
         {experience.projects && experience.projects.length > 0 && (
           <ItemList
-            title="Projets associés"
+            title="Linked projects"
             items={experience.projects.map((project) => ({
               title: project.title,
               subtitle: project.category,

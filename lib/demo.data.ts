@@ -2,7 +2,7 @@
 
 export const title = 'Blog.'
 
-export const location = 'Alsace, France'
+export const location = 'Strasbourg, France'
 
 export const description = [
   {

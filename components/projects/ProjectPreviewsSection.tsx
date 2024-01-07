@@ -16,7 +16,7 @@ export default function ProjectPreviewsSection({
   return (
     <div className={classNames('flex flex-col gap-10', className)}>
       <SectionHeader
-        title={settings.projects.previewTitle}
+        title={settings.projects.previewTitle ?? 'Projects'}
         moreHref="/projects"
         moreText={settings.projects.showMoreText}
       />
