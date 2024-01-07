@@ -5,7 +5,7 @@ import PageHeader from 'components/shared/PageHeader'
 import { Settings } from 'lib/sanity.queries'
 import { Project } from 'schemas/project'
 
-import ProjectPreview from './ProjectPreview'
+import FilterableProjectList from './FilterableProjectList'
 
 export default function ProjectsPage({
   projects,
@@ -14,20 +14,6 @@ export default function ProjectsPage({
   projects: Project[]
   settings: Settings
 }) {
-  const getContent = () => {
-    if (!projects || projects?.length === 0) {
-      return <p>{settings.projects.emptyMessage ?? 'No projects found.'}</p>
-    }
-
-    return (
-      <div className="grid gap-16 lg:grid-cols-2 mt-6">
-        {projects.map((project, index) => (
-          <ProjectPreview key={index} project={project} />
-        ))}
-      </div>
-    )
-  }
-
   return (
     <>
       <IndexPageHead settings={settings} pageName={settings.projects.name} />
@@ -39,7 +25,8 @@ export default function ProjectsPage({
             defaultName="Projects"
             defaultDescription="A collection of my projects."
           />
-          {getContent()}
+
+          <FilterableProjectList projects={projects} settings={settings} />
         </Container>
       </Layout>
     </>
