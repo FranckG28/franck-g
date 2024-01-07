@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@next/env':
+    specifier: ^14.0.4
+    version: 14.0.4
   '@portabletext/react':
     specifier: 3.0.7
     version: 3.0.7(react@18.2.0)
