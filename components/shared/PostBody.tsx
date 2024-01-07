@@ -11,6 +11,7 @@ import {
   PortableText,
   type PortableTextReactComponents,
 } from '@portabletext/react'
+import classNames from 'classnames'
 
 import styles from './PostBody.module.css'
 import { SanityImage } from './SanityImage'
@@ -23,9 +24,15 @@ const myPortableTextComponents: Partial<PortableTextReactComponents> = {
   },
 }
 
-export default function PostBody({ content }) {
+export default function PostBody({ content, className }) {
   return (
-    <div className={`max-w-2xl text-zinc-200 ${styles.portableText}`}>
+    <div
+      className={classNames(
+        `max-w-2xl text-zinc-200`,
+        styles.portableText,
+        className,
+      )}
+    >
       <PortableText value={content} components={myPortableTextComponents} />
     </div>
   )

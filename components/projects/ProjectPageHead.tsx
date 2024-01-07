@@ -43,7 +43,7 @@ export default function ProjectPageHead({
             process.env.VERCEL_URL ? 'https://' + process.env.VERCEL_URL : ''
           }/api/og?${new URLSearchParams({
             title: project.title ?? websiteTitle,
-            subtitle: settings.projects.title,
+            subtitle: settings.projects.name,
             siteName: settings.title,
           })}`}
         />

@@ -1,6 +1,7 @@
 import Container from 'components/Container'
 import IndexPageHead from 'components/home/IndexPageHead'
 import Layout from 'components/Layout'
+import PageHeader from 'components/shared/PageHeader'
 import { Settings } from 'lib/sanity.queries'
 import { Project } from 'schemas/project'
 
@@ -29,16 +30,15 @@ export default function ProjectsPage({
 
   return (
     <>
-      <IndexPageHead settings={settings} pageName={settings.projects.title} />
+      <IndexPageHead settings={settings} pageName={settings.projects.name} />
 
       <Layout preview={false} loading={false} settings={settings}>
-        <Container className="flex flex-col gap-8">
-          <div className="flex flex-col gap-4">
-            <h1>{settings.projects.title ?? 'Projects'}</h1>
-            <p className="text-zinc-400 max-w-prose text-lg">
-              {settings.projects.description ?? 'A collection of my projects.'}
-            </p>
-          </div>
+        <Container className="flex flex-col gap-6">
+          <PageHeader
+            sectionSettings={settings.projects}
+            defaultName="Projects"
+            defaultDescription="A collection of my projects."
+          />
           {getContent()}
         </Container>
       </Layout>

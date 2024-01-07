@@ -12,7 +12,7 @@ export default function TopBar({ settings }: { settings: Settings }) {
 
   return (
     <header className="fixed top-0 left-0 right-0 flex justify-center z-40">
-      <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-zinc-900 via-zinc-900/60 to-zinc-900/0 z-30 pointer-events-none"></div>
+      <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-zinc-900 via-zinc-900/60 to-zinc-900/0 z-30 pointer-events-none [mask-image:linear-gradient(to_bottom,#18181b_25%,transparent)] backdrop:blur-xl"></div>
 
       <Container>
         {!isActive('/') && (

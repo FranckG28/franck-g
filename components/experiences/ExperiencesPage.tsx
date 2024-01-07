@@ -1,6 +1,7 @@
 import Container from 'components/Container'
 import IndexPageHead from 'components/home/IndexPageHead'
 import Layout from 'components/Layout'
+import PageHeader from 'components/shared/PageHeader'
 import { FlattenedExperience } from 'lib/models/flattened-experience'
 import { Settings } from 'lib/sanity.queries'
 
@@ -39,18 +40,23 @@ export default function ExperiencesPage({
     <>
       <IndexPageHead
         settings={settings}
-        pageName={settings.experiences.title}
+        pageName={settings.experiences.name ?? 'Experiences'}
       />
 
       <Layout preview={false} loading={false} settings={settings}>
         <Container className="flex flex-col gap-8">
-          <div className="flex flex-col gap-4">
-            <h1>{settings.experiences.title ?? 'Experiences'}</h1>
+          {/* <div className="flex flex-col gap-6">
+            <h1>{settings.experiences.pageTitle ?? 'Experiences'}</h1>
             <p className="text-zinc-400 max-w-prose text-lg">
-              {settings.experiences.description ??
+              {settings.experiences.pageDescription ??
                 'A collection of my experiences.'}
             </p>
-          </div>
+          </div> */}
+          <PageHeader
+            sectionSettings={settings.experiences}
+            defaultName="Experiences"
+            defaultDescription="A collection of my experiences."
+          />
           {getContent()}
         </Container>
       </Layout>
