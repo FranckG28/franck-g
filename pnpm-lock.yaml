@@ -14,6 +14,9 @@ dependencies:
   '@sanity/image-url':
     specifier: 1.0.2
     version: 1.0.2
+  '@sanity/ui':
+    specifier: ^1.9.3
+    version: 1.9.3(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(styled-components@5.3.11)
   '@sanity/vision':
     specifier: 3.16.7
     version: 3.16.7(@babel/runtime@7.23.7)(@codemirror/lint@6.4.2)(@codemirror/state@6.4.0)(@codemirror/theme-one-dark@6.1.2)(@lezer/common@1.2.0)(codemirror@6.0.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(styled-components@5.3.11)
