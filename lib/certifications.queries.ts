@@ -8,6 +8,7 @@ export const certificationsFields = groq`
     date,
     links,
     content,
+    coverImage,
     "place": experience->place,
     `
 
