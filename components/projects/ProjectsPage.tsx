@@ -19,7 +19,7 @@ export default function ProjectsPage({
       <IndexPageHead settings={settings} pageName={settings.projects.name} />
 
       <Layout preview={false} loading={false} settings={settings}>
-        <Container className="flex flex-col gap-6">
+        <Container className="flex flex-col gap-6 animate-fade-up">
           <PageHeader
             sectionSettings={settings.projects}
             defaultName="Projects"
