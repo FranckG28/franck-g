@@ -6,8 +6,14 @@ export const hslWithOpacity = (hsl: string, opacity: number): string => {
     .map((v) => v.trim())
   return `hsla(${h}, ${s}, ${l}, ${opacity})`
 }
+export const getRandomNumber = (min: number, max: number) => {
+  return Math.random() * (max - min) + min
+}
 
-export const lerp = (a: number, b: number, t: number) => {
-  t = Math.max(0, Math.min(1, t))
-  return a * (1 - t) + b * t
+export const getRandomNumbers = (min: number, max: number, count: number): number[] => {
+  const numbers = new Set<number>()
+  while (numbers.size < count) {
+    numbers.add(Math.floor(getRandomNumber(min, max)))
+  }
+  return Array.from(numbers)
 }

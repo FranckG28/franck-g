@@ -1,10 +1,8 @@
 'use client'
 
 import { MousePosition, useMeasure, useMouse } from '@uidotdev/usehooks'
-import classNames from 'classnames'
-import { set } from 'date-fns'
-import { lerp } from 'lib/utils'
-import { RefObject, useEffect } from 'react'
+import { getRandomNumber, getRandomNumbers } from 'lib/utils'
+import { RefObject, useEffect, useMemo } from 'react'
 
 export default function LayoutAnimatedPattern() {
   const columns = 25
@@ -16,6 +14,110 @@ export default function LayoutAnimatedPattern() {
   const xIntersecting = mouse.elementX > 0 && mouse.elementX < width
   const yIntersecting = mouse.elementY > 0 && mouse.elementY < height
   const isIntersecting = xIntersecting && yIntersecting
+
+  const pointsToAnimate = 50
+
+  // Custom points to light up on hover
+  const selectedPoints = [
+    78, 80, 82, 83, 84, 86, 90, 94, 95, 96, 103, 105, 107, 111, 115, 119, 121,
+    128, 129, 130, 132, 133, 134, 136, 140, 144, 146, 153, 155, 157, 161, 165,
+    169, 171, 178, 180, 182, 183, 184, 186, 187, 188, 190, 191, 192, 194, 195,
+    196,
+  ]
+
+  // Random points for the idle animation
+  const indices = useMemo(
+    () => getRandomNumbers(0, columns * rows - 1, pointsToAnimate),
+    [columns, rows],
+  )
+
+  // Randomly animate between three states
+  const states = ['off', 'medium', 'high']
+
+  useEffect(() => {
+    const timeoutIds = []
+
+    const interval = setInterval(() => {
+      if (isIntersecting) {
+        timeoutIds.forEach(clearTimeout)
+        return
+      }
+
+      indices.forEach((index) => {
+        const light = ref.current.querySelector(`[data-index="${index}"]`)
+
+        if (!light) {
+          return
+        }
+
+        // Pick a random next state
+        const nextState = states[Math.floor(Math.random() * states.length)]
+        const currentState = light.getAttribute('data-state')
+
+        const pulse =
+          Math.random() > 0.2 &&
+          // Make sure we only pulsate going from "off" → "medium" → "high"
+          ((currentState === 'off' && nextState === 'high') ||
+            (currentState === 'off' && nextState === 'medium') ||
+            (currentState === 'medium' && nextState === 'high'))
+
+        if (pulse) {
+          // Add an arbitrary delay between 100-500ms
+          const delay = getRandomNumber(100, 500)
+
+          timeoutIds.push(
+            setTimeout(() => {
+              light.setAttribute('data-pulse', 'true')
+            }, delay),
+          )
+
+          timeoutIds.push(
+            setTimeout(() => {
+              light.setAttribute('data-pulse', 'false')
+            }, 500 + delay),
+          )
+        }
+
+        // After a pulse, don't transition from "high" → "medium"
+        if (currentState === 'high' && nextState === 'medium' && pulse) {
+          light.setAttribute('data-state', 'off')
+        } else {
+          light.setAttribute('data-state', nextState)
+        }
+      })
+    }, 1000)
+
+    return () => {
+      clearInterval(interval)
+      timeoutIds.forEach(clearTimeout)
+    }
+  }, [isIntersecting])
+
+  const setLightState = (indexes: number[], state: string, pulse: boolean) => {
+    indexes.forEach((index) => {
+      const light = ref.current.querySelector(`[data-index="${index}"]`)
+
+      if (!light) {
+        return
+      }
+
+      light.setAttribute('data-state', state)
+      light.setAttribute('data-pulse', pulse ? 'true' : 'false')
+    })
+  }
+
+  useEffect(() => {
+    if (isIntersecting) {
+      // Turn off all lights
+      setLightState(indices, 'off', false)
+
+      // Turn on selected lights
+      setLightState(selectedPoints, 'high', false)
+    } else {
+      // Turn off selected lights
+      setLightState(selectedPoints, 'off', false)
+    }
+  }, [indices, isIntersecting, selectedPoints])
 
   return (
     <div className="absolute inset-0 flex justify-center sm:px-8 -z-10">
@@ -39,14 +141,7 @@ export default function LayoutAnimatedPattern() {
           }}
         >
           {Array.from({ length: columns * rows }).map((_, i) => {
-            return (
-              <Point
-                key={i}
-                active={isIntersecting}
-                data-state="off"
-                data-index={i}
-              />
-            )
+            return <Point index={i} key={i} />
           })}
         </div>
       </div>
@@ -54,35 +149,20 @@ export default function LayoutAnimatedPattern() {
   )
 }
 
-function Point({ active, shine }: { active?: boolean; shine?: boolean }) {
-  const [mouse, ref] = useMouse() as [MousePosition, RefObject<HTMLDivElement>]
-
-  let power = 0
-
-  if (active) {
-    const sensivity = 200
-
-    const absoluteDistance = Math.sqrt(
-      Math.pow(mouse.elementX, 2) + Math.pow(mouse.elementY, 2),
-    )
-
-    power = 1 - Math.max(0, absoluteDistance / sensivity)
-  }
-
+function Point({ index }: { index: number }) {
   return (
     <div
-      ref={ref}
-      className={classNames(
-        'h-1 w-1 rounded-full bg-zinc-100 transition-colors',
-      )}
-      style={{
-        opacity: active ? lerp(0.1, 0.5, power) : `0.1`,
-        ...(active && {
-          transform: `scale(${lerp(1, 1.25, power)})`,
-        }),
-      }}
+      data-index={index}
+      data-state="off"
+      className={`
+        h-1 w-1 rounded-full transition-all duration-500 
+        data-[state=off]:bg-zinc-100 data-[state=off]:opacity-10
+        data-[state=medium]:opacity-70 data-[state=medium]:blur-[1px] data-[state=medium]:bg-blue-300
+        data-[state=high]:opacity-70 data-[state=high]:scale-150 data-[state=high]:bg-blue-200
+        data-[pulse=true]:scale-[2] data-[pulse=true]:blur-[1px]
+      `}
     >
-      {/* <span className="text-xs hidden">{opacity.toFixed(2)}</span> */}
+      {/* <span className="text-xs">{index}</span> */}
     </div>
   )
 }
