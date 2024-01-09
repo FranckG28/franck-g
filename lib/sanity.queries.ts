@@ -6,7 +6,7 @@ import { SocialLink } from './models/social-link'
 
 export const settingsQuery = groq`*[_type == "settings"][0] {
   ...,
-  photoShowcase[]->{title, image},
+  photoShowcase[]->{title, image, excerpt},
 }`
 
 export interface SanityEntityProps {
