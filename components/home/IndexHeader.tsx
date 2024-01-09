@@ -17,7 +17,7 @@ export default function IndexHeader({
   switch (level) {
     case 1:
       return (
-        <section className="relative flex flex-col gap-4 items-start">
+        <section className="relative flex flex-col gap-4 items-start animate-fade-up">
           {settings.logo && (
             <WebsiteLogo
               logo={settings.logo}

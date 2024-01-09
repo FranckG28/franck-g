@@ -23,6 +23,7 @@
     "@sanity/image-url": "1.0.2",
     "@sanity/ui": "^1.9.3",
     "@sanity/vision": "3.16.7",
+    "@uidotdev/usehooks": "^2.4.1",
     "@vercel/analytics": "^1.1.1",
     "@vercel/og": "0.5.14",
     "classnames": "2.3.2",
@@ -54,7 +55,6 @@
     "prettier-plugin-packagejson": "2.4.5",
     "prettier-plugin-tailwindcss": "0.5.4",
     "tailwindcss": "3.4.1",
-    "tailwindcss-bg-patterns": "^0.3.0",
     "typescript": "5.2.2"
   }
 }

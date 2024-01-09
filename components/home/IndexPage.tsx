@@ -37,11 +37,11 @@ export default function IndexPage(props: IndexPageProps) {
         {settings.photoShowcase?.length > 0 && (
           <IndexPhotos
             photos={settings.photoShowcase}
-            className="mt-8 md:mt-12 md:mb-2"
+            className="mt-8 md:mt-12 md:mb-2 animate-fade-up"
           />
         )}
 
-        <Container>
+        <Container className="animate-fade-up">
           <div className="flex gap-16 max-xl:flex-col xl:items-start pt-12">
             {projects?.length > 0 && (
               <ProjectPreviewsSection

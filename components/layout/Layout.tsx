@@ -5,8 +5,8 @@ import AlertBanner from 'components/shared/AlertBanner'
 import { Settings } from 'lib/sanity.queries'
 
 import Footer from './Footer'
+import LayoutAnimatedPattern from './LayoutAnimatedPattern'
 import LayoutBackground from './LayoutBackground'
-import LayoutPattern from './LayoutPattern'
 
 export default function Layout({
   preview,
@@ -23,8 +23,8 @@ export default function Layout({
 }) {
   return (
     <>
-      <LayoutPattern />
-      <div className="min-h-screen relative">
+      <LayoutAnimatedPattern />
+      <div className="relative">
         <LayoutBackground />
         <AlertBanner preview={preview} loading={loading} />
         <TopBar settings={settings} />
