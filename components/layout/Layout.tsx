@@ -25,7 +25,7 @@ export default function Layout({
   return (
     <>
       <LayoutAnimatedPattern />
-      <div className="min-h-screen relative">
+      <div className="relative">
         <LayoutBackground />
         <AlertBanner preview={preview} loading={loading} />
         <TopBar settings={settings} />
