@@ -2,7 +2,7 @@
 
 import { MousePosition, useMeasure, useMouse } from '@uidotdev/usehooks'
 import { getRandomNumber, getRandomNumbers } from 'lib/utils'
-import { RefObject, useEffect, useMemo } from 'react'
+import { RefObject, useCallback, useEffect, useMemo } from 'react'
 
 export default function LayoutAnimatedPattern() {
   const columns = 25
@@ -18,12 +18,15 @@ export default function LayoutAnimatedPattern() {
   const pointsToAnimate = 50
 
   // Custom points to light up on hover
-  const selectedPoints = [
-    78, 80, 82, 83, 84, 86, 90, 94, 95, 96, 103, 105, 107, 111, 115, 119, 121,
-    128, 129, 130, 132, 133, 134, 136, 140, 144, 146, 153, 155, 157, 161, 165,
-    169, 171, 178, 180, 182, 183, 184, 186, 187, 188, 190, 191, 192, 194, 195,
-    196,
-  ]
+  const selectedPoints = useMemo(
+    () => [
+      78, 80, 82, 83, 84, 86, 90, 94, 95, 96, 103, 105, 107, 111, 115, 119, 121,
+      128, 129, 130, 132, 133, 134, 136, 140, 144, 146, 153, 155, 157, 161, 165,
+      169, 171, 178, 180, 182, 183, 184, 186, 187, 188, 190, 191, 192, 194, 195,
+      196,
+    ],
+    [],
+  )
 
   // Random points for the idle animation
   const indices = useMemo(
@@ -31,10 +34,8 @@ export default function LayoutAnimatedPattern() {
     [columns, rows],
   )
 
-  // Randomly animate between three states
-  const states = ['off', 'medium', 'high']
-
   useEffect(() => {
+    const states = ['off', 'medium', 'high']
     const timeoutIds = []
 
     const interval = setInterval(() => {
@@ -91,20 +92,23 @@ export default function LayoutAnimatedPattern() {
       clearInterval(interval)
       timeoutIds.forEach(clearTimeout)
     }
-  }, [isIntersecting])
+  }, [indices, isIntersecting, ref])
 
-  const setLightState = (indexes: number[], state: string, pulse: boolean) => {
-    indexes.forEach((index) => {
-      const light = ref.current.querySelector(`[data-index="${index}"]`)
+  const setLightState = useCallback(
+    (indexes: number[], state: string, pulse: boolean) => {
+      indexes.forEach((index) => {
+        const light = ref.current.querySelector(`[data-index="${index}"]`)
 
-      if (!light) {
-        return
-      }
+        if (!light) {
+          return
+        }
 
-      light.setAttribute('data-state', state)
-      light.setAttribute('data-pulse', pulse ? 'true' : 'false')
-    })
-  }
+        light.setAttribute('data-state', state)
+        light.setAttribute('data-pulse', pulse ? 'true' : 'false')
+      })
+    },
+    [ref],
+  )
 
   useEffect(() => {
     if (isIntersecting) {
@@ -117,7 +121,7 @@ export default function LayoutAnimatedPattern() {
       // Turn off selected lights
       setLightState(selectedPoints, 'off', false)
     }
-  }, [indices, isIntersecting, selectedPoints])
+  }, [indices, isIntersecting, selectedPoints, setLightState])
 
   return (
     <div className="absolute inset-0 flex justify-center sm:px-8 -z-10">
