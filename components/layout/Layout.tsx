@@ -7,7 +7,6 @@ import { Settings } from 'lib/sanity.queries'
 import Footer from './Footer'
 import LayoutAnimatedPattern from './LayoutAnimatedPattern'
 import LayoutBackground from './LayoutBackground'
-import LayoutPattern from './LayoutPattern'
 
 export default function Layout({
   preview,
