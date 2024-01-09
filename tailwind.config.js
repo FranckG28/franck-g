@@ -84,7 +84,5 @@ module.exports = {
       },
     },
   },
-  plugins: [
-    require('tailwindcss-bg-patterns'),
-  ],
+  plugins: [],
 }
