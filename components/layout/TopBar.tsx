@@ -13,8 +13,8 @@ export default function TopBar({ settings }: { settings: Settings }) {
   const isActive = useHrefActive()
 
   return (
-    <header className="fixed top-0 left-0 right-0 flex justify-center z-40">
-      <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-zinc-900/80 z-30 pointer-events-none [mask-image:linear-gradient(to_bottom,#18181b_25%,transparent)] backdrop-blur-[1px]"></div>
+    <header className="fixed top-0 left-0 w-screen flex justify-center z-40">
+      <div className="absolute top-0 left-0 w-screen h-24 bg-gradient-to-b from-zinc-900/80 z-30 pointer-events-none [mask-image:linear-gradient(to_bottom,#18181b_25%,transparent)] backdrop-blur-[1px]"></div>
 
       <Container>
         {!isActive('/') && (

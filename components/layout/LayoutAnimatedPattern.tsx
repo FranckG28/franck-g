@@ -1,11 +1,20 @@
 'use client'
 
-import { MousePosition, useMeasure, useMouse } from '@uidotdev/usehooks'
+import {
+  MousePosition,
+  useMeasure,
+  useMouse,
+  useWindowSize,
+} from '@uidotdev/usehooks'
 import { getRandomNumber, getRandomNumbers } from 'lib/utils'
 import { RefObject, useCallback, useEffect, useMemo } from 'react'
 
 export default function LayoutAnimatedPattern() {
-  const columns = 25
+  const window = useWindowSize()
+
+  const mobileMode = window.width < 768
+
+  const columns = mobileMode ? 13 : 25
   const rows = 12
 
   const [measureRef, { width, height }] = useMeasure()
@@ -15,7 +24,7 @@ export default function LayoutAnimatedPattern() {
   const yIntersecting = mouse.elementY > 0 && mouse.elementY < height
   const isIntersecting = xIntersecting && yIntersecting
 
-  const pointsToAnimate = 50
+  const pointsToAnimate = mobileMode ? 25 : 50
 
   // Custom points to light up on hover
   const selectedPoints = useMemo(
@@ -111,6 +120,10 @@ export default function LayoutAnimatedPattern() {
   )
 
   useEffect(() => {
+    if (mobileMode) {
+      return
+    }
+
     if (isIntersecting) {
       // Turn off all lights
       setLightState(indices, 'off', false)
@@ -121,12 +134,12 @@ export default function LayoutAnimatedPattern() {
       // Turn off selected lights
       setLightState(selectedPoints, 'off', false)
     }
-  }, [indices, isIntersecting, selectedPoints, setLightState])
+  }, [indices, isIntersecting, selectedPoints, setLightState, mobileMode])
 
   return (
     <div className="absolute inset-0 flex justify-center sm:px-8 -z-10">
       <div className="flex w-full max-w-7xl lg:px-8 relative">
-        <div className="absolute inset-0 px-8 w-full h-96">
+        <div className="absolute inset-0 lg:px-8 w-full h-96">
           <div
             ref={measureRef}
             className="w-full h-full z-10 [mask-image:linear-gradient(to_bottom,#18181b_25%,transparent)]"
@@ -137,7 +150,7 @@ export default function LayoutAnimatedPattern() {
         </div>
         <div
           ref={ref}
-          className="w-full h-96 px-8 [mask-image:linear-gradient(to_bottom,#18181b_25%,transparent)]"
+          className="w-full h-96 lg:px-8 [mask-image:linear-gradient(to_bottom,#18181b_25%,transparent)]"
           style={{
             display: 'grid',
             gap: `${columns}px`,
