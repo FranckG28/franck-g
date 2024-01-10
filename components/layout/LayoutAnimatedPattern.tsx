@@ -40,7 +40,7 @@ export default function LayoutAnimatedPattern() {
   // Random points for the idle animation
   const indices = useMemo(
     () => getRandomNumbers(0, columns * rows - 1, pointsToAnimate),
-    [columns, rows],
+    [columns, pointsToAnimate],
   )
 
   useEffect(() => {
