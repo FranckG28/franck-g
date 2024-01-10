@@ -2,13 +2,14 @@ import ExperiencePreview from 'components/experiences/ExperiencePreview'
 import Container from 'components/layout/Container'
 import Layout from 'components/layout/Layout'
 import AuthorsList from 'components/shared/AuthorList'
+import Button from 'components/shared/Button'
 import Card from 'components/shared/Card'
-import LinkPreviewList from 'components/shared/LinkPreviewList'
 import PostBody from 'components/shared/PostBody'
 import SectionHeader from 'components/shared/SectionHeader'
 import Tag from 'components/shared/Tag'
 import useDateRangeString from 'lib/hooks/useDateRangeString'
 import { Settings } from 'lib/sanity.queries'
+import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { Project } from 'schemas/project'
 
@@ -45,18 +46,33 @@ export default function ProjectPage(props: ProjectPageProps) {
             <p>Loading…</p>
           ) : (
             <>
-              <article className="flex gap-6 max-xl:flex-col xl:items-start">
-                <div className="xl:flex-1">
+              <article className="flex gap-6 max-lg:flex-col lg:items-start animate-fade-up">
+                <div className="lg:flex-1 flex flex-col gap-4">
                   <ProjectLogo
                     coverImage={project.coverImage}
                     alt={project.title}
+                    size="md"
                   />
 
-                  <p className="uppercase font-medium text-sm text-zinc-400 py-4">
+                  <h1>{project.title}</h1>
+
+                  <p className="uppercase font-medium tracking-wide text-sm text-zinc-400">
                     {[project.category, dateRangeString].join(' • ')}
                   </p>
 
-                  <h1>{project.title}</h1>
+                  {project.links.length && (
+                    <div className="flex gap-3 items-center flex-wrap mt-4">
+                      {project.links.map((link, index) => (
+                        <Link key={index} href={link.url} target="_blank">
+                          <Button
+                            appearance={index === 0 ? 'primary' : 'secondary'}
+                          >
+                            {link.title} {index === 0 && <span>→</span>}
+                          </Button>
+                        </Link>
+                      ))}
+                    </div>
+                  )}
 
                   {project.content && <PostBody content={project.content} />}
 
@@ -68,17 +84,7 @@ export default function ProjectPage(props: ProjectPageProps) {
                     </div>
                   )}
                 </div>
-                <div className="xl:basis-96 xl:pt-52 flex flex-col gap-4">
-                  {project.links && project.links.length > 0 && (
-                    <Card>
-                      <SectionHeader title="Links" />
-                      <LinkPreviewList
-                        links={project.links}
-                        className="flex-col"
-                      />
-                    </Card>
-                  )}
-
+                <div className="lg:basis-96 lg:mt-72 flex flex-col gap-4">
                   {project.authors && project.authors.length > 0 && (
                     <Card>
                       <AuthorsList title="Authors" authors={project.authors} />

@@ -46,10 +46,8 @@ export default function ExperienceSection({
 
       <div className="flex flex-col gap-6 max-w-prose flex-1">
         <div>
-          <p className="font-medium text-lg text-zinc-200">
-            {experience.place}
-          </p>
-          <h2 className="font-bold text-2xl tracking-tight">
+          <p className="text-lg text-zinc-300">{experience.place}</p>
+          <h2 className="font-medium text-2xl tracking-tight">
             {experience.role}
           </h2>
           <ExperienceDate
@@ -106,7 +104,7 @@ function ExperienceDate({
 }) {
   const dateString = useDateRangeString(startDate, endDate, true)
   return (
-    <time className={classNames('text-xs font-light text-zinc-200', className)}>
+    <time className={classNames('text-xs italic text-zinc-300', className)}>
       {dateString}
     </time>
   )
@@ -115,7 +113,7 @@ function ExperienceDate({
 function ItemList({ title, items }: { title: string; items: Item[] }) {
   return (
     <div className="flex flex-col gap-4">
-      <p className="text-sm font-medium">{title}</p>
+      <p className="font-medium">{title}</p>
 
       <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8 mb-2">
         {items.map((item, index) => (

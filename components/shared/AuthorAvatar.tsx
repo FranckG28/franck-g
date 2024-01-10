@@ -3,9 +3,12 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Author } from 'schemas/author'
 
+import GlowingSurface from './GlowingSurface'
+
 export default function AuthorAvatar(props: Author) {
   const { name, picture, link } = props
-  return (
+
+  const element = (
     <div className="flex items-center group relative">
       <div className="relative mr-4 h-12 w-12">
         <Image
@@ -20,20 +23,17 @@ export default function AuthorAvatar(props: Author) {
           alt={picture?.alt ?? name}
         />
       </div>
-      <div className="text-lg font-medium">
-        {link ? (
-          <>
-            <div className="absolute -inset-x-2 -inset-y-2 z-0 scale-95 bg-zinc-600/20 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 rounded-2xl"></div>
-
-            <Link href={link}>
-              <span className="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl"></span>
-              <span className="relative z-10">{name}</span>
-            </Link>
-          </>
-        ) : (
-          <span>{name}</span>
-        )}
-      </div>
+      <p className="text-lg font-medium">{name}</p>
     </div>
   )
+
+  if (link) {
+    return (
+      <Link href={link}>
+        <GlowingSurface>{element}</GlowingSurface>
+      </Link>
+    )
+  }
+
+  return element
 }

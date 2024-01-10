@@ -1,3 +1,5 @@
+import { HomeIcon } from '@sanity/icons'
+import Tooltip from 'components/shared/Tooltip'
 import useHrefActive from 'lib/hooks/useHrefActive'
 import useNavigationItems from 'lib/hooks/useNavigationItems'
 import { Settings } from 'lib/sanity.queries'
@@ -16,9 +18,11 @@ export default function TopBar({ settings }: { settings: Settings }) {
 
       <Container>
         {!isActive('/') && (
-          <div className="absolute top-6 z-40">
-            <IndexHeader settings={settings} level={2}></IndexHeader>
-          </div>
+          <Tooltip content="Home" side="right">
+            <div className="absolute top-6 z-40">
+              <IndexHeader settings={settings} level={2}></IndexHeader>
+            </div>
+          </Tooltip>
         )}
         <NavigationBar
           items={navigationItems.filter((item) => item.href !== '/')}
