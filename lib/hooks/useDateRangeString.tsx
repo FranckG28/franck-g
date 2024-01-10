@@ -20,14 +20,20 @@ export default function useDateRangeString(
   const endMonth = endDate?.toLocaleString('default', { month: 'long' })
 
   if (includeMonths) {
-    const monthRange =
-      startYear === endYear
-        ? `${startMonth} - ${endMonth} ${endYear}`
-        : `${startMonth} ${startYear} - ${endMonth} ${endYear}`
-    return monthRange
+    if (startYear === endYear && startMonth === endMonth) {
+      return `${startMonth} ${startYear}`
+    }
+
+    if (startYear === endYear) {
+      return `${startMonth} - ${endMonth} ${endYear}`
+    }
+
+    return `${startMonth} ${startYear} - ${endMonth} ${endYear}`
   } else {
-    const yearRange =
-      startYear === endYear ? `${endYear}` : `${startYear} - ${endYear}`
-    return yearRange
+    if (startYear === endYear) {
+      return `${startYear}`
+    }
+
+    return `${startYear} - ${endYear}`
   }
 }

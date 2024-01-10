@@ -18,6 +18,7 @@
   "dependencies": {
     "@next/env": "^14.0.4",
     "@portabletext/react": "3.0.7",
+    "@radix-ui/react-tooltip": "^1.0.7",
     "@sanity/client": "^6.10.0",
     "@sanity/icons": "^2.8.0",
     "@sanity/image-url": "1.0.2",
