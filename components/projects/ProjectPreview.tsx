@@ -1,5 +1,4 @@
 import GlowingSurface from 'components/shared/GlowingSurface'
-import LinkPreview from 'components/shared/LinkPreview'
 import Tag from 'components/shared/Tag'
 import Link from 'next/link'
 import { Project } from 'schemas/project'
@@ -8,13 +7,14 @@ import ProjectLogo from './ProjectLogo'
 
 interface ProjectPreviewProps {
   project: Project
+  className?: string
 }
 
 export default function ProjectPreview(props: ProjectPreviewProps) {
-  const { project } = props
+  const { project, className } = props
 
   return (
-    <Link href={`/projects/${project.slug}`}>
+    <Link href={`/projects/${project.slug}`} className={className}>
       <GlowingSurface>
         <article className="flex flex-col items-start">
           <ProjectLogo

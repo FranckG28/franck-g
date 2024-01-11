@@ -51,7 +51,11 @@ export default function FilterableProjectList({
     return (
       <div className="grid gap-16 lg:grid-cols-2 mt-6">
         {displayedProjects.map((project, index) => (
-          <ProjectPreview key={index} project={project} />
+          <ProjectPreview
+            key={project._id}
+            project={project}
+            className="animate-fade-down"
+          />
         ))}
       </div>
     )
@@ -59,7 +63,7 @@ export default function FilterableProjectList({
 
   return (
     <div className="flex flex-col gap-6">
-      <div className="flex max-w-prose flex-wrap gap-2 items-center">
+      <div className="flex max-w-prose flex-wrap gap-2 items-center animate-fade-up">
         <Chip
           selected={!selectedTag}
           onSelect={() => {
