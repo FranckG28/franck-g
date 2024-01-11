@@ -1,3 +1,4 @@
+import { PortableText } from '@portabletext/react'
 import classNames from 'classnames'
 import SocialLinks from 'components/shared/SocialLinks'
 import { urlForImage } from 'lib/sanity.image'
@@ -14,10 +15,12 @@ export default function IndexHeader({
   settings: Settings
   level: 1 | 2
 }) {
+  console.log('settings', settings)
+
   switch (level) {
     case 1:
       return (
-        <section className="relative flex flex-col gap-4 items-start animate-fade-up">
+        <section className="relative flex flex-col gap-6 items-start animate-fade-up">
           {settings.logo && (
             <WebsiteLogo
               logo={settings.logo}
@@ -28,11 +31,17 @@ export default function IndexHeader({
 
           <IndexGradient />
 
-          <h1 className="mt-2">{settings.title}</h1>
+          <h1>{settings.title}</h1>
+
+          {settings.description && (
+            <div className="text-zinc-400 text-balance max-w-prose text-lg">
+              <PortableText value={settings.description}></PortableText>
+            </div>
+          )}
 
           {settings.location && (
-            <h4
-              className={`flex gap-2 items-center text-zinc-400 text-lg md:text-left`}
+            <p
+              className={`flex gap-2 items-center text-zinc-400 max-w-prose text-balance font-medium text-lg md:text-left`}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -54,11 +63,11 @@ export default function IndexHeader({
                 />
               </svg>
               {settings.location}
-            </h4>
+            </p>
           )}
 
           {settings?.socialLinks?.length > 0 && (
-            <SocialLinks socialLinks={settings.socialLinks} className="mt-4" />
+            <SocialLinks socialLinks={settings.socialLinks} className="mt-2" />
           )}
         </section>
       )

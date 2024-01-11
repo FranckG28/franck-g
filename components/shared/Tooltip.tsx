@@ -15,9 +15,7 @@ export default function Tooltip({
   return (
     <TooltipPrimitive.Provider delayDuration={100}>
       <TooltipPrimitive.Root>
-        <TooltipPrimitive.Trigger className="hidden md:inline-flex" asChild>
-          {children}
-        </TooltipPrimitive.Trigger>
+        <TooltipPrimitive.Trigger asChild>{children}</TooltipPrimitive.Trigger>
         <TooltipPrimitive.Content
           sideOffset={8}
           side={side}
