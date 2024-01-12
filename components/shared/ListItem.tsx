@@ -25,7 +25,7 @@ export default function ListItem({ item }: { item: Item }) {
           {item.title}
         </h3>
         {item.subtitle && (
-          <p className="text-sm text-zinc-400 line-clamp-2 leading-snug text-balance">
+          <p className="text-sm text-zinc-400 italic line-clamp-2 leading-snug text-balance">
             {item.subtitle}
           </p>
         )}

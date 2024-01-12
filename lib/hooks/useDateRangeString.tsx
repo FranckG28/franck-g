@@ -25,15 +25,15 @@ export default function useDateRangeString(
     }
 
     if (startYear === endYear) {
-      return `${startMonth} - ${endMonth} ${endYear}`
+      return `${startMonth} to ${endMonth} ${endYear}`
     }
 
-    return `${startMonth} ${startYear} - ${endMonth} ${endYear}`
+    return `${startMonth} ${startYear} to ${endMonth} ${endYear}`
   } else {
     if (startYear === endYear) {
       return `${startYear}`
     }
 
-    return `${startYear} - ${endYear}`
+    return `${startYear} to ${endYear}`
   }
 }
