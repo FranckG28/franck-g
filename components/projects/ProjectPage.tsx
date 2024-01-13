@@ -61,7 +61,7 @@ export default function ProjectPage(props: ProjectPageProps) {
                   </p>
 
                   {project.links.length && (
-                    <div className="flex gap-3 items-center flex-wrap mt-4">
+                    <div className="flex gap-3 items-center flex-wrap my-4">
                       {project.links.map((link, index) => (
                         <Link key={index} href={link.url} target="_blank">
                           <Button
@@ -72,6 +72,12 @@ export default function ProjectPage(props: ProjectPageProps) {
                         </Link>
                       ))}
                     </div>
+                  )}
+
+                  {project.excerpt && (
+                    <p className="text-balance max-w-prose text-zinc-200 leading-relaxed text-xl">
+                      {project.excerpt}
+                    </p>
                   )}
 
                   {project.content && <PostBody content={project.content} />}
