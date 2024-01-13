@@ -2,7 +2,11 @@
 
 :root {
   font-family: 'Inter', sans-serif;
-  font-feature-settings: "ss01" 1, "cv01" 1, "cv11" 1, "cv05" 1;
+  font-feature-settings:
+    'ss01' 1,
+    'cv01' 1,
+    'cv11' 1,
+    'cv05' 1;
 }
 
 @supports (font-variation-settings: normal) {
@@ -14,5 +18,21 @@
 @layer components {
   h1 {
     @apply text-4xl font-medium tracking-tight md:text-6xl text-balance;
+  }
+
+  h2 {
+    @apply text-3xl leading-snug;
+  }
+
+  h3 {
+    @apply text-2xl leading-snug;
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-medium tracking-tight text-balance;
   }
 }

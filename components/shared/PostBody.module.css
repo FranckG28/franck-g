@@ -10,16 +10,16 @@
 }
 
 .portableText h2 {
-  @apply mb-4 mt-12 text-3xl leading-snug;
+  @apply mb-4 mt-12;
 }
 
 .portableText h3 {
-  @apply mb-4 mt-8 text-2xl font-bold leading-snug;
+  @apply mb-4 mt-8;
 }
 
 .portableText a {
-  @apply text-blue-500 underline;
+  @apply text-blue-200 underline;
 }
 .portableText a:hover {
-  @apply text-blue-800;
+  @apply text-blue-300;
 }
