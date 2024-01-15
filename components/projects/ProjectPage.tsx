@@ -60,7 +60,7 @@ export default function ProjectPage(props: ProjectPageProps) {
                     {[project.category, dateRangeString].join(' • ')}
                   </p>
 
-                  {project.links.length && (
+                  {project.links?.length && (
                     <div className="flex gap-3 items-center flex-wrap my-4">
                       {project.links.map((link, index) => (
                         <Link key={index} href={link.url} target="_blank">
@@ -82,7 +82,7 @@ export default function ProjectPage(props: ProjectPageProps) {
 
                   {project.content && <PostBody content={project.content} />}
 
-                  {project.tags && project.tags.length > 0 && (
+                  {project.tags?.length > 0 && (
                     <div className="flex flex-row gap-2 mt-4 flex-wrap">
                       {project.tags.map((tag, index) => (
                         <Tag key={index} tag={tag} />
@@ -97,7 +97,7 @@ export default function ProjectPage(props: ProjectPageProps) {
                     </Card>
                   )}
 
-                  {project.experiences && project.experiences.length > 0 && (
+                  {project.experiences?.length > 0 && (
                     <Card>
                       <SectionHeader title="Related experiences" />
                       <div className="flex flex-col">
