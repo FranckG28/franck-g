@@ -3,9 +3,7 @@ import { format, parseISO } from 'date-fns'
 import { SanityEntityProps } from 'lib/sanity.queries'
 import { defineField, defineType } from 'sanity'
 
-import { Certification } from './certification'
 import { Link, linkSchema } from './link'
-import { Project } from './project'
 
 export default defineType({
   name: 'experience',
@@ -89,6 +87,13 @@ export default defineType({
       title: 'Links',
       type: 'array',
       of: [linkSchema],
+    }),
+    defineField({
+      name: 'showOnHome',
+      title: 'Show on home',
+      type: 'boolean',
+      initialValue: true,
+      validation: (rule) => rule.required(),
     }),
   ],
   preview: {

@@ -16,7 +16,7 @@ const experienceFields = groq`
   content,
 `
 
-export const latestExperiencesQuery = groq`* [_type == "experience"] | order(date desc, _updatedAt desc)[0...4] {
+export const latestExperiencesQuery = groq`* [_type == "experience" && showOnHome] | order(date desc, _updatedAt desc)[0...4] {
     ${experienceFields}
   } `
 
