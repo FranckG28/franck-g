@@ -1,5 +1,4 @@
 import classNames from 'classnames'
-import PostDate from 'components/PostDate'
 import LinkPreviewList from 'components/shared/LinkPreviewList'
 import ListItem from 'components/shared/ListItem'
 import useDateRangeString from 'lib/hooks/useDateRangeString'
@@ -16,7 +15,10 @@ export default function ExperienceSection({
   experience: FlattenedExperience
 }) {
   return (
-    <div className="flex max-md:flex-col items-start gap-4 md:gap-8 ml-4 sm:ml-8 mg:ml-0">
+    <section
+      className="flex max-md:flex-col items-start gap-4 md:gap-8 ml-4 sm:ml-8 mg:ml-0"
+      id={experience.slug}
+    >
       <div className="flex gap-8 items-center mt-4 shrink-0 md:basis-64">
         <ExperienceDate
           className="max-md:hidden flex-1 text-right"
@@ -58,12 +60,12 @@ export default function ExperienceSection({
           {experience.content && (
             <ExperienceContent content={experience.content} />
           )}
-          {experience.links && experience.links.length > 0 && (
+          {experience.links?.length > 0 && (
             <LinkPreviewList links={experience.links} className="mt-4" />
           )}
         </div>
 
-        {experience.certifications && experience.certifications.length > 0 && (
+        {experience.certifications?.length > 0 && (
           <ItemList
             title="Certifications"
             items={experience.certifications.map((certification) => ({
@@ -77,7 +79,7 @@ export default function ExperienceSection({
           />
         )}
 
-        {experience.projects && experience.projects.length > 0 && (
+        {experience.projects?.length > 0 && (
           <ItemList
             title="Linked projects"
             items={experience.projects.map((project) => ({
@@ -89,7 +91,7 @@ export default function ExperienceSection({
           />
         )}
       </div>
-    </div>
+    </section>
   )
 }
 
