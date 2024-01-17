@@ -43,7 +43,14 @@ export default function VideoPage({
                     index === 0 ? 'md:col-span-2 md:row-span-2' : '',
                   )}
                   bigPicture={index === 0}
-                />
+                >
+                  {index === 0 && (
+                    <div className="bg-blue-200/20 text-blue-200 rounded-full font-medium px-3 py-1 w-fit flex items-center gap-2 absolute bottom-4 left-4 backdrop-blur">
+                      <div className="inline-block w-2 h-2 bg-blue-200 rounded-full"></div>
+                      Latest video
+                    </div>
+                  )}
+                </VideoPreview>
               ))}
             </div>
           ) : (
