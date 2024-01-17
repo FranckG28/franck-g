@@ -76,12 +76,12 @@ export default function IndexHeader({
 
     case 2:
       return (
-        <div className="p-0.5 rounded-full h-fit w-fit bg-zinc-800/90 shadow-lg shadow-zinc-900/10 ring-1 ring-white/10 backdrop-blur">
+        <div className="p-0.5 rounded-full h-fit w-fit bg-zinc-800/50 shadow-lg shadow-zinc-900/10 ring-1 ring-white/10 backdrop-blur">
           <Link href={'/'}>
             <WebsiteLogo
               logo={settings.logo}
               title={settings.title}
-              size={45}
+              size={48}
             />
           </Link>
         </div>
