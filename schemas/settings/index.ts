@@ -194,5 +194,11 @@ export default defineType({
       type: 'object',
       fields: sectionSettingsFields,
     }),
+    defineField({
+      name: 'videos',
+      title: 'Videos settings',
+      type: 'object',
+      fields: sectionSettingsFields,
+    }),
   ],
 })

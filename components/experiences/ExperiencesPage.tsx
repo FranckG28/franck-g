@@ -45,13 +45,6 @@ export default function ExperiencesPage({
 
       <Layout preview={false} loading={false} settings={settings}>
         <Container className="flex flex-col gap-8 animate-fade-up">
-          {/* <div className="flex flex-col gap-6">
-            <h1>{settings.experiences.pageTitle ?? 'Experiences'}</h1>
-            <p className="text-zinc-400 max-w-prose text-lg">
-              {settings.experiences.pageDescription ??
-                'A collection of my experiences.'}
-            </p>
-          </div> */}
           <PageHeader
             sectionSettings={settings.experiences}
             defaultName="Experiences"
