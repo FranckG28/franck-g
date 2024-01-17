@@ -18,7 +18,7 @@ export default function ExperienceSection({
       className="flex max-md:flex-col items-start gap-4 md:gap-8 ml-4 sm:ml-8 mg:ml-0"
       id={experience.slug}
     >
-      <div className="flex gap-8 items-center mt-4 shrink-0 md:basis-64">
+      <div className="flex gap-8 items-center mt-4 shrink-0 md:basis-52">
         <ExperienceDate
           className="max-md:hidden flex-1 text-right"
           startDate={experience.startDate}
