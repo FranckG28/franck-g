@@ -26,6 +26,7 @@ export interface Settings {
     subtitle?: string
     siteName?: string
   }
+  youtubeChannelId?: string
   experiences?: SectionSettings
   projects?: SectionSettings
   footer?: string
