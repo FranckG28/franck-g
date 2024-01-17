@@ -14,8 +14,9 @@ export default function LayoutAnimatedPattern() {
   const window = useWindowSize()
 
   const isHomePage = usePathname() === '/'
-
   const mobileMode = window.width < 768
+
+  const intersectionAnimationEnabled = !mobileMode && isHomePage
 
   const columns = mobileMode ? 13 : 25
   const rows = 12
@@ -51,7 +52,7 @@ export default function LayoutAnimatedPattern() {
     const timeoutIds = []
 
     const interval = setInterval(() => {
-      if (isIntersecting) {
+      if (intersectionAnimationEnabled && isIntersecting) {
         timeoutIds.forEach(clearTimeout)
         return
       }
@@ -104,7 +105,7 @@ export default function LayoutAnimatedPattern() {
       clearInterval(interval)
       timeoutIds.forEach(clearTimeout)
     }
-  }, [indices, isIntersecting, ref])
+  }, [indices, isIntersecting, ref, intersectionAnimationEnabled])
 
   const setLightState = useCallback(
     (indexes: number[], state: string, pulse: boolean) => {
@@ -123,7 +124,7 @@ export default function LayoutAnimatedPattern() {
   )
 
   useEffect(() => {
-    if (mobileMode || !isHomePage) {
+    if (!intersectionAnimationEnabled) {
       return
     }
 
@@ -142,8 +143,7 @@ export default function LayoutAnimatedPattern() {
     isIntersecting,
     selectedPoints,
     setLightState,
-    mobileMode,
-    isHomePage,
+    intersectionAnimationEnabled,
   ])
 
   return (
