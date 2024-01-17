@@ -7,10 +7,13 @@ import {
   useWindowSize,
 } from '@uidotdev/usehooks'
 import { getRandomNumber, getRandomNumbers } from 'lib/utils'
+import { usePathname } from 'next/navigation'
 import { RefObject, useCallback, useEffect, useMemo } from 'react'
 
 export default function LayoutAnimatedPattern() {
   const window = useWindowSize()
+
+  const isHomePage = usePathname() === '/'
 
   const mobileMode = window.width < 768
 
@@ -120,7 +123,7 @@ export default function LayoutAnimatedPattern() {
   )
 
   useEffect(() => {
-    if (mobileMode) {
+    if (mobileMode || !isHomePage) {
       return
     }
 
@@ -134,7 +137,14 @@ export default function LayoutAnimatedPattern() {
       // Turn off selected lights
       setLightState(selectedPoints, 'off', false)
     }
-  }, [indices, isIntersecting, selectedPoints, setLightState, mobileMode])
+  }, [
+    indices,
+    isIntersecting,
+    selectedPoints,
+    setLightState,
+    mobileMode,
+    isHomePage,
+  ])
 
   return (
     <div className="absolute inset-0 flex justify-center sm:px-8 -z-10">
