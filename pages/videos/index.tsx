@@ -1,9 +1,9 @@
 import VideoPage from 'components/videos/VideoPage'
+import { fetchChannelVideos } from 'lib/fetchChannelVideos'
 import { Video } from 'lib/models/video'
 import { readToken } from 'lib/sanity.api'
 import { getClient, getSettings } from 'lib/sanity.client'
 import { Settings } from 'lib/sanity.queries'
-import { fetchChannelVideos } from 'lib/youtube'
 import { GetStaticProps } from 'next'
 import { SharedPageProps } from 'pages/_app'
 
@@ -27,7 +27,6 @@ export const getStaticProps: GetStaticProps<PageProps> = async (ctx) => {
   const videos = await fetchChannelVideos(
     settings.youtubeChannelId,
     process.env.YOUTUBE_API_KEY,
-    100,
   )
 
   return {

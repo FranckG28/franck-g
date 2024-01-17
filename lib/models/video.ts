@@ -7,10 +7,15 @@ export interface Video {
         title: string
         description: string
         thumbnails: {
-            medium: {
-                url: string
-            }
+            medium: Thumbnail
+            high: Thumbnail
         }
         publishedAt: string
     }
+}
+
+interface Thumbnail {
+    url: string
+    width: number
+    height: number
 }
