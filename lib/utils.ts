@@ -1,3 +1,5 @@
+import { format } from "date-fns"
+
 export const hslWithOpacity = (hsl: string, opacity: number): string => {
   const [h, s, l] = hsl
     .replace('hsl(', '')
@@ -17,3 +19,10 @@ export const getRandomNumbers = (min: number, max: number, count: number): numbe
   }
   return Array.from(numbers)
 }
+
+export const formatDate = (date: Date | string) => {
+  return format(
+    typeof date === 'string' ? new Date(date) : date,
+    'd MMMM yyyy'
+  );
+};

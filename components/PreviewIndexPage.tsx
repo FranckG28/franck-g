@@ -37,6 +37,7 @@ export default function PreviewIndexPage(props: IndexPageProps) {
         loadingExperiences ||
         loadingCertifications
       }
+      videos={[]}
       projects={projects || []}
       settings={settings || {}}
       experiences={experiences || []}

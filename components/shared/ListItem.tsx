@@ -7,7 +7,7 @@ import GlowingSurface from './GlowingSurface'
 
 export default function ListItem({ item }: { item: Item }) {
   const element = (
-    <article className="group relative flex gap-3 items-center">
+    <article className="group relative flex gap-3">
       <div className="rounded-full shadow-lg border border-zinc-200/20 bg-zinc-600 z-10 h-10 w-10">
         {item.image && (
           <Image
@@ -20,12 +20,12 @@ export default function ListItem({ item }: { item: Item }) {
           />
         )}
       </div>
-      <div className="flex flex-col flex-1">
-        <h3 className="font-medium tracking-tight text-lg leading-tight line-clamp-2 text-balance">
+      <div className="flex flex-col flex-1 gap-1">
+        <p className="font-medium tracking-tight line-clamp-3 text-balance leading-tight">
           {item.title}
-        </h3>
+        </p>
         {item.subtitle && (
-          <p className="text-sm text-zinc-400 line-clamp-2 leading-snug text-balance">
+          <p className="text-sm text-zinc-400 line-clamp-2 text-balance">
             {item.subtitle}
           </p>
         )}

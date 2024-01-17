@@ -3,6 +3,8 @@ import ExperiencePreviewsSection from 'components/experiences/ExperiencePreviews
 import IndexHeader from 'components/home/IndexHeader'
 import Container from 'components/layout/Container'
 import Layout from 'components/layout/Layout'
+import VideoPreviewSection from 'components/videos/VideoPreviewSection'
+import { Video } from 'lib/models/video'
 import type { Settings } from 'lib/sanity.queries'
 import { Certification } from 'schemas/certification'
 import { Experience } from 'schemas/experience'
@@ -19,11 +21,19 @@ export interface IndexPageProps {
   projects: Project[]
   experiences: Experience[]
   certifications: Certification[]
+  videos: Video[]
 }
 
 export default function IndexPage(props: IndexPageProps) {
-  const { preview, loading, settings, projects, experiences, certifications } =
-    props
+  const {
+    preview,
+    loading,
+    settings,
+    projects,
+    experiences,
+    certifications,
+    videos,
+  } = props
 
   return (
     <>
@@ -43,13 +53,19 @@ export default function IndexPage(props: IndexPageProps) {
 
         <Container className="animate-fade-up">
           <div className="flex gap-16 max-xl:flex-col xl:items-start pt-12">
-            {projects?.length > 0 && (
-              <ProjectPreviewsSection
-                projects={projects}
-                className="xl:flex-1"
-                settings={settings}
-              />
-            )}
+            <div className="flex flex-col gap-16 xl:flex-1">
+              {projects?.length > 0 && (
+                <ProjectPreviewsSection
+                  projects={projects}
+                  settings={settings}
+                />
+              )}
+
+              {videos?.length > 0 && (
+                <VideoPreviewSection videos={videos} settings={settings} />
+              )}
+            </div>
+
             <div className="flex flex-col gap-8 xl:basis-96">
               {experiences?.length > 0 && (
                 <ExperiencePreviewsSection

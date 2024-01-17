@@ -15,8 +15,6 @@ export default function IndexHeader({
   settings: Settings
   level: 1 | 2
 }) {
-  console.log('settings', settings)
-
   switch (level) {
     case 1:
       return (

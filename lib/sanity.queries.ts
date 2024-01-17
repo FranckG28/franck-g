@@ -26,8 +26,10 @@ export interface Settings {
     subtitle?: string
     siteName?: string
   }
+  youtubeChannelId?: string
   experiences?: SectionSettings
   projects?: SectionSettings
+  videos?: SectionSettings
   footer?: string
   socialLinks?: SocialLink[]
   photoShowcase?: Pick<Photo, 'title' | 'image'>[]

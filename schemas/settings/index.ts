@@ -168,6 +168,13 @@ export default defineType({
       ],
     }),
     defineField({
+      name: 'youtubeChannelId',
+      title: 'YouTube channel ID',
+      description:
+        'Used to display your latest YouTube videos on the home page.',
+      type: 'string',
+    }),
+    defineField({
       name: 'footer',
       title: 'Footer text',
       description:
@@ -184,6 +191,12 @@ export default defineType({
     defineField({
       name: 'experiences',
       title: 'Experiences settings',
+      type: 'object',
+      fields: sectionSettingsFields,
+    }),
+    defineField({
+      name: 'videos',
+      title: 'Videos settings',
       type: 'object',
       fields: sectionSettingsFields,
     }),

@@ -18,7 +18,7 @@ export default function ExperienceSection({
       className="flex max-md:flex-col items-start gap-4 md:gap-8 ml-4 sm:ml-8 mg:ml-0"
       id={experience.slug}
     >
-      <div className="flex gap-8 items-center mt-4 shrink-0 md:basis-64">
+      <div className="flex gap-8 items-center mt-4 shrink-0 md:basis-52">
         <ExperienceDate
           className="max-md:hidden flex-1 text-right"
           startDate={experience.startDate}
@@ -116,7 +116,7 @@ function ItemList({ title, items }: { title: string; items: Item[] }) {
     <div className="flex flex-col gap-4">
       <p className="font-medium">{title}</p>
 
-      <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8 mb-2">
+      <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 mb-2">
         {items.map((item, index) => (
           <ListItem key={index} item={item} />
         ))}
