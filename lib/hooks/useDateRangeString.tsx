@@ -17,6 +17,8 @@ export default function useDateRangeString(
   }
 
   const endDate = typeof end === 'string' ? new Date(end) : end
+  const startYear = format(startDate, 'yyyy')
+  const endYear = format(endDate, 'yyyy')
 
   if (includeMonths) {
     const endMonth = format(endDate, 'MMM yyyy')
@@ -25,11 +27,12 @@ export default function useDateRangeString(
       return startMonth
     }
 
+    if (startYear === endYear) {
+      return `${format(startDate, 'MMM')} - ${endMonth}`
+    }
+
     return `${startMonth} - ${endMonth}`
   } else {
-    const startYear = format(startDate, 'yyyy')
-    const endYear = format(endDate, 'yyyy')
-
     if (startYear === endYear) {
       return `${startYear}`
     }

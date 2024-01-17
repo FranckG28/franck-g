@@ -21,9 +21,7 @@ export default function ListItem({ item }: { item: Item }) {
         )}
       </div>
       <div className="flex flex-col flex-1 gap-1">
-        <p className="font-medium tracking-tight line-clamp-3 text-balance leading-tight">
-          {item.title}
-        </p>
+        <h6 className="line-clamp-3 leading-tight">{item.title}</h6>
         {item.subtitle && (
           <p className="text-sm text-zinc-400 line-clamp-2 text-balance">
             {item.subtitle}

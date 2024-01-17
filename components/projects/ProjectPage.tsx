@@ -75,9 +75,9 @@ export default function ProjectPage(props: ProjectPageProps) {
                   )}
 
                   {project.excerpt && (
-                    <p className="text-balance max-w-prose text-zinc-200 leading-relaxed text-xl">
+                    <h4 className="max-w-prose text-zinc-200">
                       {project.excerpt}
-                    </p>
+                    </h4>
                   )}
 
                   {project.content && <PostBody content={project.content} />}

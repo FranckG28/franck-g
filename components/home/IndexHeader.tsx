@@ -1,5 +1,6 @@
 import { PortableText } from '@portabletext/react'
 import classNames from 'classnames'
+import PostBody from 'components/shared/PostBody'
 import SocialLinks from 'components/shared/SocialLinks'
 import { urlForImage } from 'lib/sanity.image'
 import { Settings } from 'lib/sanity.queries'
@@ -29,40 +30,43 @@ export default function IndexHeader({
 
           <IndexGradient />
 
-          <h1>{settings.title}</h1>
+          <div>
+            <h1>{settings.title}</h1>
 
-          {settings.description && (
-            <div className="text-zinc-400 text-balance max-w-prose text-lg">
-              <PortableText value={settings.description}></PortableText>
-            </div>
-          )}
+            {settings.description && (
+              <PostBody
+                content={settings.description}
+                className="text-zinc-400 text-balance max-w-prose"
+              ></PostBody>
+            )}
 
-          {settings.location && (
-            <p
-              className={`flex gap-2 items-center text-zinc-400 max-w-prose text-balance font-medium text-lg md:text-left`}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-6 h-6"
+            {settings.location && (
+              <h5
+                className={`flex gap-2 items-center text-zinc-400 max-w-prose md:text-left`}
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"
-                />
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
-                />
-              </svg>
-              {settings.location}
-            </p>
-          )}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"
+                  />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
+                  />
+                </svg>
+                {settings.location}
+              </h5>
+            )}
+          </div>
 
           {settings?.socialLinks?.length > 0 && (
             <SocialLinks socialLinks={settings.socialLinks} className="mt-2" />

@@ -12,7 +12,7 @@ export default function Container({
       className={classNames(
         `
         mx-auto w-full lg:max-w-7xl 
-        px-8 sm:px-16 lg:px-24
+        px-6 sm:px-16 lg:px-24
       `,
         className,
       )}

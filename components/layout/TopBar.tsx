@@ -1,11 +1,10 @@
-import { HomeIcon } from '@sanity/icons'
 import Tooltip from 'components/shared/Tooltip'
 import useHrefActive from 'lib/hooks/useHrefActive'
 import useNavigationItems from 'lib/hooks/useNavigationItems'
 import { Settings } from 'lib/sanity.queries'
 
 import IndexHeader from '../home/IndexHeader'
-import NavigationBar from '../NavigationBar'
+import NavigationBar from '../projects/NavigationBar'
 import Container from './Container'
 
 export default function TopBar({ settings }: { settings: Settings }) {

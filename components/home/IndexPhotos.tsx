@@ -13,7 +13,7 @@ export default function IndexPhotos({
   return (
     <div
       className={classNames(
-        'flex justify-center w-full gap-6 py-3 overflow-hidden',
+        'flex justify-center w-full gap-2 md:gap-3 lg:gap-6 py-3 overflow-hidden',
         className,
       )}
     >
@@ -38,7 +38,7 @@ function PhotoCard({
   return (
     <div
       className={classNames(
-        'relative rounded-xl aspect-[9/10] w-32 md:w-64 lg:shadow-xl transition duration-300 brightness-90 hover:brightness-110 scale-95 hover:scale-100 overflow-hidden group',
+        'relative rounded-xl aspect-[9/10] w-32 md:w-64 lg:shadow-xl transition duration-300 brightness-90 hover:brightness-110 scale-95 hover:scale-100 overflow-hidden group max-md:pointer-events-none',
         getRandomRotation(),
       )}
     >
@@ -46,9 +46,9 @@ function PhotoCard({
         <p
           className={`
           absolute z-10 p-4 left-0 line-clamp-2 text-slate-200 
-          bg-gradient-to-t from-zinc-900/80 w-full font-medium italic
+          bg-gradient-to-t from-zinc-900/80 via-zinc-900/80 via-50% w-full font-medium italic
           transition-all group-hover:bottom-0 -bottom-8 opacity-0 group-hover:opacity-100 duration-300 
-          scale-95 group-hover:scale-100
+          scale-95 group-hover:scale-100 text-sm
         `}
         >
           {photo.excerpt}

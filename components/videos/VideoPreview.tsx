@@ -43,7 +43,7 @@ export default function VideoPreview({
             <p
               className={classNames(
                 'tracking-tight font-medium line-clamp-2 text-balance',
-                bigPicture ? 'text-2xl' : 'text-xl',
+                bigPicture ? 'text-xl md:text-2xl' : 'text-lg md:text-xl',
               )}
               dangerouslySetInnerHTML={{ __html: video.snippet.title }}
             />

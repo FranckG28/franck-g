@@ -24,33 +24,29 @@ export default function ExperienceSection({
           startDate={experience.startDate}
           endDate={experience.endDate}
         />
-        <div className="rounded-full shadow-lg border border-zinc-200/50 bg-white">
-          {experience.coverImage ? (
-            <Image
-              className="
-                h-12 w-12 rounded-full aspect-square
+        {experience.coverImage ? (
+          <Image
+            className="
+                w-12 rounded-full aspect-square shadow-lg transition-all
               "
-              width={64}
-              height={64}
-              alt={experience.place}
-              src={urlForImage(experience.coverImage)
-                .height(100)
-                .width(100)
-                .url()}
-              sizes="100px"
-            />
-          ) : (
-            <div className="h-12 w-12 rounded-full bg-zinc-400"></div>
-          )}
-        </div>
+            width={64}
+            height={64}
+            alt={experience.place}
+            src={urlForImage(experience.coverImage)
+              .height(100)
+              .width(100)
+              .url()}
+            sizes="100px"
+          />
+        ) : (
+          <div className="w-12 rounded-full bg-zinc-400 shadow-lg"></div>
+        )}
       </div>
 
-      <div className="flex flex-col gap-6 max-w-prose flex-1">
+      <div className="flex flex-col gap-8 max-w-prose flex-1">
         <div>
-          <p className="text-lg text-zinc-300">{experience.place}</p>
-          <h2 className="font-medium text-2xl tracking-tight">
-            {experience.role}
-          </h2>
+          <h5 className="text-zinc-300">{experience.place}</h5>
+          <h3>{experience.role}</h3>
           <ExperienceDate
             startDate={experience.startDate}
             endDate={experience.endDate}
@@ -105,7 +101,7 @@ function ExperienceDate({
 }) {
   const dateString = useDateRangeString(startDate, endDate, true)
   return (
-    <time className={classNames('text-xs italic text-zinc-300', className)}>
+    <time className={classNames('text-xs italic text-zinc-400', className)}>
       {dateString}
     </time>
   )
@@ -113,8 +109,8 @@ function ExperienceDate({
 
 function ItemList({ title, items }: { title: string; items: Item[] }) {
   return (
-    <div className="flex flex-col gap-4">
-      <p className="font-medium">{title}</p>
+    <div className="flex flex-col gap-6">
+      <h5>{title}</h5>
 
       <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 mb-2">
         {items.map((item, index) => (

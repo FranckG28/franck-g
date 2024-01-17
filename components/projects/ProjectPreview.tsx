@@ -23,15 +23,13 @@ export default function ProjectPreview(props: ProjectPreviewProps) {
             className="z-10"
           />
 
-          <p className="uppercase font-semibold text-xs text-zinc-400 z-10">
+          <p className="uppercase font-medium text-xs text-zinc-400 z-10">
             {project.category}
           </p>
 
-          <h2 className="text-xl tracking-tight font-medium leading-tight mt-1 mb-2">
-            {project.title}
-          </h2>
+          <h4 className="mt-1 mb-2">{project.title}</h4>
 
-          <p className="line-clamp-3 text-zinc-400 leading-snug text-sm z-10 text-balance">
+          <p className="line-clamp-3 text-zinc-400 text-sm z-10 text-balance max-w-prose">
             {project.excerpt}
           </p>
 

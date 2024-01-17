@@ -1,12 +1,12 @@
 .portableText {
-  @apply text-lg leading-relaxed;
+  @apply md:text-lg;
 }
 
 .portableText p,
 .portableText ul,
 .portableText ol,
 .portableText blockquote {
-  @apply my-6;
+  @apply my-3 md:my-6;
 }
 
 .portableText h2 {

@@ -23,7 +23,7 @@ export default function AuthorAvatar(props: Author) {
           alt={picture?.alt ?? name}
         />
       </div>
-      <p className="text-lg font-medium">{name}</p>
+      <h5>{name}</h5>
     </div>
   )
 

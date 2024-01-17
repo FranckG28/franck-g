@@ -28,7 +28,7 @@ export default function LayoutAnimatedPattern() {
   const yIntersecting = mouse.elementY > 0 && mouse.elementY < height
   const isIntersecting = xIntersecting && yIntersecting
 
-  const pointsToAnimate = mobileMode ? 25 : 50
+  const pointsToAnimate = mobileMode ? 20 : 40
 
   // Custom points to light up on hover
   const selectedPoints = useMemo(
@@ -184,8 +184,8 @@ function Point({ index }: { index: number }) {
       className={`
         h-1 w-1 rounded-full transition-all duration-500 
         data-[state=off]:bg-zinc-100 data-[state=off]:opacity-10
-        data-[state=medium]:opacity-70 data-[state=medium]:blur-[1px] data-[state=medium]:bg-blue-300
-        data-[state=high]:opacity-70 data-[state=high]:scale-150 data-[state=high]:bg-blue-200
+        data-[state=medium]:opacity-50 data-[state=medium]:blur-[1px] data-[state=medium]:bg-blue-300
+        data-[state=high]:opacity-60 data-[state=high]:scale-150 data-[state=high]:bg-blue-200
         data-[pulse=true]:scale-[2] data-[pulse=true]:blur-[1px]
       `}
     >
