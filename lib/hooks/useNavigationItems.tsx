@@ -9,15 +9,15 @@ export default function useNavigationItems(settings: Settings): Navigation[] {
       href: '/',
     },
     {
-      name: settings.projects.name ?? 'Projects',
+      name: settings.projects?.name ?? 'Projects',
       href: '/projects',
     },
     {
-      name: settings.experiences.name ?? 'Experiences',
+      name: settings.experiences?.name ?? 'Experiences',
       href: '/experiences',
     },
     {
-      name: /*settings.videos.name ?? */ 'Videos',
+      name: settings.videos?.name ?? 'Videos',
       href: '/videos',
     },
   ]

@@ -55,7 +55,7 @@ export default function VideoPage({
             </div>
           ) : (
             <p className="text-center text-zinc-200 text-sm">
-              No videos found.
+              {settings.videos?.emptyMessage ?? 'No videos found.'}
             </p>
           )}
 
