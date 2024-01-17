@@ -47,8 +47,7 @@ function PhotoCard({
           className={`
           absolute z-10 p-4 left-0 line-clamp-2 text-zinc-200 
           bg-gradient-to-t from-zinc-900/80 via-zinc-900/80 via-50% w-full font-medium italic
-          transition-all group-hover:bottom-0 -bottom-8 opacity-0 group-hover:opacity-100 duration-300 
-          scale-95 group-hover:scale-100 text-sm
+          transition-all group-hover:bottom-0 -bottom-2 opacity-0 group-hover:opacity-100 duration-300 text-sm
         `}
         >
           {photo.excerpt}
