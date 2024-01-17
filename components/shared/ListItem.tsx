@@ -8,7 +8,7 @@ import GlowingSurface from './GlowingSurface'
 export default function ListItem({ item }: { item: Item }) {
   const element = (
     <article className="group relative flex gap-3">
-      <div className="rounded-full shadow-lg border border-zinc-200/20 bg-zinc-600 z-10 h-10 w-10">
+      <div className="rounded-full shadow-lg ring-1 ring-white/10 bg-zinc-600 z-10 h-10 w-10">
         {item.image && (
           <Image
             className="rounded-full aspect-square"
