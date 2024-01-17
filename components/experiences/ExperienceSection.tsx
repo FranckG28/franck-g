@@ -116,7 +116,7 @@ function ItemList({ title, items }: { title: string; items: Item[] }) {
     <div className="flex flex-col gap-4">
       <p className="font-medium">{title}</p>
 
-      <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8 mb-2">
+      <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 mb-2">
         {items.map((item, index) => (
           <ListItem key={index} item={item} />
         ))}
