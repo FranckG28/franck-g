@@ -184,8 +184,8 @@ function Point({ index }: { index: number }) {
       className={`
         h-1 w-1 rounded-full transition-all duration-500 
         data-[state=off]:bg-zinc-100 data-[state=off]:opacity-10
-        data-[state=medium]:opacity-50 data-[state=medium]:blur-[1px] data-[state=medium]:bg-blue-300
-        data-[state=high]:opacity-60 data-[state=high]:scale-150 data-[state=high]:bg-blue-200
+        data-[state=medium]:opacity-30 data-[state=medium]:blur-[1px] data-[state=medium]:bg-blue-300
+        data-[state=high]:opacity-50 data-[state=high]:scale-150 data-[state=high]:bg-blue-200
         data-[pulse=true]:scale-[2] data-[pulse=true]:blur-[1px]
       `}
     >

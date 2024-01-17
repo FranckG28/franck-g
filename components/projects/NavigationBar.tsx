@@ -17,8 +17,8 @@ export default function NavigationBar({
       {items && items.length > 0 && (
         <nav
           className={classNames(
-            `bg-zinc-800 border-t border-zinc-700/50 shadow rounded-full
-          flex items-center justify-center gap-6 py-2 px-4 overflow-hidden`,
+            `bg-zinc-800/90 backdrop-blur shadow-lg rounded-full shadow-zinc-900/10 ring-1 ring-white/10 
+            flex items-center justify-center gap-6 py-3 px-6 overflow-hidden`,
             className,
           )}
         >
@@ -34,9 +34,9 @@ export default function NavigationBar({
                 )}
               >
                 <Link href={item.href}>
-                  <span className="absolute -inset-x-4 -inset-y-2 z-20 sm:-inset-x-6 rounded-full">
+                  <span className="absolute -inset-x-4 -inset-y-3 z-20 sm:-inset-x-6 rounded-full">
                     {isActive(item.href) && (
-                      <span className="absolute inset-x-6 bottom-px h-px bg-gradient-to-r from-teal-500/0 via-blue-500/40 to-teal-500/0 dark:from-teal-400/0 dark:via-blue-400/40 dark:to-teal-400/0"></span>
+                      <span className="absolute inset-x-6 bottom-0 h-px bg-gradient-to-r from-blue-400/0 via-blue-400/50 to-blue-400/0"></span>
                     )}
                   </span>
                   <span className="relative z-10">{item.name}</span>
