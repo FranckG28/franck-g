@@ -16,5 +16,9 @@ export default function useNavigationItems(settings: Settings): Navigation[] {
       name: settings.experiences.name ?? 'Experiences',
       href: '/experiences',
     },
+    {
+      name: /*settings.videos.name ?? */ 'Videos',
+      href: '/videos',
+    },
   ]
 }
