@@ -1,13 +1,12 @@
 import classNames from 'classnames'
 import LinkPreviewList from 'components/shared/LinkPreviewList'
 import ListItem from 'components/shared/ListItem'
+import PostBody from 'components/shared/PostBody'
 import useDateRangeString from 'lib/hooks/useDateRangeString'
 import { FlattenedExperience } from 'lib/models/flattened-experience'
 import { Item } from 'lib/models/item'
 import { urlForImage } from 'lib/sanity.image'
 import Image from 'next/image'
-
-import ExperienceContent from './ExperienceContent'
 
 export default function ExperienceSection({
   experience,
@@ -58,7 +57,7 @@ export default function ExperienceSection({
             className="md:hidden"
           />
           {experience.content && (
-            <ExperienceContent content={experience.content} />
+            <PostBody content={experience.content} className="text-zinc-400" />
           )}
           {experience.links?.length > 0 && (
             <LinkPreviewList links={experience.links} className="mt-4" />
