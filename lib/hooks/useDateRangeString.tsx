@@ -1,39 +1,39 @@
+import { format } from 'date-fns'
+
 export default function useDateRangeString(
-  start: string,
-  end?: string,
+  start: string | Date,
+  end?: string | Date,
   includeMonths: boolean = false,
 ): string {
   if (!start && !end) {
     return ''
   }
 
-  const startDate = new Date(start)
-  const startYear = startDate.getFullYear()
-  const startMonth = startDate.toLocaleString('default', { month: 'long' })
+  const startDate = typeof start === 'string' ? new Date(start) : start
+  const startMonth = format(startDate, 'MMM yyyy')
 
   if (!end) {
-    return `since ${startMonth} ${startYear}`
+    return `since ${startMonth}`
   }
 
-  const endDate = new Date(end)
-  const endYear = endDate?.getFullYear()
-  const endMonth = endDate?.toLocaleString('default', { month: 'long' })
+  const endDate = typeof end === 'string' ? new Date(end) : end
 
   if (includeMonths) {
-    if (startYear === endYear && startMonth === endMonth) {
-      return `${startMonth} ${startYear}`
+    const endMonth = format(endDate, 'MMM yyyy')
+
+    if (startMonth === endMonth) {
+      return startMonth
     }
 
-    if (startYear === endYear) {
-      return `${startMonth} to ${endMonth} ${endYear}`
-    }
-
-    return `${startMonth} ${startYear} to ${endMonth} ${endYear}`
+    return `${startMonth} - ${endMonth}`
   } else {
+    const startYear = format(startDate, 'yyyy')
+    const endYear = format(endDate, 'yyyy')
+
     if (startYear === endYear) {
       return `${startYear}`
     }
 
-    return `${startYear} to ${endYear}`
+    return `${startYear} - ${endYear}`
   }
 }
