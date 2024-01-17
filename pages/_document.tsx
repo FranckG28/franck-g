@@ -1,4 +1,3 @@
-import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Head, Html, Main, NextScript } from 'next/document'
 
 export default function Document() {
@@ -7,7 +6,6 @@ export default function Document() {
       <Head />
       <body className="bg-black text-white antialiased">
         <Main />
-        <SpeedInsights />
         <NextScript />
       </body>
     </Html>

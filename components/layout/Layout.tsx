@@ -1,4 +1,5 @@
 import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import classNames from 'classnames'
 import TopBar from 'components/layout/TopBar'
 import AlertBanner from 'components/shared/AlertBanner'
@@ -36,6 +37,7 @@ export default function Layout({
         >
           {children}
           <Analytics />
+          <SpeedInsights />
         </main>
         <footer>
           <div className="mt-12 flex justify-center sm:px-8">
