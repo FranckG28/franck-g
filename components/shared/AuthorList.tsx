@@ -15,7 +15,7 @@ export default function AuthorsList({
       {authors && authors?.length > 0 && (
         <>
           <SectionHeader title={title}></SectionHeader>
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-8">
             {authors?.map((author, index) => (
               <AuthorAvatar
                 key={index}

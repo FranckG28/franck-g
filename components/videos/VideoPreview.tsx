@@ -34,7 +34,7 @@ export default function VideoPreview({
               src={thumnail.url}
               width={thumnail.width}
               height={thumnail.height}
-              className="rounded-xl shadow-lg border-t border-slate-300/10 aspect-video object-cover brightness-90 transition group-hover:brightness-100 w-full"
+              className="rounded-xl shadow-lg border-t border-zinc-300/10 aspect-video object-cover brightness-90 transition group-hover:brightness-100 w-full"
               alt={video.snippet.title}
             />
             {children}

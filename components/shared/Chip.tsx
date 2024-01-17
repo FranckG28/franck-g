@@ -20,7 +20,7 @@ export default function Chip({
       `,
         selected
           ? 'bg-blue-300/20 text-blue-300 border-blue-300/20 shadow-lg shadow-blue-300/5'
-          : 'text-zinc-300 border-slate-500/20',
+          : 'text-zinc-300 border-zinc-500/20',
       )}
       onClick={onSelect}
     >
