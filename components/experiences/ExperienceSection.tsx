@@ -15,7 +15,7 @@ export default function ExperienceSection({
 }) {
   return (
     <section
-      className="flex max-md:flex-col items-start gap-4 md:gap-8 ml-4 sm:ml-8 mg:ml-0"
+      className="flex max-md:flex-col items-start gap-4 md:gap-8 md:ml-8"
       id={experience.slug}
     >
       <div className="flex gap-8 items-center mt-4 shrink-0 md:basis-52">

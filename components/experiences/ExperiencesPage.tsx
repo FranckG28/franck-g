@@ -8,7 +8,7 @@ import { Settings } from 'lib/sanity.queries'
 
 import ExperienceSection from './ExperienceSection'
 
-const leftOffset = 'md:left-[215px]'
+const leftOffset = 'md:left-[215px] max-md:hidden'
 
 export default function ExperiencesPage({
   experiences,
@@ -45,7 +45,7 @@ export default function ExperiencesPage({
           )}
         ></div>
 
-        <div className="flex flex-col gap-20 mt-8 z-10 relative">
+        <div className="flex flex-col gap-12 md:gap-20 mt-8 z-10 relative">
           {experiences.map((experience, index) => {
             return <ExperienceSection key={index} experience={experience} />
           })}
