@@ -1,9 +1,8 @@
-# franck-g.fr
+# [franck-g.fr][franck-g]
 
 The code source of my personal website, showcasing my projects, experiences, photos and videos.
 
-
-[Visit →][franck-g]
+<a href="https://franck-g.fr/"><img width="720" alt="franck-g.fr preview" src="https://github.com/FranckG28/franck-g/assets/19238963/c8469c7b-59a2-46d2-9818-8b3d58034627"></a>
 
 It's still under development. I'm currently working on some features and improvements.
 
