@@ -61,4 +61,4 @@ export const ogImageTitle = 'A Next.js Blog with a Native Authoring Experience'
 export const ogImageSubtitle =
   'A statically generated blog example using Next.js and Sanity.'
 
-export const footer = '@ 2023 Franck G.'
+export const footer = '@ 2024 Franck G.'
