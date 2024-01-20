@@ -8,17 +8,19 @@ import Link from 'next/link'
 export default function VideoPreview({
   video,
   className,
-  bigPicture = false,
+  size = 'md',
   children,
 }: {
   video: Video
   className?: string
-  bigPicture?: boolean
+  titleClassName?: string
+  size: 'sm' | 'md' | 'lg'
   children?: React.ReactNode
 }) {
-  const thumnail = bigPicture
-    ? video.snippet.thumbnails.high
-    : video.snippet.thumbnails.medium
+  const thumnail =
+    size === 'lg'
+      ? video.snippet.thumbnails.high
+      : video.snippet.thumbnails.medium
 
   return (
     <Link
@@ -43,14 +45,16 @@ export default function VideoPreview({
             <p
               className={classNames(
                 'tracking-tight font-medium line-clamp-2 text-balance',
-                bigPicture ? 'text-xl md:text-2xl' : 'text-lg md:text-xl',
+                size === 'lg' && 'text-xl md:text-2xl',
+                size === 'md' && 'text-lg md:text-xl',
+                size === 'sm' && 'text-base',
               )}
               dangerouslySetInnerHTML={{ __html: video.snippet.title }}
             />
             <p className="text-sm font-medium text-zinc-400 mt-1">
               {formatDate(video.snippet.publishedAt)}
             </p>
-            {bigPicture && video.snippet.description && (
+            {size === 'lg' && video.snippet.description && (
               <p
                 className="text-sm text-zinc-500 line-clamp-4 mt-2"
                 dangerouslySetInnerHTML={{ __html: video.snippet.description }}

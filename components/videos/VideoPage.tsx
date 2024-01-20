@@ -42,7 +42,7 @@ export default function VideoPage({
                     'animate-fade-up',
                     index === 0 ? 'md:col-span-2 md:row-span-2' : '',
                   )}
-                  bigPicture={index === 0}
+                  size={index === 0 ? 'lg' : 'md'}
                 >
                   {index === 0 && (
                     <div className="bg-blue-200/20 text-blue-200 rounded-full font-medium px-3 py-1 w-fit flex items-center gap-2 absolute bottom-4 left-4 backdrop-blur ring-1 ring-blue-200/30">

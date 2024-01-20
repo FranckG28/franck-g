@@ -23,7 +23,7 @@ export default function VideoPreviewSection({
       />
       <div className="grid gap-12 md:grid-cols-3">
         {videos.map((video, index) => (
-          <VideoPreview key={index} video={video} />
+          <VideoPreview key={index} video={video} size="sm" />
         ))}
       </div>
     </div>
