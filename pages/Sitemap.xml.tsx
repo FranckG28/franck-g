@@ -19,7 +19,7 @@ type SitemapLocation = {
 const defaultUrls: SitemapLocation[] = [
   {
     url: '/',
-    changefreq: 'daily',
+    changefreq: 'weekly',
     priority: 1,
     lastmod: new Date(), // or custom date: '2023-06-12T00:00:00.000Z',
   },
@@ -62,7 +62,7 @@ export async function getServerSideProps({ res }) {
     .map((post) => {
       return {
         url: `/projects/${post.slug}`,
-        priority: 0.5,
+        priority: 0.7,
         lastmod: new Date(post._updatedAt),
       }
     })
